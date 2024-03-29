@@ -1,0 +1,33 @@
+FROM nginx:latest
+
+# Install necessary packages
+RUN apt-get update && apt-get install -y tzdata passwd
+
+# Set the timezone.
+ENV TZ=Asia/Ho_Chi_Minh
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+# Arguments defined in docker-compose.yml
+ARG user
+ARG uid
+ARG group
+ARG gid
+ARG admin_folder
+# The worker processes in the nginx image run as the user nginx with group
+# nginx. This is where we override their respective uid and guid to something
+# else that lines up better with file permissions.
+# The -o switch allows reusing an existing user id
+RUN usermod -u $uid -o nginx && groupmod -g $gid -o nginx
+
+# Copy config into container
+COPY ./dockers/admin/conf.d/app.conf.template /etc/nginx/conf.d/
+
+COPY .././admin/$admin_folder/. /var/www/admin/
+
+# copy entrypoint.sh to root
+COPY ./dockers/admin/entrypoint.sh /root/
+
+# set excute permision
+RUN chmod +x /root/entrypoint.sh
+
+ENTRYPOINT ["/root/entrypoint.sh"]

@@ -1,0 +1,60 @@
+# Config Nginx
+client_max_body_size 50M;
+
+# Config timeout fastcgi
+fastcgi_buffers 8 16k;
+fastcgi_buffer_size 32k;
+fastcgi_connect_timeout 300;
+fastcgi_send_timeout 300;
+fastcgi_read_timeout 300;
+###### ADMIN #########
+server {
+    listen 80;
+    server_name ${ADMIN_DOMAIN};
+
+    underscores_in_headers on; 
+    # Log files for Debugging
+    access_log /var/log/nginx/${ADMIN_DOMAIN}-access.log;
+    error_log /var/log/nginx/${ADMIN_DOMAIN}-error.log;
+
+    # Webroot Directory for Laravel project
+
+    root /var/www/admin;
+    # Add index.php to the list if you are using PHP
+    index index.html index.php index.htm index.nginx-debian.html;
+    
+    # Your Domain Name
+    location / {
+        try_files $uri /index.html =404;
+    }
+}
+
+###### API ##########
+server {
+    listen 80;
+    server_name ${API_DOMAIN};
+
+    # Set buffer
+    proxy_buffering off;
+    proxy_buffer_size 16k;
+    proxy_busy_buffers_size 24k;
+    proxy_buffers 64 4k;
+
+    access_log /var/log/nginx/${API_DOMAIN}-access.log;
+    error_log /var/log/nginx/${API_DOMAIN}-error.log;
+
+    location / {
+        proxy_pass http://api:80;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forward-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forward-Proto http;
+        proxy_set_header X-Nginx-Proxy true;
+        proxy_redirect off;
+    }
+}
+
+###### END ADMIN #########

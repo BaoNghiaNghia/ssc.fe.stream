@@ -20,7 +20,7 @@ module.exports = {
     host: '0.0.0.0',  // Allows external access to the development server,
     allowedHosts: [
       'localhost',
-      'http://sscsalmon.ddns.net',    // Replace with your domain or IP address
+      'sscsalmon.ddns.net',    // Replace with your domain or IP address
     ],
   },
   devtool: 'inline-source-map',

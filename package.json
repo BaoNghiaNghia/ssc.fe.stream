@@ -6,6 +6,7 @@
   "scripts": {
     "start": "export SET NODE_OPTIONS=--openssl-legacy-provider && webpack serve --config build-utils/webpack.config.js --env env=dev",
     "start:prod": "export SET NODE_OPTIONS=--openssl-legacy-provider && webpack serve --config build-utils/webpack.config.js --env env=prod",
+    "start:pm2": "pm2 start npm --name 'SSC Stream' --node-args='--max-old-space-size=8192' -- run start",
     "build": "webpack --config build-utils/webpack.config.js --env env=prod",
     "build:analyze": "npm run build -- --env addon=bundleanalyze",
     "test": "echo \"Error: no test specified\" && exit 0"

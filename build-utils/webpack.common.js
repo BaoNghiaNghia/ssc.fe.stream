@@ -59,7 +59,7 @@ module.exports = {
     filename: 'bundle.js',
   },
   devServer: {
-    port: 17100, // Set the custom port
+    port: 16100, // Set the custom port
     open: true,  // Automatically opens the browser
     hot: true,   // Enables Hot Module Replacement
   },

@@ -145,7 +145,7 @@ const Register = () => {
           type='fullname'
           placeholder='Nguyễn Văn A'
           fontWeight='500'
-          size='lg'
+          size='md'
         />
         {formik.errors.fullname && formik.touched.fullname && (
           <p className="text-error">{formik.errors.fullname}</p>
@@ -170,7 +170,7 @@ const Register = () => {
           type='email'
           placeholder='mail@ssc.com'
           fontWeight='500'
-          size='lg'
+          size='md'
         />
         {formik.errors.email && formik.touched.email && (
           <p className="text-error">{formik.errors.email}</p>
@@ -192,7 +192,7 @@ const Register = () => {
             isRequired={true}
             fontSize='sm'
             placeholder='Nhập mật khẩu'
-            size='lg'
+            size='md'
             type={show ? "text" : "password"}
             variant='auth'
           />
@@ -225,7 +225,7 @@ const Register = () => {
             isRequired={true}
             fontSize='sm'
             placeholder='Nhập lại mật khẩu'
-            size='lg'
+            size='md'
             type={show ? "text" : "password"}
             variant='auth'
           />

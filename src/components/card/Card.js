@@ -7,7 +7,7 @@ function Card(props) {
   const styles = useStyleConfig("Card", { variant });
 
   return (
-    <Box __css={styles} {...rest}>
+    <Box __css={styles} {...rest} borderRadius={7}>
       {children}
     </Box>
   );

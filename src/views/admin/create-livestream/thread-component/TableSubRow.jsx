@@ -38,7 +38,6 @@ import { VIDEO_RESOLUTION_DEFAULT, VIDEO_STREAMING_STATUS } from "../../../../va
 import { reverseTimeDate, toHHMMSS, truncate } from "../../../../utils/handleValidate";
 import MenuVideo from "./MenuVideo";
 import noVideoStreamImg from '../../../../assets/img/no-video-stream.png';
-import { useTranslation } from "react-i18next";
 
 export default function TableSubRow(props) {
     const {
@@ -47,10 +46,7 @@ export default function TableSubRow(props) {
         tableData, setMenuSelected, isLoading,
         renderRowSubComponent,
         paginationData,
-        handleSelectRow,
     } = props;
-
-    const { t } = useTranslation();
 
     const textColor = useColorModeValue("secondaryGray.900", "white");
 
@@ -58,28 +54,23 @@ export default function TableSubRow(props) {
         {
             Header: "Thumbnail",
             accessor: "name",
-            fixed: "left",
             Cell: ({ value, row }) => {
                 return (
-                    <Box mb={{ base: "10px", "2xl": "10px" }} position='relative' width="130px">
+                    <Box position='relative'>
                         <Image
                             src={row.original?.video_info?.thumbnail}
-                            w={{ base: "100%", "3xl": "100%" }}
-                            h={{ base: "100%", "3xl": "100%" }}
-                            borderRadius='10px'
+                            w={"90px"}
+                            borderRadius='6px'
                         />
                         <Button
                             position='absolute'
-                            bg='whiteAlpha.700'
-                            _hover={{ bg: "whiteAlpha.700" }}
-                            _active={{ bg: "white" }}
-                            _focus={{ bg: "white" }}
+                            bg='white'
                             p="10px !important"
-                            fontSize="xs"
+                            fontSize={9}
                             bottom='0px'
                             left='0px'
                             borderRadius='3px'
-                            h='20px'>
+                            h='12px'>
                             {toHHMMSS(row.original?.video_info?.duration)}
                         </Button>
                     </Box>
@@ -89,7 +80,6 @@ export default function TableSubRow(props) {
         {
             Header: "Tiêu đề",
             accessor: "",
-            fixed: "left",
             Cell: ({ value, row }) => {
                 return (
                     <Text
@@ -343,11 +333,13 @@ export default function TableSubRow(props) {
                         prepareRow(row);
                         return (
                             <React.Fragment key={row.id}>
-                                <Tr {...row.getRowProps()}>
+                                <Tr {...row.getRowProps()} borderTop={"1px solid #80808017"}>
                                     {row.cells.map(cell => (
                                         <Td
                                             {...cell.getCellProps()}
                                             isNumeric={cell.column.isNumeric}
+                                            padding={"5px 10px"}
+                                            margin={"auto 0"}
                                         >
                                             {cell.render('Cell')}
                                         </Td>

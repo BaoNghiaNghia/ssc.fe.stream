@@ -11,7 +11,7 @@ option {
 }
 
 .text-error {
-  font-size: medium;
+  font-size: small;
   margin-top: 5px;
   color: red;
 }

@@ -567,6 +567,65 @@ export const VIDEO_STREAMING_STATUS = {
   }
 }
 
+export const VIDEO_STREAMING_STATUS_STATISTIC = {
+  // 0: {
+  //   id: 0,
+  //   message: 'Đang chờ',
+  //   // message: 'Pending',
+  //   color: 'gray.200',
+  //   textColor: 'black',
+  //   icon: MdPlayArrow
+  // },
+  6: {
+    id: 6,
+    message: 'Đang tải',
+    // message: 'Streaming',
+    color: 'green.100',
+    textColor: 'green',
+    icon: MdCloudDownload
+  },
+  1: {
+    id: 1,
+    message: 'Đang phát',
+    // message: 'Streaming',
+    color: 'green',
+    textColor: 'white',
+    icon: MdPause
+  },
+  // 2: {
+  //   id: 2,
+  //   message: 'Hoàn thành',
+  //   // message: 'Finished',
+  //   color: 'blue.500',
+  //   textColor: 'white',
+  //   icon: MdOutlineDone
+  // },
+  3: {
+    id: 3,
+    message: 'Đã hủy',
+    // message: 'Canceled',
+    color: 'orange',
+    textColor: 'black',
+    icon: MdOutlineClose
+  },
+  4: {
+    id: 4,
+    message: 'Có lỗi',
+    // message: 'Error',
+    color: 'red',
+    textColor: 'white',
+    icon: MdOutlineError
+  },
+  5: {
+    id: 5,
+    message: 'Hết hạn',
+    // message: 'Expired Stream',
+    color: 'teal.600',
+    textColor: 'white',
+    icon: MdWatchLater
+  }
+}
+
 export const USER_PACKAGE_STATUS = {
   1: {
     message: 'Còn hạn',

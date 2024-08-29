@@ -147,7 +147,7 @@ const SignIn = () => {
           type='email'
           placeholder='mail@ssc.com'
           fontWeight='500'
-          size='lg'
+          size='md'
         />
         {formik.errors.email && formik.touched && (
           <p className="text-error">{formik.errors.email}</p>
@@ -169,7 +169,7 @@ const SignIn = () => {
             isRequired={true}
             fontSize='sm'
             placeholder='Min. 8 characters'
-            size='lg'
+            size='md'
             type={show ? "text" : "password"}
             variant='auth'
           />

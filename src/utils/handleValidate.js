@@ -1,3 +1,5 @@
+import moment from "moment";
+
 /* eslint-disable */
 export function validateYouTubeUrl(url) {
     if (url) {
@@ -25,9 +27,10 @@ export const formatDate = (input) => {
 }
 
 export const reverseTimeDate = (timedate) => {
-    let temp = timedate.split(" ");
-    temp[0] = formatDate(temp[0]);
-    return temp.reverse().join("  ");
+    // let temp = timedate.split(" ");
+    // temp[0] = formatDate(temp[0]);
+    // return temp.reverse().join("  ");
+    return moment(timedate).format('HH:mm DD/MM')
 }
 
 export function YouTubeGetID(url){

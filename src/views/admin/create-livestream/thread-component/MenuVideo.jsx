@@ -130,10 +130,9 @@ export default function MenuVideo(props) {
 
         _focus={bgFocus}
         _active={bgFocus}
-        w='37px'
-        h='37px'
-        border="2px solid #dddddd"
-        lineHeight='100%'
+        w='30px'
+        h='30px'
+        border="1px solid #dddddd"
         onClick={(e) => {
           // e.preventDefault();
           onOpenModal()

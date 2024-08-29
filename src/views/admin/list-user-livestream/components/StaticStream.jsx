@@ -9,7 +9,7 @@ import {
 // Custom components
 import MiniStatistics from "../../../../components/card/MiniStatistics";
 import IconBox from "../../../../components/icons/IconBox";
-import { VIDEO_STREAMING_STATUS } from "../../../../variables";
+import { VIDEO_STREAMING_STATUS_STATISTIC } from "../../../../variables";
 
 export default function StaticStream(props) {
   const { listStatistics } = props;
@@ -22,25 +22,28 @@ export default function StaticStream(props) {
       gap='10px'
       mb='10px'>
       {
-        Object.entries(VIDEO_STREAMING_STATUS).map((item, index) => {
-          return (
-            <MiniStatistics
-              key={index}
-              bgColor="white"
-              startContent={
-                <IconBox
-                  w='30px'
-                  h='30px'
-                  bg={boxBg}
-                  icon={
-                    <Icon w='28px' h='28px' as={VIDEO_STREAMING_STATUS[index].icon} color={'#49aeff'} />
-                  }
-                />
-              }
-              name={VIDEO_STREAMING_STATUS[index].message}
-              value={listStatistics.find(item => item.status === index)?.total || 0}
-            />
-          )
+        Object.entries(VIDEO_STREAMING_STATUS_STATISTIC).map((item, index) => {
+          if (VIDEO_STREAMING_STATUS_STATISTIC[index]) {
+            return (
+              <MiniStatistics
+                key={index}
+                bgColor="white"
+                startContent={
+                  <IconBox
+                    w='30px'
+                    h='30px'
+                    bg={boxBg}
+                    icon={
+                      <Icon w='28px' h='28px' as={VIDEO_STREAMING_STATUS_STATISTIC[index]?.icon} color={'#49aeff'} />
+                    }
+                  />
+                }
+                name={VIDEO_STREAMING_STATUS_STATISTIC[index]?.message}
+                value={listStatistics.find(item => item?.status === index)?.total || 0}
+              />
+            )
+          }
+          return;
         })
       }
   

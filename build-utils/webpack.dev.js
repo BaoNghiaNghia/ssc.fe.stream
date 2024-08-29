@@ -12,10 +12,12 @@ module.exports = {
   ],
   devServer: {
     static: path.resolve(__dirname, '..', './dist'),
-    hot: true,
-    open: true,
-    compress: true,
-    // historyApiFallback: true
+    port: 16100,  // Set the custom port
+    open: true,   // Automatically opens the browser
+    hot: true,    // Enables Hot Module Replacement
+    compress: true,  // Enable gzip compression
+    historyApiFallback: true, // Fallback to index.html for SPA
+    host: '0.0.0.0',  // Allows external access to the development server
   },
   devtool: 'inline-source-map',
 };

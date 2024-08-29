@@ -1,27 +1,12 @@
 /* eslint-disable */
 import {
-    Flex,
-    Table,
-    Checkbox,
-    Tbody,
-    Td,
     Text,
-    Th,
-    Thead,
-    Tr,
     useColorModeValue,
-    Badge,
-    SimpleGrid,
     Button,
     Icon,
     FormControl,
-    Spinner,
     Grid,
-    GridItem,
-    Avatar,
-    AvatarGroup,
-    FormLabel,
-    Select
+    GridItem
 } from "@chakra-ui/react";
 
 import React from "react"
@@ -40,7 +25,7 @@ export default function FilterHeader(props) {
             templateRows='repeat(1, 1fr)'
             templateColumns='repeat(8, 1fr)'
             gap={4}
-            mb={4}
+            mb={0}
         >
             <GridItem colSpan={5} margin="auto 0">
                 <FormControl>
@@ -55,7 +40,7 @@ export default function FilterHeader(props) {
                     </Text>
                 </FormControl>
             </GridItem>
-            <GridItem colSpan={3} align="center" mr="10px">
+            <GridItem colSpan={3} align="right" mr="15px">
                 <FormControl>
                     <Button
                         _hover={{ bg: "gray.100" }}
@@ -64,14 +49,15 @@ export default function FilterHeader(props) {
                         colorScheme='facebook' 
                         variant='outline'
                         borderRadius='10px'
+                        borderColor={'#b4b4b4'}
                         px='10px'
                         w="fit-content"
                         onClick={() => onModalCreate()}
                         py='20px'>
                         <Icon
                             transition='0.2s linear'
-                            w='32px'
-                            h='32px'
+                            w='26px'
+                            h='26px'
                             pr='10px'
                             as={IoAddCircleOutline}
                             color={"facebook"}

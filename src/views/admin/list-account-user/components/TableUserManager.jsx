@@ -9,8 +9,7 @@ import {
     Th,
     Thead,
     Tr,
-    useColorModeValue,
-    FormControl
+    useColorModeValue
   } from "@chakra-ui/react";
   
   import React, { useEffect, useMemo, useState } from "react";
@@ -29,7 +28,6 @@ import {
 
   export default function TableUserManager(props) {
   
-    const textColor = useColorModeValue("secondaryGray.900", "white");
     const borderColor = useColorModeValue("gray.200", "whiteAlpha.100");
   
     const { 
@@ -135,7 +133,6 @@ import {
                   {headerGroup.headers.map((column, index) => (
                     <Th
                       {...column.getHeaderProps(column.getSortByToggleProps())}
-                      pe='10px'
                       key={index}
                       borderColor={borderColor}>
                       <Flex

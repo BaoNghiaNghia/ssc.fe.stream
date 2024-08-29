@@ -1,5 +1,4 @@
 /* eslint-disable */
-/* eslint-disable */
 import {
     Flex,
     Table,
@@ -22,7 +21,7 @@ import UseAnimations from "react-useanimations";
 import download from 'react-useanimations/lib/download';
 import activity from 'react-useanimations/lib/activity';
 
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo } from "react";
 
 import {
     useGlobalFilter,
@@ -206,9 +205,6 @@ export default function TableSubRow(props) {
                                     {VIDEO_RESOLUTION_DEFAULT[row.original.resolution]?.name}
                                 </Badge>
                             ) : (
-                                // <Badge variant='subtle' colorScheme={VIDEO_RESOLUTION_DEFAULT['1080p']?.color}>
-                                //     {VIDEO_RESOLUTION_DEFAULT['1080p']?.name}
-                                // </Badge>
                                 '...'
                             )
                         }
@@ -279,27 +275,25 @@ export default function TableSubRow(props) {
                 )
             }
         }
-
     ];
-
-    const [currentPage, setCurrentPage] = useState(1);
-    const [selectedRow, setSelectedRow] = useState([]);
 
     const columns = useMemo(() => columnsData, []);
     const data = useMemo(() => tableData, [tableData]);
 
     const tableInstance = useTable(
         {
-            getTrProps,
             columns,
             data,
+            getTrProps: (state, rowInfo, column, instance) => {
+                // Define your getTrProps function here if needed
+                return {};
+            }
         },
         useGlobalFilter,
         useSortBy,
         useExpanded,
         usePagination,
         useRowSelect,
-        // hookExpanding,
         useFlexLayout
     );
 
@@ -309,191 +303,75 @@ export default function TableSubRow(props) {
         headerGroups,
         page,
         prepareRow,
-        setPageSize,
-        getTrProps,
-        initialState,
-        toggleAllRowsExpanded,
-        isAllRowsExpanded,
-        getToggleAllRowsExpandedProps,
-        state: { pageIndex, pageSize, selectedRowIds, expanded }
+        setPageSize
     } = tableInstance;
 
     useEffect(() => {
-        setPageSize(paginationData ? paginationData?.per_page : 15);
-    }, []);
-
-    const bodyWithData = () => {
-        return (
-            page.map((row, i) => {
-                prepareRow(row);
-                return (
-                    <>
-                        <Tr {...row.getRowProps()}
-                            // onClick={() => handleSelectRow(row)}
-                            mt={3}
-                            key={i}
-                        >
-                            {row.cells.map((cell, index) => {
-                                return (
-                                    <Td {...cell.getCellProps()}
-                                        key={index}
-                                        margin="auto 0"
-                                        paddingTop={0}
-                                        paddingBottom={0}
-                                    >
-                                        {cell.render("Cell")}
-                                    </Td>
-                                );
-                            })}
-                        </Tr>
-                        {row.isExpanded ? (<>{renderRowSubComponent({ row })}</>) : null}
-                    </>
-                );
-            })
-        )
-    }
-
-    const bodyWithoutData = () => {
-        return (
-            <Tr>
-                <Td></Td>
-                <Td></Td>
-                <Td></Td>
-                <Td></Td>
-                <Td><Spinner size='lg' color="gray" /></Td>
-                <Td></Td>
-                <Td></Td>
-                <Td></Td>
-                <Td></Td>
-            </Tr>
-        )
-    };
-
-    const listWithData = () => {
-        return (
-            <Table
-                {...getTableProps()}
-                color='black'
-            >
-                <Thead bgColor='linear(to-r, gray, green.500)'>
-                    {headerGroups.map((headerGroup, i) => (
-                        <Tr key={i} {...headerGroup.getHeaderGroupProps()} borderRadius="10px">
-                            {headerGroup.headers.map((column, index) => {
-                                return (
-                                    <Th
-                                        key={index}
-                                        {...column.getHeaderProps()}
-                                    >
-                                        <Text {...column.getSortByToggleProps()}>
-                                            {column.render("Header")}
-                                            {column.isSorted ? (
-                                                column.isSortedDesc ? (
-                                                    <Icon
-                                                        className="ms-3"
-                                                        icon={FaArrowDown}
-                                                    />
-                                                ) : (
-                                                    <Icon
-                                                        className="ms-3"
-                                                        icon={FaArrowUp}
-                                                    />
-                                                )
-                                            ) : (
-                                                ""
-                                            )}
-                                        </Text>
-
-                                        <Flex>
-                                            {column.canFilter ? column.render("Filter") : null}
-                                        </Flex>
-                                    </Th>
-                                )
-                            })}
-                        </Tr>
-                    ))}
-                </Thead>
-                <Tbody {...getTableBodyProps()}>
-                    {isLoading ? bodyWithoutData() : bodyWithData()}
-                </Tbody>
-            </Table>
-        )
-    }
-
-    const listWithoutData = () => {
-        return (
-            <>
-                <Table
-                    {...getTableProps()}
-                    color='black'
-                >
-                    <Thead bgColor="#f5f5f5">
-                        {headerGroups.map((headerGroup, i) => (
-                            <Tr key={i} {...headerGroup.getHeaderGroupProps()} borderRadius="10px">
-                                {headerGroup.headers.map((column, index) => {
-                                    return (
-                                        <Th
-                                            key={index}
-                                            {...column.getHeaderProps()}
-                                        >
-                                            <Text {...column.getSortByToggleProps()} color='black'>
-                                                {column.render("Header")}
-                                                {column.isSorted ? (
-                                                    column.isSortedDesc ? (
-                                                        <Icon
-                                                            className="ms-3"
-                                                            icon={FaArrowDown}
-                                                        />
-                                                    ) : (
-                                                        <Icon
-                                                            className="ms-3"
-                                                            icon={FaArrowUp}
-                                                        />
-                                                    )
-                                                ) : (
-                                                    ""
-                                                )}
-                                            </Text>
-                                            <Flex>
-                                                {column.canFilter ? column.render("Filter") : null}
-                                            </Flex>
-                                        </Th>
-                                    )
-                                })}
-                            </Tr>
-                        ))}
-                    </Thead>
-                </Table>
-                <Flex
-                    direction={{ base: "column" }}
-                    p='0px'
-                    justify='center'
-                    alignContent="center"
-                    backgroundSize="contain"
-                    align={'center'}
-                    // border="2px solid #ececec"
-                    borderRadius="10px"
-                    minH="300px"
-                >
-                    <Flex flexDirection="column" justify='center' width="100%" align='center' my='20px'>
-                        <Image
-                            src={noVideoStreamImg}
-                            w={{ base: "30%" }}
-                            h={{ base: "30%" }}
-                            borderRadius='20px'
-                        />
-                        <Text color="gray" textAlign='center' fontWeight='bold' fontSize='l' my='15px'>
-                            {t('content.no_video_livestream')}
-                        </Text>
-                    </Flex>
-                </Flex>
-            </>
-        )
-    }
+        if (paginationData?.pageSize) {
+            setPageSize(paginationData.pageSize);
+        }
+    }, [paginationData, setPageSize]);
 
     return (
-        <React.Fragment>
-            {tableData.length > 0 ? listWithData() : listWithoutData()}
-        </React.Fragment>
-
+        <Table {...getTableProps()} variant="simple" size="sm">
+            <Thead>
+                {headerGroups.map(headerGroup => (
+                    <Tr {...headerGroup.getHeaderGroupProps()}>
+                        {headerGroup.headers.map(column => (
+                            <Th
+                                {...column.getHeaderProps(column.getSortByToggleProps())}
+                                isNumeric={column.isNumeric}
+                            >
+                                {column.render('Header')}
+                                <span>
+                                    {column.isSorted ? (column.isSortedDesc ? <FaArrowDown /> : <FaArrowUp />) : ''}
+                                </span>
+                            </Th>
+                        ))}
+                    </Tr>
+                ))}
+            </Thead>
+            <Tbody {...getTableBodyProps()}>
+                {isLoading ? (
+                    <Tr>
+                        <Td colSpan={columns.length} textAlign="center">
+                            <Spinner />
+                        </Td>
+                    </Tr>
+                ) : tableData.length > 0 ? (
+                    page.map(row => {
+                        prepareRow(row);
+                        return (
+                            <React.Fragment key={row.id}>
+                                <Tr {...row.getRowProps()}>
+                                    {row.cells.map(cell => (
+                                        <Td
+                                            {...cell.getCellProps()}
+                                            isNumeric={cell.column.isNumeric}
+                                        >
+                                            {cell.render('Cell')}
+                                        </Td>
+                                    ))}
+                                </Tr>
+                                {renderRowSubComponent && row.isExpanded ? (
+                                    <Tr>
+                                        <Td colSpan={columns.length}>
+                                            {renderRowSubComponent({ row })}
+                                        </Td>
+                                    </Tr>
+                                ) : null}
+                            </React.Fragment>
+                        );
+                    })
+                ) : (
+                    <Tr>
+                        <Td colSpan={columns.length} textAlign="center">
+                            <Image src={noVideoStreamImg} alt="No Video Stream" />
+                            <Text>No Data Available</Text>
+                        </Td>
+                    </Tr>
+                )}
+            </Tbody>
+        </Table>
     );
 }

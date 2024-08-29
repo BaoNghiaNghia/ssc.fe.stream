@@ -1,6 +1,6 @@
 /* eslint-disable */
 // Chakra imports
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Flex,
@@ -8,37 +8,26 @@ import {
   Text,
   Badge,
   useDisclosure,
-  InputGroup,
-  Input,
-  Switch,
-  InputRightElement,
-  FormLabel,
-  SimpleGrid,
 } from "@chakra-ui/react";
 
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
 
 import { MESSSAGE_STATUS_CODE, ROLE_USER } from "../../../variables/index";
-import { fetchListAgentServerOfUser, fetchListAdminAgentServerStream, resetAdminAgentServerStream, deleteAgentServerStream } from "../../../api/Stream/index";
-import { checkRoleUser, getCurrRoleUser, reverseTimeDate } from "../../../utils/handleValidate";
+import { reverseTimeDate } from "../../../utils/handleValidate";
 
 import TableEmpty from "../list-user-livestream/components/TableEmpty";
 import MenuAgent from "./components/MenuAgent";
 import { useAuth } from "../../../contexts/authenContext";
 import ModalCustomGeneral from "../../../components/modal/ModalCustomGeneral";
-import EditAgentServer from "./components/EditAgentServer";
 import FilterHeader from "./components/FilterHeader";
 import CreateNewPackage from "./components/CreateNewPackage";
-import DetailAgentServer from "./components/DetailAgentServer";
-import { MdCancel, MdCheckCircle, MdComputer, MdPersonOutline } from "react-icons/md";
-import { truncate } from "lodash";
+import { MdCancel, MdCheckCircle } from "react-icons/md";
 import TableUserManager from "./components/TableUserManager";
 import { adminConfirmUserPackageApi, fetchAdminListApi } from "../../../api/UserPackage";
 import { fetchAdminListUser } from "../../../api/Auth";
 
 export default function ManageAdminLivestream() {
-  const [isLoading, setIsLoading] = useState(false);
   const [tableList, setTableList] = useState([]);
   const [paginationData, setPaginationData] = useState({});
   const [selectedAgentServer, setSelectedAgentServer] = useState({});
@@ -86,7 +75,6 @@ export default function ManageAdminLivestream() {
   }
 
   const handleFetchListUserPack = async (params) => {
-    setIsLoading(true);
     try {
       const responseListUserPack = await fetchAdminListApi(params || {});
       if (responseListUserPack.status === MESSSAGE_STATUS_CODE.SUCCESS.code) {
@@ -94,9 +82,7 @@ export default function ManageAdminLivestream() {
         setPaginationData(adminList.meta);
         setTableList(adminList.items);
       }
-      setIsLoading(false);
     } catch (err) {
-      setIsLoading(false);
       console.log(err);
       if (err.response) {
         toast.error(t(`error_code.${err.response.data.error_code}`));

@@ -1,5 +1,4 @@
 /* eslint-disable */
-// Chakra imports
 import React, { useEffect, useState } from "react";
 import {
   Box,
@@ -193,7 +192,7 @@ export default function ListUserLivestream() {
       accessor: "name",
       Cell: ({ value, row }) => {
         return (
-          <Text fontWeight={"bold"} color={"black"}>
+          <Text fontWeight={"600"} color={"black"}>
             { truncate(value, 25) }
           </Text>
         )
@@ -219,7 +218,7 @@ export default function ListUserLivestream() {
         let objIndex = showArr.findIndex((obj => obj.id == row.index));
         let state = showArr[objIndex].value
         return (
-          <InputGroup size='md'>
+          <InputGroup size='sm'>
             <Input
               name="key"
               value={value}
@@ -229,7 +228,7 @@ export default function ListUserLivestream() {
               color="black"
               isDisabled={true}
               placeholder="Chưa có key"
-              size='lg'
+              size='md'
               type={state ? "text" : "password"}
               variant='auth'
             />
@@ -250,7 +249,7 @@ export default function ListUserLivestream() {
       accessor: "",
       Cell: ({ value, row }) =>  {
         return (
-          <Text fontSize={"sm"} fontWeight="bold">
+          <Text fontSize={"sm"} fontWeight="600">
               {reverseTimeDate(row.original.started_at)}
             </Text>
         )
@@ -261,7 +260,7 @@ export default function ListUserLivestream() {
       accessor: "",
       Cell: ({ value, row }) =>  {
         return (
-          <Text fontSize={"sm"} fontWeight="bold">
+          <Text fontSize={"sm"} fontWeight="600">
                 {reverseTimeDate(row.original.expired_at)}
             </Text>
         )

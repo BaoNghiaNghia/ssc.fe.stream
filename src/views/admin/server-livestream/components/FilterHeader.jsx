@@ -46,7 +46,7 @@ export default function FilterHeader(props) {
             templateRows='repeat(1, 1fr)'
             templateColumns='repeat(8, 1fr)'
             gap={4}
-            mb={4}
+            mb={0}
         >
             <GridItem colSpan={6} margin="auto 0">
                 <FormControl>
@@ -78,8 +78,8 @@ export default function FilterHeader(props) {
                                 py='20px'>
                                 <Icon
                                     transition='0.2s linear'
-                                    w='32px'
-                                    h='32px'
+                                    w='28px'
+                                    h='28px'
                                     pr='10px'
                                     as={IoAddCircleOutline}
                                     color={"black"}

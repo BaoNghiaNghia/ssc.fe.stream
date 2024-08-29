@@ -6,15 +6,12 @@ import {
   Stat,
   StatLabel,
   StatNumber,
-  useColorModeValue,
-  Text,
+  useColorModeValue
 } from "@chakra-ui/react";
-// Custom components
 import Card from "./Card";
-// Custom icons
 
 export default function MiniStatistics(props) {
-  const { startContent, endContent, name, growth, value, bgColor } = props;
+  const { startContent, endContent, name, value, bgColor } = props;
   const textColor = useColorModeValue("secondaryGray.900", "white");
   const textColorSecondary = "black";
 
@@ -43,16 +40,6 @@ export default function MiniStatistics(props) {
             }}>
             {value} video
           </StatNumber>
-          {growth ? (
-            <Flex align='center'>
-              <Text color='green.500' fontSize='xs' fontWeight='700' me='5px'>
-                {growth}
-              </Text>
-              <Text color='secondaryGray.600' fontSize='xs' fontWeight='400'>
-                since last month
-              </Text>
-            </Flex>
-          ) : null}
         </Stat>
         <Flex ms='auto' w='max-content'>
           {endContent}

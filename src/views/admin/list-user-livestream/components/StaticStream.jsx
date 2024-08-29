@@ -1,23 +1,14 @@
 /* eslint-disable */
 // Chakra imports
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
-  Box,
-  Flex,
-  Avatar,
-  FormLabel,
-  Select,
   Icon,
   SimpleGrid,
-  useColorModeValue,
-  Text,
+  useColorModeValue
 } from "@chakra-ui/react";
 // Custom components
 import MiniStatistics from "../../../../components/card/MiniStatistics";
 import IconBox from "../../../../components/icons/IconBox";
-import {
-  MdBarChart
-} from "react-icons/md";
 import { useTranslation } from "react-i18next";
 import { VIDEO_STREAMING_STATUS } from "../../../../variables";
 
@@ -32,8 +23,8 @@ export default function StaticStream(props) {
   return (
     <SimpleGrid
       columns={{ base: 1, md: 2, lg: 4, "xl": 4, "2xl": 6 }}
-      gap='15px'
-      mb='20px'>
+      gap='10px'
+      mb='10px'>
       {
         Object.entries(VIDEO_STREAMING_STATUS).map((item, index) => {
           return (
@@ -42,11 +33,11 @@ export default function StaticStream(props) {
               bgColor="white"
               startContent={
                 <IconBox
-                  w='56px'
-                  h='56px'
+                  w='30px'
+                  h='30px'
                   bg={boxBg}
                   icon={
-                    <Icon w='32px' h='32px' as={VIDEO_STREAMING_STATUS[index].icon} color={brandColor} />
+                    <Icon w='28px' h='28px' as={VIDEO_STREAMING_STATUS[index].icon} color={brandColor} />
                   }
                 />
               }

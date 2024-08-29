@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "export SET NODE_OPTIONS=--openssl-legacy-provider && webpack serve --config build-utils/webpack.config.js --env env=dev",
+    "start:prod": "export SET NODE_OPTIONS=--openssl-legacy-provider && webpack serve --config build-utils/webpack.config.js --env env=prod",
     "build": "webpack --config build-utils/webpack.config.js --env env=prod",
     "build:analyze": "npm run build -- --env addon=bundleanalyze",
     "test": "echo \"Error: no test specified\" && exit 0"

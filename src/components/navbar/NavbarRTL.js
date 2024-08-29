@@ -1,4 +1,4 @@
-// Chakra Imports
+/* eslint-disable */
 import {
   Box,
   Breadcrumb,
@@ -16,6 +16,14 @@ import AdminNavbarLinks from "./NavbarLinksAdmin";
 export default function AdminNavbar(props) {
   const [scrolled, setScrolled] = useState(false);
 
+  const changeNavbar = () => {
+    if (window.scrollY > 1) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  };
+  
   useEffect(() => {
     window.addEventListener("scroll", changeNavbar);
 
@@ -27,27 +35,20 @@ export default function AdminNavbar(props) {
   const { secondary, message, brandText } = props;
 
   // Here are all the props that may change depending on navbar's type or state.(secondary, variant, scrolled)
-  let mainText = useColorModeValue("navy.700", "white");
-  let secondaryText = useColorModeValue("gray.700", "white");
-  let navbarPosition = "fixed";
-  let navbarFilter = "none";
-  let navbarBackdrop = "blur(20px)";
-  let navbarShadow = "none";
-  let navbarBg = useColorModeValue(
+  const mainText = useColorModeValue("navy.700", "white");
+  const secondaryText = useColorModeValue("gray.700", "white");
+  const navbarPosition = "fixed";
+  const navbarFilter = "none";
+  const navbarBackdrop = "blur(20px)";
+  const navbarShadow = "none";
+  const navbarBg = useColorModeValue(
     "rgba(244, 247, 254, 0.2)",
     "rgba(11,20,55,0.5)"
   );
-  let navbarBorder = "transparent";
-  let secondaryMargin = "0px";
-  let paddingX = "15px";
-  let gap = "0px";
-  const changeNavbar = () => {
-    if (window.scrollY > 1) {
-      setScrolled(true);
-    } else {
-      setScrolled(false);
-    }
-  };
+  const navbarBorder = "transparent";
+  const secondaryMargin = "0px";
+  const paddingX = "15px";
+  const gap = "0px";
 
   return (
     <Box
@@ -90,7 +91,8 @@ export default function AdminNavbar(props) {
         lg: "calc(100vw - 6%)",
         xl: "calc(100vw - 350px)",
         "2xl": "calc(100vw - 365px)",
-      }}>
+      }}
+    >
       <Flex
         w='100%'
         flexDirection={{
@@ -98,7 +100,8 @@ export default function AdminNavbar(props) {
           md: "row",
         }}
         alignItems={{ xl: "center" }}
-        mb={gap}>
+        mb={gap}
+      >
         <Box mb={{ sm: "8px", md: "0px" }}>
           <Breadcrumb>
             <BreadcrumbItem color={secondaryText} fontSize='sm' mb='5px'>
@@ -129,7 +132,8 @@ export default function AdminNavbar(props) {
             }}
             _focus={{
               boxShadow: "none",
-            }}>
+            }}
+          >
             {brandText}
           </Link>
         </Box>

@@ -45,8 +45,6 @@ import {
     USER_PACKAGE_STATUS,
     columnsInsertVideoStream,
     listOptionFieldVideo,
-    regexProtocol,
-    regexYoutubeLink,
     statusFieldVideo
 } from "../../../variables/index";
 

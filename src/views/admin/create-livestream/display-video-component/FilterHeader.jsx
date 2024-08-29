@@ -1,31 +1,17 @@
 /* eslint-disable */
 import {
-    Flex,
-    Table,
-    Checkbox,
-    Tbody,
-    Td,
     Text,
-    Th,
-    Thead,
-    Tr,
     useColorModeValue,
-    Badge,
-    SimpleGrid,
     Button,
     Icon,
     FormControl,
-    Spinner,
     Grid,
     GridItem,
-    Avatar,
-    AvatarGroup,
-    FormLabel,
     Tooltip,
     Select
 } from "@chakra-ui/react";
 
-import React, { useEffect, useState } from "react"
+import React from "react"
 import { IoAddCircleOutline } from "react-icons/io5";
 import { MdFilterList } from "react-icons/md";
 import UseAnimations from "react-useanimations";
@@ -61,7 +47,7 @@ export default function FilterHeader(props) {
         <Grid
             templateRows='repeat(1, 1fr)'
             templateColumns='repeat(12, 1fr)'
-            gap={4} mb={4} px={2}
+            gap={4} mb={0} px={2}
         >
             <GridItem colSpan={7} margin="auto 0">
                 <FormControl>
@@ -134,14 +120,6 @@ export default function FilterHeader(props) {
                     px='10px'
                     w="fit-content"
                     py='20px'>
-                    {/* <Icon
-                        transition='0.2s linear'
-                        w='32px'
-                        h='32px'
-                        pr='10px'
-                        as={MdFilterList}
-                        color={"black"}
-                    /> */}
                     <UseAnimations 
                         name="alertOctagon"
                         animation={alertOctagon} size={28}

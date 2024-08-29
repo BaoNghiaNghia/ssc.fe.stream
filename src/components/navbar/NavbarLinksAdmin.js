@@ -1,12 +1,7 @@
 /* eslint-disable */
-// Chakra Imports
 import {
 	Avatar,
-	Button,
 	Flex,
-	Icon,
-	Image,
-	Link,
 	Menu,
 	MenuButton,
 	MenuItem,
@@ -15,14 +10,13 @@ import {
 	Text,
 	useColorModeValue
 } from '@chakra-ui/react';
+
 // Custom Components
-import { ItemContent } from '../menu/ItemContent';
-import { SidebarResponsive } from '../sidebar/Sidebar';
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import history from '../../utils/history';
 import { useAuth } from '../../contexts/authenContext';
-import { MESSSAGE_STATUS_CODE, MK_AGENCY_PROVIDER, ROLE_USER } from '../../variables';
+import { MESSSAGE_STATUS_CODE, MK_AGENCY_PROVIDER } from '../../variables';
 
 import avatar from "../../assets/img/avatars/avatar.png"
 import { fetchProfileDetail } from '../../api/Auth';
@@ -32,14 +26,9 @@ import { useTranslation } from 'react-i18next';
 export default function HeaderLinks(props) {
 	const { secondary } = props;
 	// Chakra Color Mode
-	const navbarIcon = useColorModeValue('gray.400', 'white');
 	let menuBg = useColorModeValue('white', 'navy.800');
 	const textColor = useColorModeValue('secondaryGray.900', 'white');
-	const textColorBrand = useColorModeValue('brand.700', 'brand.400');
-	const ethColor = useColorModeValue('gray.700', 'white');
 	const borderColor = useColorModeValue('#E6ECFA', 'rgba(135, 140, 189, 0.3)');
-	const ethBg = useColorModeValue('secondaryGray.300', 'navy.900');
-	const ethBox = useColorModeValue('white', 'navy.800');
 	const shadow = useColorModeValue(
 		'14px 17px 40px 4px rgba(112, 144, 176, 0.18)',
 		'14px 17px 40px 4px rgba(112, 144, 176, 0.06)'
@@ -55,12 +44,12 @@ export default function HeaderLinks(props) {
 			}
 		});
 		if (responseProfile.status === MESSSAGE_STATUS_CODE.SUCCESS.code) {
-			setProfile_(responseProfile.data.data);
+			setProfile_(responseProfile?.data?.data);
 		}
         try {
         } catch (err) {
-            if (err.response) {
-                toast.error(t(`error_code.${err.response.data.error_code}`));
+            if (err?.response) {
+                toast.error(t(`error_code.${err?.response?.data?.error_code}`));
             }
         }
     }
@@ -81,10 +70,10 @@ export default function HeaderLinks(props) {
 		window.location.reload();
 	}
 
-	const handleCreateStream = () => {
-		history.push('#/admin/create-livestream');
-    	window.location.reload();
-	}
+	// const handleCreateStream = () => {
+	// 	history.push('#/admin/create-livestream');
+    // 	window.location.reload();
+	// }
 
 	return (
 		<Flex
@@ -123,7 +112,7 @@ export default function HeaderLinks(props) {
 								fontWeight="700"
 								color={textColor}>
 								👋&nbsp; {
-									(profile_) ? (<span>Xin chào, {profile_.fullname}</span>) : (<span>'Xin chào, bạn'</span>)
+									(profile_) ? (<span>Chào, {profile_.fullname}</span>) : (<span>'Chào bạn'</span>)
 								}
 							</Text>
 						</Tooltip>

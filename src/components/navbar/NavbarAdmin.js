@@ -1,10 +1,8 @@
 /* eslint-disable */
-// Chakra Imports
 import {
 	Box,
-	Breadcrumb, BreadcrumbItem, BreadcrumbLink,
 	Flex, Icon, Link, Text, useColorModeValue,
-	Grid, GridItem, SimpleGrid, useMediaQuery
+	Grid, GridItem, useMediaQuery
 } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
@@ -34,7 +32,6 @@ export default function AdminNavbar(props) {
 
 	// Here are all the props that may change depending on navbar's type or state.(secondary, variant, scrolled)
 	const mainText = useColorModeValue('navy.700', 'white');
-	const secondaryText = useColorModeValue('gray.700', 'white');
 	const navbarPosition = 'fixed';
 	const navbarFilter = 'none';
 	const navbarBackdrop = 'blur(20px)';
@@ -156,7 +153,7 @@ export default function AdminNavbar(props) {
 							</Link>
 						) }
 				</Box>
-				<Box ms='auto' w={{ sm: '100%', md: 'unset' }}>
+				<Box ms='auto' w={{ sm: '70%', md: 'unset' }}>
 					<AdminNavbarLinks
 						onOpen={props.onOpen}
 						logoText={props.logoText}

@@ -137,9 +137,6 @@ export default function ListAccountUser() {
             )
           }
         </GridItem>
-        <GridItem colSpan={1} margin="auto 0">
-          
-        </GridItem>
       </Grid>
     </Box>
   );

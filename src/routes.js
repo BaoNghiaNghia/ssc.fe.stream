@@ -39,7 +39,7 @@ const routesForAuthenticated = [
     path: "/home-page",
     icon: <Icon as={MdHome} width='20px' height='20px' color='inherit' />,
     component: MainDashboard,
-    role: [ROLE_USER.ADMIN, ROLE_USER.SUPER_ADMIN, ROLE_USER.USER_DEFAULT, ROLE_USER.RESELLER],
+    role: [ROLE_USER.SUPER_ADMIN, ROLE_USER.USER_DEFAULT],
     children: [
       {
         name: "Cá nhân",

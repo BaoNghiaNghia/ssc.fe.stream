@@ -20,10 +20,6 @@ module.exports = {
         loader: 'file-loader',
         options: {
           name(resourcePath, resourceQuery) {
-            // `resourcePath` - `/absolute/path/to/file.js`
-            // `resourceQuery` - `?foo=bar`
-            console.log('---- resourcePath ----', resourcePath, resourceQuery);
- 
             if (process.env.NODE_ENV === 'development') {
               return '[path][name].[ext]';
             }
@@ -61,5 +57,10 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '..', 'dist'),
     filename: 'bundle.js',
+  },
+  devServer: {
+    port: 17100, // Set the custom port
+    open: true,  // Automatically opens the browser
+    hot: true,   // Enables Hot Module Replacement
   },
 };

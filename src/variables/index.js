@@ -3,10 +3,10 @@ import { MdCloudDownload, MdOutlineClose, MdOutlineDone, MdOutlineError, MdPause
 /* eslint-disable */
 const config = {
     develop: {
-        API_ENDPOINT: process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8080'
+        API_ENDPOINT: process.env.REACT_APP_API_ENDPOINT || 'http://localhost:17100'
     },
     production: {
-        API_ENDPOINT: process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8080'
+        API_ENDPOINT: process.env.REACT_APP_API_ENDPOINT || 'http://localhost:17100'
     }
 };
 

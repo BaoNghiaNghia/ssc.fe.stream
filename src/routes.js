@@ -6,7 +6,6 @@ import {
   MdPerson,
   MdHome,
   MdLock,
-  MdComputer,
   MdConnectedTv,
   MdVerifiedUser,
   MdAllInbox,

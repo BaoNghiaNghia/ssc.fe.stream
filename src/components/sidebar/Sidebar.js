@@ -27,11 +27,7 @@ import PropTypes from "prop-types";
 import { IoMenuOutline } from "react-icons/io5";
 
 function Sidebar(props) {
-
-  let sidebarBackgroundColor = useColorModeValue("white", "navy.800");
-  let menuColor = useColorModeValue("gray.600", "white");
-
-  const { routes, btnRef, isOpen, onOpen, onClose } = props;
+  const { routes, btnRef, isOpen, onClose } = props;
 
   let variantChange = "0.2s linear";
   let shadow = useColorModeValue(
@@ -99,13 +95,11 @@ function Sidebar(props) {
 export function SidebarResponsive(props) {
   let sidebarBackgroundColor = useColorModeValue("white", "navy.800");
   let menuColor = useColorModeValue("gray.600", "white");
-  // // SIDEBAR
+
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
 
   const { routes } = props;
-  // let isWindows = navigator.platform.startsWith("Win");
-  //  BRAND
   return (
     <Flex display={{ sm: "flex", xl: "none" }} alignItems='center' borderRadius={3} bgColor={"blackAlpha.100"}>
       <Flex ref={btnRef} w='max-content' h='max-content' onClick={onOpen}>
@@ -154,5 +148,4 @@ Sidebar.propTypes = {
   variant: PropTypes.string,
 };
 
-// export default Sidebar;
 export default Sidebar;

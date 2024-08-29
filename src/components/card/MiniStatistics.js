@@ -13,7 +13,7 @@ import Card from "./Card";
 export default function MiniStatistics(props) {
   const { startContent, endContent, name, value, bgColor } = props;
   const textColor = useColorModeValue("secondaryGray.900", "white");
-  const textColorSecondary = "black";
+  const textColorSecondary = "gray";
 
   return (
     <Card py='10px' bgColor={bgColor || 'white'}>

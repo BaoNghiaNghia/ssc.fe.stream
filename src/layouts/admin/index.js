@@ -1,21 +1,18 @@
 /* eslint-disable */
 // Chakra imports
-import { Portal, Box, useDisclosure, Stack } from '@chakra-ui/react';
+import { Portal, Box, useDisclosure } from '@chakra-ui/react';
 // Layout components
 import Navbar from '../../components/navbar/NavbarAdmin';
 import Sidebar from '../../components/sidebar/Sidebar';
 import SidebarContext from '../../contexts/index';
-import { routePublic, routes, routesForAuthenticated, routePayments } from '../../routes';
+import { routesForAuthenticated, routePayments } from '../../routes';
 import React, { useEffect, useState } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { useAuth } from '../../contexts/authenContext';
-import history from '../../utils/history';
 import { MESSSAGE_STATUS_CODE, MK_AGENCY_PROVIDER } from '../../variables';
 import { useTranslation } from 'react-i18next';
 import { fetchProfileDetail } from '../../api/Auth';
 import { toast } from 'react-toastify';
-import ErrorBoundary from '../../components/errorBoundary/ErrorBoundary';
-// import { ErrorBoundary, useErrorBoundary } from "react-error-boundary";
 
 // Custom Chakra theme
 export default function Dashboard(props) {
@@ -33,9 +30,7 @@ export default function Dashboard(props) {
 	  } = useDisclosure();
 
 	const {
-		token,
 		profile,
-		setToken,
 		setProfile
 	} = useAuth();
 

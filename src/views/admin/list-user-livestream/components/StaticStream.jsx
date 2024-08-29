@@ -9,16 +9,12 @@ import {
 // Custom components
 import MiniStatistics from "../../../../components/card/MiniStatistics";
 import IconBox from "../../../../components/icons/IconBox";
-import { useTranslation } from "react-i18next";
 import { VIDEO_STREAMING_STATUS } from "../../../../variables";
 
 export default function StaticStream(props) {
   const { listStatistics } = props;
   // Chakra Color Mode
-  const brandColor = useColorModeValue("brand.500", "white");
   const boxBg = useColorModeValue("white", "whiteAlpha.100");
-
-  const { t } = useTranslation();
 
   return (
     <SimpleGrid
@@ -37,7 +33,7 @@ export default function StaticStream(props) {
                   h='30px'
                   bg={boxBg}
                   icon={
-                    <Icon w='28px' h='28px' as={VIDEO_STREAMING_STATUS[index].icon} color={brandColor} />
+                    <Icon w='28px' h='28px' as={VIDEO_STREAMING_STATUS[index].icon} color={'#49aeff'} />
                   }
                 />
               }

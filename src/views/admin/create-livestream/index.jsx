@@ -1171,7 +1171,7 @@ export default function CreateLivestream() {
                 addButton={
                     <Button rightIcon={<MdLockReset fontSize="md" />} 
                         colorScheme='blue' variant='ghost' 
-                        size="md" borderRadius="5px" mr="5px"
+                        size="sm" borderRadius="5px" mr="5px"
                         fontWeight="500"
                         onClick={handleResetFilter}
                         _hover={{

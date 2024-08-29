@@ -43,9 +43,10 @@ const ModalCustomGeneral = ({
                             {
                                 addButton ? addButton : null
                             }
-                            <Button colorScheme="blue" variant="outline" mr={3} onClick={onClose}>Hủy bỏ</Button>
+                            <Button colorScheme="blue" size="sm" variant="outline" mr={3} onClick={onClose}>Hủy bỏ</Button>
                             <Button 
                                 colorScheme='blue'
+                                size="sm"
                                 // isDisabled={formik.errors.url}
                                 onClick={() => handleConfirm()}
                             >Đồng ý</Button>

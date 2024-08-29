@@ -100,8 +100,7 @@ const InputVideoStep = (props) => {
                             variant='solid'
                             colorScheme='green'
                             size="sm"
-                            onClick={handleOpenModal()}
-                            fontWeight='500'>
+                            onClick={handleOpenModal()}>
                             <Icon
                                 transition='0.2s linear'
                                 w='25px'
@@ -147,6 +146,7 @@ const InputVideoStep = (props) => {
                                 <Button 
                                     mt={{ base: "20px", "2xl": "auto" }}
                                     variant='outline'
+                                    size="sm"
                                     isDisabled={isEdit || false}
                                     colorScheme='orange'
                                     onClick={handleRemoveURLVideo(cell)}

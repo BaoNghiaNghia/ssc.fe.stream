@@ -50,17 +50,15 @@ input.largerCheckbox {
 }
 
 .Toastify__toast--error {
-  border: 1px solid #EB5757;
   color: #EB5757;
-  border-radius: 50px !important;
-  background: #FAE1E2 !important;
+  border-radius: 10px !important;
+  background: white !important;
 }
 
 .Toastify__toast--error::after {
   position: absolute;
   color: #333333;
   font-size: 15px;
-  font-weight: 700;
   left: 265px;
   padding-top: 14px !important;
 }
@@ -73,10 +71,9 @@ input.largerCheckbox {
 }
 
 .Toastify__toast--success {
-  border: 1px solid #3A9EA5 !important;
   color: '#3A9EA5' !important;
-  border-radius: 50px !important;
-  background: #F0F9FA !important;
+  border-radius: 10px !important;
+  background: white !important;
 }
 
 .Toastify__toast--success::before {
@@ -91,16 +88,14 @@ input.largerCheckbox {
   position: absolute;
   color: #333333;
   font-size: 15px;
-  font-weight: 700;
   left: 265px;
   padding-top: 14px !important;
 }
 
 .Toastify__toast--warning {
-  border: 1px solid #E78326 !important;
   color: '#E78326' !important;
-  border-radius: 50px !important;
-  background: #FADFC5 !important;
+  border-radius: 10px !important;
+  background: white !important;
 }
 
 .Toastify__toast--warning::before {
@@ -114,7 +109,6 @@ input.largerCheckbox {
   position: absolute;
   color: #E78326;
   font-size: 15px;
-  font-weight: 700;
   left: 265px;
   padding-top: 14px !important;
 }
@@ -126,7 +120,6 @@ input.largerCheckbox {
   line-height: 20px;
   padding: 0px;
   padding-top: 20px;
-  font-weight: 600;
   margin-left: 20px !important;
   box-shadow: none;
 }

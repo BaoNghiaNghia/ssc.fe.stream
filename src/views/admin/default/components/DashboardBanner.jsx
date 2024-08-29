@@ -59,6 +59,7 @@ export default function DashboardBanner() {
           _focus={{ bg: "white" }}
           fontWeight='500'
           fontSize='14px'
+          size="sm"
           py='20px'
           px='27'
           me='38px'>

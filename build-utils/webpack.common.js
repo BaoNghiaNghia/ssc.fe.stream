@@ -58,12 +58,12 @@ module.exports = {
     path: path.resolve(__dirname, '..', 'dist'),
     filename: 'bundle.js',
   },
-  devServer: {
-    port: 16100,  // Set the custom port
-    open: true,   // Automatically opens the browser
-    hot: true,    // Enables Hot Module Replacement
-    compress: true,  // Enable gzip compression
-    historyApiFallback: true, // Fallback to index.html for SPA
-    host: '0.0.0.0',  // Allows external access to the development server
-  },
+  // devServer: {
+  //   port: 16100,  // Set the custom port
+  //   open: true,   // Automatically opens the browser
+  //   hot: true,    // Enables Hot Module Replacement
+  //   compress: true,  // Enable gzip compression
+  //   historyApiFallback: true, // Fallback to index.html for SPA
+  //   host: '0.0.0.0',  // Allows external access to the development server
+  // },
 };

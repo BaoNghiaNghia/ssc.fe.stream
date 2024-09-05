@@ -17,10 +17,10 @@ module.exports = {
     hot: true,    // Enables Hot Module Replacement
     compress: true,  // Enable gzip compression
     historyApiFallback: true, // Fallback to index.html for SPA
-    host: '0.0.0.0',  // Allows external access to the development server,
+    host: '0.0.0.0',
     allowedHosts: [
       'localhost',
-      'sscsalmon.ddns.net',    // Replace with your domain or IP address
+      'sscsalmon.ddns.net',
     ],
   },
   devtool: 'inline-source-map',

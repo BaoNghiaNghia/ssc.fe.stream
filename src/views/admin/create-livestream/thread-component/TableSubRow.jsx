@@ -332,7 +332,7 @@ export default function TableSubRow(props) {
                     page.map(row => {
                         prepareRow(row);
                         return (
-                            <React.Fragment key={row.id}>
+                            <React.Fragment key={row?.id}>
                                 <Tr {...row.getRowProps()} borderTop={"1px solid #80808017"}>
                                     {row.cells.map(cell => (
                                         <Td
@@ -345,7 +345,7 @@ export default function TableSubRow(props) {
                                         </Td>
                                     ))}
                                 </Tr>
-                                {renderRowSubComponent && row.isExpanded ? (
+                                {renderRowSubComponent && row?.isExpanded ? (
                                     <Tr>
                                         <Td colSpan={columns.length}>
                                             {renderRowSubComponent({ row })}

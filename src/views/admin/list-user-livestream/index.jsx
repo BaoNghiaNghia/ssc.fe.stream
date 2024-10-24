@@ -13,7 +13,7 @@ import {
   InputRightElement,
 } from "@chakra-ui/react";
 import TableListLiveStream from "./components/TableListLiveStream";
-
+import { MdOutlineHub } from "react-icons/md";
 // Assets
 import { MESSSAGE_STATUS_CODE, USER_PACKAGE_STATUS, USER_PACKAGE_USED} from "../../../variables/index";
 import { fetchListUserStreamApi } from "../../../api/Stream/index";
@@ -24,7 +24,7 @@ import MenuUserStream from "./components/MenuUserStream";
 import ModalCustom from "./components/ModalCustom";
 import activity from 'react-useanimations/lib/activity';
 import UseAnimations from "react-useanimations";
-import { MdLockReset, MdOutlineRemoveRedEye } from "react-icons/md";
+import { MdAccessTime, MdLockReset, MdOutlineRemoveRedEye } from "react-icons/md";
 import { RiEyeCloseLine } from "react-icons/ri";
 import EditUserStream from "./components/EditUserStream";
 import TableEmpty from "./components/TableEmpty";
@@ -192,10 +192,13 @@ export default function ListUserLivestream() {
       accessor: "name",
       Cell: ({ value, row }) => {
         return (
-          <Text fontWeight={"600"} color={"black"}>
-            { truncate(value, 25) }
-          </Text>
-        )
+          <span style={{ display: 'flex', alignContent: 'center', alignItems: 'center' }}>
+            <MdOutlineHub style={{ color: 'red', marginRight: '7px', width: '25px', height: '25px' }} />
+            <Text fontWeight={"600"} color={"black"}>
+              { truncate(value, 25) }
+            </Text>
+          </span>
+        );
       }
     },
     {
@@ -218,29 +221,36 @@ export default function ListUserLivestream() {
         let objIndex = showArr.findIndex((obj => obj.id == row.index));
         let state = showArr[objIndex].value
         return (
-          <InputGroup size='sm'>
-            <Input
-              name="key"
-              value={value}
-              // onChange={(e) => setInputValue("key", e.target.value)}
-              isRequired={true}
-              fontSize='sm'
-              color="black"
-              isDisabled={true}
-              placeholder="Chưa có key"
-              size='md'
-              type={state ? "text" : "password"}
-              variant='auth'
-            />
-            <InputRightElement display='flex' alignItems='center' mt='4px'>
-              <Icon
-                color="black"
-                _hover={{ cursor: "pointer" }}
-                as={state ? RiEyeCloseLine : MdOutlineRemoveRedEye}
-                onClick={() => handleClickArr(row.index, state)}
-              />
-            </InputRightElement>
-          </InputGroup>
+          <>
+            {
+              (value && value !== undefined) ? (
+                <InputGroup size='sm'>
+                  <Input
+                    name="key"
+                    value={value}
+                    // onChange={(e) => setInputValue("key", e.target.value)}
+                    isRequired={true}
+                    fontSize='sm'
+                    color="black"
+                    isDisabled={true}
+                    placeholder="Chưa có key"
+                    size='md'
+                    type={state ? "text" : "password"}
+                    variant='auth'
+                    style={{ color: 'black' }}
+                  />
+                  <InputRightElement display='flex' alignItems='center' mt='4px'>
+                    <Icon
+                      color="black"
+                      _hover={{ cursor: "pointer" }}
+                      as={state ? RiEyeCloseLine : MdOutlineRemoveRedEye}
+                      onClick={() => handleClickArr(row.index, state)}
+                    />
+                  </InputRightElement>
+                </InputGroup>
+              ) : <span style={{ color: '#80808080', paddingLeft: '10px', fontSize:'14px' }}>Chưa có key</span>
+            }
+          </>
         )
       }
     },
@@ -249,7 +259,8 @@ export default function ListUserLivestream() {
       accessor: "",
       Cell: ({ value, row }) =>  {
         return (
-          <Text fontSize={"sm"} fontWeight="600">
+          <Text fontSize={"sm"} fontWeight="600" style={{ display: 'flex', alignContent: 'center', alignItems: 'center', color: 'gray' }}>
+            <MdAccessTime color="#80808080" style={{ width:'20px', height: '20px', marginRight: '7px' }} />
               {reverseTimeDate(row.original.started_at)}
             </Text>
         )
@@ -260,7 +271,8 @@ export default function ListUserLivestream() {
       accessor: "",
       Cell: ({ value, row }) =>  {
         return (
-          <Text fontSize={"sm"} fontWeight="600">
+          <Text fontSize={"sm"} fontWeight="600" style={{ display: 'flex', alignContent: 'center', alignItems: 'center', color: 'gray' }}>
+            <MdAccessTime color="#80808080" style={{ width:'20px', height: '20px', marginRight: '7px' }} />
                 {reverseTimeDate(row.original.expired_at)}
             </Text>
         )

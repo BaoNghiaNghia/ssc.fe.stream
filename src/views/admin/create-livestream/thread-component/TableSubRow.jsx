@@ -39,6 +39,7 @@ import { reverseTimeDate, toHHMMSS, truncate } from "../../../../utils/handleVal
 import MenuVideo from "./MenuVideo";
 import noVideoStreamImg from '../../../../assets/img/no-video-stream.png';
 import { FiServer } from "react-icons/fi";
+import { MdOutlineHub } from "react-icons/md";
 
 export default function TableSubRow(props) {
     const {
@@ -101,16 +102,18 @@ export default function TableSubRow(props) {
             accessor: "",
             Cell: ({ value, row }) => {
                 return (
-                    <Text
-                        color={textColor}
-                        fontSize={{
-                            base: "md",
-                        }}
-                        mb='5px'
-                        fontWeight='bold'
-                        me='14px'>
-                        {row.original?.stream_obj?.name}
-                    </Text>
+                    <span style={{ display: 'flex', alignContent: 'center', alignItems: 'center' }}>
+                        <MdOutlineHub style={{ color: 'red', marginRight: '7px', width: '25px', height: '25px' }} />
+                        <Text
+                            color={textColor}
+                            fontSize={{
+                                base: "md",
+                            }}
+                            fontWeight='bold'
+                            me='14px'>
+                            {row.original?.stream_obj?.name}
+                        </Text>
+                    </span>
                 )
             }
         },
@@ -126,7 +129,6 @@ export default function TableSubRow(props) {
                             fontSize={{
                                 base: "md",
                             }}
-                            mb='5px'
                             fontWeight='bold'
                             me='14px'>
                             {row.original?.agent_obj?.name || '...'}
@@ -268,7 +270,7 @@ export default function TableSubRow(props) {
                                     )}
                                 </Text>
                                 {/* <span style={{ marginLeft: '8px' }} >{row.original?.status_label || statusData?.message}</span> */}
-                                <span style={{ marginLeft: '8px' }} >{statusData?.message}</span>
+                                <span style={{ marginLeft: '8px', fontWeight: 700, color: 'gray' }} >{statusData?.message}</span>
                             </span>
                         </Tooltip>
                     </div>

@@ -217,11 +217,11 @@ export default function ServerLiveStreamAgent() {
       role: [ROLE_USER.USER_DEFAULT],
       Cell: ({ value, row }) => {
         return (
-          <Flex>
+          <Flex style={{ display: 'flex', alignContent: 'center', alignItems: 'center' }}>
             {
               row.original.user_obj ? (
                 <>
-                  <FaRegUserCircle color="gray" style={{ width:'20px', height: '20px', marginRight: '7px' }} />
+                  <FaRegUserCircle color="#80808080" style={{ width:'30px', height: '30px', marginRight: '9px' }} />
                   <Text
                     colorScheme="black" 
                     fontWeight={"900"}

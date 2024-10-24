@@ -68,8 +68,8 @@ export default function ListAccountUser() {
       sticky: "left",
       Cell: ({ value, row }) => {
         return (
-          <Flex>
-            <FaRegUserCircle color="gray" style={{ width:'20px', height: '20px', marginRight: '7px' }} />
+          <Flex style={{ display: 'flex', alignContent: 'center', alignItems: 'center' }}>
+            <FaRegUserCircle color="#80808080" style={{ width:'30px', height: '30px', marginRight: '9px' }} />
             <Text fontSize="sm" fontWeight={"600"} color={"black"}>
               {value}
             </Text>

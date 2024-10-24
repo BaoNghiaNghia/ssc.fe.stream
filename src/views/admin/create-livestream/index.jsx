@@ -818,10 +818,6 @@ export default function CreateLivestream() {
         }
     }
 
-    const handleSelectRow = (row) => {
-        console.log('--- chọn row này nè ---', row)
-    }
-
     const handleGoBackStep = () => {
         setActiveStep(activeStep - 1);
     }
@@ -1085,9 +1081,6 @@ export default function CreateLivestream() {
                     <Card p="0px">
                     {
                         Object.keys(tableVideosStream).length == 0 ? (
-                            // <Flex direction='column' justifyContent='space-between' align='center' my="20%">
-                            //     <Spinner size='lg' color="gray"/>
-                            // </Flex>
                             <React.Fragment>
                                 <Box padding='6' boxShadow='lg' bg='white'>
                                     <SkeletonCircle startColor='gray.200' endColor='gray.200' size='14' borderRadius="5px" />

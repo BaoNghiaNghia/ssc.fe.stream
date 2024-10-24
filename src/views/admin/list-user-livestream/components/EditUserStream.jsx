@@ -45,15 +45,16 @@ export default function EditUserStream(props) {
         name: dataGeneral?.name,
         description: dataGeneral?.description,
         key: dataGeneral?.key,
+        channel_id: dataGeneral?.channel_id,
     }
 
-    // const ref = useRef()
     const { t } = useTranslation();
 
     const validateSchema = Yup.object().shape({
         name: Yup.string().required(t('content.required_field')),
         description: Yup.string().required(t('content.required_field')),
-        key: Yup.string().required(t('content.required_field'))
+        key: Yup.string().required(t('content.required_field')),
+        channel_id: Yup.string().required(t('content.required_field'))
     });
 
     const handleOnSubmitFormEdit = async (values, { resetForm }) => {
@@ -62,11 +63,10 @@ export default function EditUserStream(props) {
             const responseEdit = await updateUserStream({ ...values, id: dataGeneral.id });
             if (responseEdit.status === MESSSAGE_STATUS_CODE.SUCCESS.code) {
                 toast.success(t(`error_code.${MESSSAGE_STATUS_CODE.SUCCESS.code}`));
-                await handleFetchResource({});
-                resetForm();
-                onCloseUserStream();
+                // await handleFetchResource({});
+                // resetForm();
+                // onCloseUserStream();
             }
-            // onCloseVideoStreamModal();
         } catch (err) {
             if (err.response) {
                 toast.error(t(`error_code.${err.response.data.error_code}`));
@@ -151,6 +151,7 @@ export default function EditUserStream(props) {
                         value={formik.values.channel_id}
                         onChange={(e) => setInputValue("channel_id", e.target.value)}
                         isRequired={true}
+                        placeholder='ID của channel youtube'
                         fontSize='sm'
                         size='lg'
                     />

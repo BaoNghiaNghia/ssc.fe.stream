@@ -16,7 +16,7 @@ export default function MiniStatistics(props) {
   const textColorSecondary = "gray";
 
   return (
-    <Card py='10px' bgColor={bgColor || 'white'}>
+    <Card p='16px' bgColor={bgColor || 'white'}>
       <Flex
         my='auto'
         h='100%'

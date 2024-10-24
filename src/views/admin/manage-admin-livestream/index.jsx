@@ -12,7 +12,7 @@ import {
 
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
-
+import { MdOutlineDateRange } from "react-icons/md";
 import { MESSSAGE_STATUS_CODE, ROLE_USER } from "../../../variables/index";
 import { reverseTimeDate } from "../../../utils/handleValidate";
 
@@ -22,7 +22,7 @@ import { useAuth } from "../../../contexts/authenContext";
 import ModalCustomGeneral from "../../../components/modal/ModalCustomGeneral";
 import FilterHeader from "./components/FilterHeader";
 import CreateNewPackage from "./components/CreateNewPackage";
-import { MdAccessTime, MdCancel, MdCheckCircle } from "react-icons/md";
+import { MdAccessTime, MdCancel, MdCheckCircle, MdOutlineHub } from "react-icons/md";
 import TableUserManager from "./components/TableUserManager";
 import { adminConfirmUserPackageApi, fetchAdminListApi } from "../../../api/UserPackage";
 import { fetchAdminListUser } from "../../../api/Auth";
@@ -104,8 +104,8 @@ export default function ManageAdminLivestream() {
       sticky: "left",
       Cell: ({ value, row }) => {
         return (
-          <Flex>
-            <FaRegUserCircle color="#80808080" style={{ width:'20px', height: '20px', marginRight: '7px' }} />
+          <Flex style={{ display: 'flex', alignContent: 'center', alignItems: 'center' }}>
+            <FaRegUserCircle color="#80808080" style={{ width:'30px', height: '30px', marginRight: '9px' }} />
             <Text fontWeight={"600"} color={"black"}>
               {value?.fullname}
             </Text>
@@ -134,11 +134,14 @@ export default function ManageAdminLivestream() {
       role: [ROLE_USER.USER_DEFAULT],
       Cell: ({ value, row }) => {
         return (
-          <Text
-            colorScheme="black" 
-            fontSize={{ base: "sm", }}
-            me='8px'>{value} luồng
-          </Text>
+          <span style={{ display: 'flex', alignContent: 'center', alignItems: 'center' }}>
+            <MdOutlineHub style={{ color: 'orange', marginRight: '7px', width: '25px', height: '25px' }} />
+            <Text
+              colorScheme="black" 
+              fontSize={{ base: "sm", }}
+              me='8px'>{value} luồng
+            </Text>
+          </span>
         )
       }
     },
@@ -148,11 +151,13 @@ export default function ManageAdminLivestream() {
       role: [ROLE_USER.USER_DEFAULT],
       Cell: ({ value, row }) => {
         return (
-          <Text
-            colorScheme="black" 
-            fontSize={{ base: "sm", }}
-            me='8px'>{value} ngày
-          </Text>
+          <span style={{ display: 'flex', alignContent: 'center', alignItems: 'center' }}>
+            <MdOutlineDateRange style={{ color: '#80808080', marginRight: '7px', width: '22px', height: '22px' }}/>
+            <Text
+              colorScheme="black" 
+              fontSize={{ base: "sm", }}>{value} ngày
+            </Text>
+          </span>
         )
       }
     },

@@ -69,13 +69,6 @@ export default function AdminNavbar(props) {
 			mt={secondaryMargin}
 			pb='8px'
 			right={{ base: '12px', md: '30px', lg: '30px', xl: '30px' }}
-			px={{
-				sm: paddingX,
-				md: '10px'
-			}}
-			ps={{
-				xl: '12px'
-			}}
 			pt='8px'
 			top={{ base: '12px', md: '16px', lg: '20px', xl: '20px' }}
 			w={{
@@ -153,7 +146,13 @@ export default function AdminNavbar(props) {
 							</Link>
 						) }
 				</Box>
-				<Box ms='auto' w={{ sm: '70%', md: 'unset' }}>
+				<Box
+					ms="auto"
+					w="45px" /* Equal width and height for the circle */
+					h="45px"
+					bg="transparent" /* Transparent background */
+					borderRadius="full" /* Circular border radius */
+					>
 					<AdminNavbarLinks
 						onOpen={props.onOpen}
 						logoText={props.logoText}
@@ -162,6 +161,7 @@ export default function AdminNavbar(props) {
 						scrolled={scrolled}
 					/>
 				</Box>
+
 			</Flex>
 			{secondary ? <Text color='white'>{message}</Text> : null}
 		</Box>

@@ -270,7 +270,6 @@ export default function ListUserLivestream() {
       Header: "Sử dụng",
       accessor: "",
       Cell: ({ value, row }) => {
-        console.log('--- chec k-----', row.original?.live_streaming)
         return (
             <Flex align='center'>
               {
@@ -288,11 +287,6 @@ export default function ListUserLivestream() {
                     {USER_PACKAGE_USED[Number(row.original?.live_streaming)]?.message}
                   </Text>
                 ) :  (
-                  // <Badge borderRadius="4px" variant='solid' colorScheme={USER_PACKAGE_USED[Number(row.original?.live_streaming)]?.color}>
-                  //   <Text fontSize='xs' fontWeight='500'> 
-                  //       {USER_PACKAGE_USED[Number(row.original?.live_streaming)]?.message}
-                  //   </Text>
-                  // </Badge>
                   '...'
                 )
               }

@@ -203,6 +203,22 @@ export default function TableSubRow(props) {
             }
         },
         {
+            Header: "Video livestream",
+            accessor: "",
+            Cell: ({ value, row }) => {
+                console.log('--- data video livestream', row?.original)
+                return (
+                    <Text
+                        color='secondaryGray.900'
+                        fontSize={{ base: "sm", }}
+                        fontWeight='500'
+                        me='10px'>
+                        { row?.original?.ytb_live_link }
+                    </Text>
+                )
+            }
+        },
+        {
             Header: "Trạng thái",
             accessor: "",
             Cell: ({ value, row }) => {

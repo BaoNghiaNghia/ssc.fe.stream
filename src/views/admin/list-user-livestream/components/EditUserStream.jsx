@@ -10,7 +10,8 @@ import {
     Input,
     FormControl,
     InputGroup,
-    InputRightElement
+    InputRightElement,
+    FormHelperText
 } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 import * as Yup from "yup";
@@ -89,7 +90,7 @@ export default function EditUserStream(props) {
 
     return (
         <form onSubmit={formik.handleSubmit} >
-            <Card mb={{ base: "0px", lg: "20px" }} px="20px" py="20px" align='center'>
+            <Card p={0} align='center'>
                 <FormControl mb="15px">
                     <FormLabel
                         display='flex'
@@ -133,6 +134,32 @@ export default function EditUserStream(props) {
                     {formik.errors.description && formik.touched.description && (
                         <p className="text-error">{formik.errors.description}</p>
                     )}
+                </FormControl>
+                <FormControl mb="15px">
+                    <FormLabel
+                        display='flex'
+                        ms='4px'
+                        fontSize='sm'
+                        fontWeight='500'
+                        color={textColor}
+                        mb='8px'
+                    >
+                        Channel ID<Text color={brandStars}>*</Text>
+                    </FormLabel>
+                    <Input
+                        name="description"
+                        value={formik.values.description}
+                        onChange={(e) => setInputValue("description", e.target.value)}
+                        isRequired={true}
+                        fontSize='sm'
+                        size='lg'
+                    />
+                    {formik.errors.description && formik.touched.description && (
+                        <p className="text-error">{formik.errors.description}</p>
+                    )}
+                    <FormHelperText fontSize='sm' color='gray.500' textAlign={'left'}>
+                        Sử dụng để kiểm tra trạng thái livestream của video youtube
+                    </FormHelperText>
                 </FormControl>
                 <FormControl mb="15px">
                     <FormLabel

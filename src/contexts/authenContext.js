@@ -1,13 +1,12 @@
 /* eslint-disable */
-import React from 'react';
+import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
 import axios from "axios";
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
-    const [token, setToken_] = useState(localStorage.getItem("persist:auth"));
-    const [profile, setProfile_] = useState(localStorage.getItem("profile"));
+    const [token, setToken_] = useState(() => localStorage.getItem("persist:auth") || null);
+    const [profile, setProfile_] = useState(() => localStorage.getItem("profile") || null);
 
     const setToken = (newToken) => {
         setToken_(newToken);
@@ -19,11 +18,12 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         if (token) {
-            axios.defaults.headers.common["Authorization"] = "Bearer " + token;
+            axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
             localStorage.setItem("persist:auth", token);
-            setToken_(token);
         } else {
-            delete axios.defaults.headers.common["Authorization"];
+            if (axios.defaults.headers.common) {
+                delete axios.defaults.headers.common["Authorization"];
+            }
             localStorage.removeItem("persist:auth");
         }
     }, [token]);
@@ -31,7 +31,6 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         if (profile) {
             localStorage.setItem("profile", profile);
-            setProfile_(profile);
         } else {
             localStorage.removeItem("profile");
         }

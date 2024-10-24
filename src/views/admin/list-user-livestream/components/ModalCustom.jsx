@@ -42,7 +42,6 @@ const ModalStreamVideo = ({
                             <Button colorScheme="blue" size="sm" variant="outline" mr={3} onClick={onClose}>Hủy bỏ</Button>
                             <Button 
                                 colorScheme='blue' size="sm"
-                                // isDisabled={formik.errors.url}
                                 onClick={() => handleConfirm()}
                             >Đồng ý</Button>
                         </ModalFooter>

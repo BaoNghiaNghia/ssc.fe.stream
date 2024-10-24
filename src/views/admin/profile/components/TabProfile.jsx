@@ -76,24 +76,6 @@ export default function TabProfile(props) {
                                 {t(`content.${profileUser.group.role}`)}
                             </Text>
                         </GridItem>
-                        <GridItem colSpan={1} margin="auto 0">    
-                        {/* TODO */}
-                            {/* {
-                                (planDetail && planDetail.length > 0 && profileUser.group.role == ROLE_USER.USER_DEFAULT) && (
-                                    <>
-                                        <Text color={textColorSecondary} fontSize='sm'>
-                                            Gói cước <strong>{planDetail[0].package_name.toUpperCase()}</strong>
-                                        </Text>
-                                        <Text color="black">
-                                            Bắt đầu: {planDetail[0].started_at}
-                                        </Text>
-                                        <Text color="black">
-                                            Hết hạn: {planDetail[0].expired_at}
-                                        </Text>
-                                    </>
-                                )
-                            } */}
-                        </GridItem>
                     </Grid>
                 </Flex>
             </Card>

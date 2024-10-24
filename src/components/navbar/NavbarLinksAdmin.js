@@ -75,9 +75,10 @@ export default function HeaderLinks(props) {
 			flexDirection="row"
 			flexWrap={secondary ? { base: 'wrap', md: 'nowrap' } : 'unset'}
 			p="1px"
-			boxShadow={shadow}>
+			bg="transparent"
+			>
 			<Menu>
-				<MenuButton   borderRadius={30}>
+				<MenuButton borderRadius="full" bg="transparent">
 					<Avatar
 						_hover={{ cursor: 'pointer' }}
 						src={avatar}
@@ -85,52 +86,65 @@ export default function HeaderLinks(props) {
 						borderRadius="30px"
 						w="45px"
 						h="45px"
+						bg="transparent"
 					/>
-
 				</MenuButton>
-				<MenuList boxShadow={shadow} p="0px" mt="10px" borderRadius="8px" border="none">
-					<Flex w="100%" mb="0px">
-						<Tooltip label={`Xin chào, ${profile_?.fullname}`} position="top">
-							<Text
-								ps="20px"
-								pt="16px"
-								pb="10px"
-								w="100%"
-								borderBottom="1px solid"
-								borderColor={borderColor}
-								fontSize="sm"
-								fontWeight="600"
-								color={textColor}>
-								👋&nbsp; {
-									(profile_) ? (<span>Chào, {profile_?.fullname}</span>) : (<span>'Chào bạn'</span>)
-								}
-							</Text>
-						</Tooltip>
-					</Flex>
-					<Flex flexDirection="column" p="10px">
-						<MenuItem 
-							_hover={{ bg: 'none' }} 
-							_focus={{ bg: 'none' }} 
-							borderRadius="8px" px="14px"
-							fontSize="md"
-							onClick={handleRedirectPersonalProfile}
-						>
-							<Text fontSize="sm">Thông tin cá nhân</Text>
-						</MenuItem>
-						<MenuItem
-							_hover={{ bg: 'none' }}
-							_focus={{ bg: 'none' }}
-							onClick={handleLogoutEvent}
-							color="red.400"
-							borderRadius="8px"
-							fontSize="md"
-							px="14px">
-							<Text fontSize="sm">Đăng xuất</Text>
-						</MenuItem>
-					</Flex>
+				<MenuList
+				boxShadow={shadow}
+				p="0px"
+				mt="10px"
+				borderRadius="8px"
+				border="none"
+				>
+				<Flex w="100%" mb="0px">
+					<Tooltip label={`Xin chào, ${profile_?.fullname}`} position="top">
+					<Text
+						ps="20px"
+						pt="16px"
+						pb="10px"
+						w="100%"
+						borderBottom="1px solid"
+						borderColor={borderColor}
+						fontSize="sm"
+						fontWeight="600"
+						color={textColor}
+					>
+						👋&nbsp;
+						{profile_ ? (
+						<span>Chào, {profile_?.fullname}</span>
+						) : (
+						<span>'Chào bạn'</span>
+						)}
+					</Text>
+					</Tooltip>
+				</Flex>
+				<Flex flexDirection="column" p="10px">
+					<MenuItem
+					_hover={{ bg: 'none' }}
+					_focus={{ bg: 'none' }}
+					borderRadius="8px"
+					px="14px"
+					fontSize="md"
+					onClick={handleRedirectPersonalProfile}
+					>
+					<Text fontSize="sm">Thông tin cá nhân</Text>
+					</MenuItem>
+					<MenuItem
+					_hover={{ bg: 'none' }}
+					_focus={{ bg: 'none' }}
+					onClick={handleLogoutEvent}
+					color="red.400"
+					borderRadius="8px"
+					fontSize="md"
+					px="14px"
+					>
+					<Text fontSize="sm">Đăng xuất</Text>
+					</MenuItem>
+				</Flex>
 				</MenuList>
 			</Menu>
-		</Flex>
+			</Flex>
+
 	);
 }
 

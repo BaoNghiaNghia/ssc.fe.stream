@@ -1046,8 +1046,8 @@ export default function CreateLivestream() {
             return (
                 <VideoStreamTable
                     filterGroup={filterGroup()}
-                    tableData={tableVideosStream && tableVideosStream.items}
-                    paginationData={tableVideosStream && tableVideosStream.meta}
+                    tableData={tableVideosStream && tableVideosStream?.items}
+                    paginationData={tableVideosStream && tableVideosStream?.meta}
                     setMenuSelected={setMenuSelected}
                     playRightAwayVideo={playRightAwayVideo}
                     editCurrVideoStream={editCurrVideoStream}
@@ -1097,7 +1097,6 @@ export default function CreateLivestream() {
                 onClose={onCloseDeleleConfirm}
                 title="Xóa livestream"
                 content="Luồng livestream sẽ bị xóa vĩnh viễn. Bạn vẫn muốn tiếp tục ?"
-                // content="Luồng livestream đang phát, cần phải hủy livestream trước."
                 footer={true}
                 handleConfirm={handleConfirmDelete}
             />
@@ -1107,7 +1106,6 @@ export default function CreateLivestream() {
                 onClose={onClosePlayRightAway}
                 title="Phát ngay"
                 content="Video sẽ được phát ngay bây giờ. Bạn vẫn muốn tiếp tục ?"
-                // content="Luồng livestream đang phát, cần phải hủy livestream trước."
                 footer={true}
                 handleConfirm={handleConfirmPlayRightAway}
             />

@@ -195,7 +195,8 @@ export default function Dashboard(props) {
 						routes={mappingRouteByRole || []}
 						btnRef={btnRef}
 						display='none'
-						{...rest} />
+						{...rest} 
+					/>
 					<Box
 						float='right'
 						minHeight='100vh'
@@ -210,19 +211,17 @@ export default function Dashboard(props) {
 						transitionProperty='top, bottom, width'
 						transitionTimingFunction='linear, linear, ease'>
 						<Portal>
-							<Box>
-								<Navbar
-									onOpen={onOpen}
-									onOpenLeftMenu={onOpenLeftMenu}
-									btnRef={btnRef}
-									logoText={'MKStream Dashboard'}
-									brandText={getActiveRoute(mappingRouteByRole || [])}
-									secondary={getActiveNavbar(mappingRouteByRole || [])}
-									message={getActiveNavbarText(mappingRouteByRole || [])}
-									fixed={fixed}
-									{...rest}
-								/>
-							</Box>
+							<Navbar
+								onOpen={onOpen}
+								onOpenLeftMenu={onOpenLeftMenu}
+								btnRef={btnRef}
+								logoText={'MKStream Dashboard'}
+								brandText={getActiveRoute(mappingRouteByRole || [])}
+								secondary={getActiveNavbar(mappingRouteByRole || [])}
+								message={getActiveNavbarText(mappingRouteByRole || [])}
+								fixed={fixed}
+								{...rest}
+							/>
 						</Portal>
 						{ getRoute() ?  handleRenderRoutes() : null }
 					</Box>

@@ -80,17 +80,34 @@ export const globalStyles = {
       100: "#FAFCFE",
     },
   },
+  fonts: {
+    heading: `'Be Vietnam Pro', sans-serif`, // Apply 'Be Vietnam Pro' for headings
+    body: `'Be Vietnam Pro', sans-serif`,    // Apply 'Be Vietnam Pro' for body text
+    mono: `'Be Vietnam Pro', sans-serif`,    // Apply 'Be Vietnam Pro' for monospace/other
+  },
   styles: {
     global: (props) => ({
       body: {
         overflowX: "hidden",
         bg: mode("secondaryGray.300", "navy.900")(props),
         letterSpacing: "-0.5px",
+        fontFamily: `'Be Vietnam Pro', sans-serif`, // Apply globally for body
       },
       input: {
         color: "gray.700",
+        fontFamily: `'Be Vietnam Pro', sans-serif`, // Apply to input fields
       },
       html: {
+        fontFamily: `'Be Vietnam Pro', sans-serif`, // Apply to the entire html document
+      },
+      h1: {
+        fontFamily: `'Be Vietnam Pro', sans-serif`, // Ensure headings use the font
+      },
+      h2: {
+        fontFamily: `'Be Vietnam Pro', sans-serif`,
+      },
+      h3: {
+        fontFamily: `'Be Vietnam Pro', sans-serif`,
       },
     }),
   },

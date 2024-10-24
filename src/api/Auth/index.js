@@ -18,7 +18,7 @@ AuthenticateApi.createEntities([
     { name: UPDATE_PASSWORD_ENPOINT }
 ]);
 
-const loginUserApi = (data) => AuthenticateApi.createBasicCRUDEndpoints({ name: LOGIN_ENPOINT }).post(data);
+const loginUserApi = (data) => AuthenticateApi.createBasicCRUDEndpoints({ name: LOGIN_ENPOINT }).postWithNoToken(data);
 const registerUserApi = (data) => AuthenticateApi.createBasicCRUDEndpoints({ name: REGISTER_ENDPOINT }).post(data);
 
 const fetchProfileDetail = (data, config) => AuthenticateApi.createBasicCRUDEndpoints({ name: PROFILE_DETAIL_ENDPOINT }).getWithHeader(data, config);

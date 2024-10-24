@@ -1,6 +1,5 @@
 /* eslint-disable */
 import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
-import axios from "axios";
 
 const AuthContext = createContext();
 
@@ -18,12 +17,12 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         if (token) {
-            axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+            // axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
             localStorage.setItem("persist:auth", token);
         } else {
-            if (axios.defaults.headers.common) {
-                delete axios.defaults.headers.common["Authorization"];
-            }
+            // if (axios.defaults.headers.common) {
+            //     delete axios.defaults.headers.common["Authorization"];
+            // }
             localStorage.removeItem("persist:auth");
         }
     }, [token]);
@@ -36,7 +35,6 @@ const AuthProvider = ({ children }) => {
         }
     }, [profile]);
 
-    // Memoized value of the authentication context
     const contextValue = useMemo(() => ({
         token,
         profile,
@@ -44,7 +42,6 @@ const AuthProvider = ({ children }) => {
         setToken
     }), [token, profile]);
 
-    // Provide the authentication context to the children components
     return (
         <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
     );

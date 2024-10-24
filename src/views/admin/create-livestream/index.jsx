@@ -34,6 +34,7 @@ import * as Yup from "yup";
 import { useFormik } from "formik";
 
 import { toast } from 'react-toastify';
+import { FiServer } from "react-icons/fi";
 
 import Card from "../../../components/card/Card";
 import InputVideoStep from './components/InputVideoStep';
@@ -140,10 +141,6 @@ const columnsThreadStreams = [
             </Text>
         )
     },
-    // {
-    //     Header: "Mô tả ngắn",
-    //     accessor: "description",
-    // },
     {
         Header: "Số lượng video",
         accessor: "",
@@ -256,7 +253,7 @@ const columnsThreadStreams = [
                     <Badge borderRadius="4px" variant='solid' colorScheme={USER_PACKAGE_STATUS[value]?.color || 'gray'}>
                         <Text 
                             color="white" fontSize='xs' fontWeight='500'> 
-                            {USER_PACKAGE_STATUS[value].message}
+                            {USER_PACKAGE_STATUS[value]?.message}
                         </Text>
                     </Badge>
                 </Flex>
@@ -927,78 +924,6 @@ export default function CreateLivestream() {
         </React.Fragment>
     );
 
-    const handleChangePage = async (page) => {
-        // setCurrentPage(page);
-        // await handleFetchResource({ 'page': page });
-    }
-
-    const SubCardVideo = useCallback(
-        ({ row }) => {
-            let meta = row.original.metaVideo;
-            return (
-                <React.Fragment>
-                    <CardSubRow
-                        videoData={row.original.groupVideo}
-                        idUserStream={row.original.id}
-                        handleOpenModalCreateStream={handleOpenModalCreateStream}
-                        setMenuSelected={setMenuSelected}
-                        playRightAwayVideo={playRightAwayVideo}
-                        editCurrVideoStream={editCurrVideoStream}
-                        detailCurrVideoStream={detailCurrVideoStream}
-                        killCurrVideoStream={killCurrVideoStream}
-                        delCurrVideoStream={delCurrVideoStream}
-                    />
-                    {
-                        meta.total != 0 ? (
-                            <SimpleGrid columns={{ base: 1}} gap='15px'  pt="10px" pb="20px" pl="20px" pr="20px" backgroundColor="#f6f6f6">
-                                    <Pagination
-                                        color="orange"
-                                        currentPage={meta.current_page}
-                                        totalCount={meta.total}
-                                        pageSize={meta.per_page}
-                                        onPageChange={handleChangePage}
-                                    />
-                            </SimpleGrid>
-                        ) : null
-                    }
-                </React.Fragment>
-            )
-        }, []
-    );
-
-    const SubTableVideo = useCallback(
-        ({ row }) => {
-            let meta = row.original.metaVideo;
-            return (
-                <React.Fragment>
-                    <TableSubRow 
-                        tableData={row.original.groupVideo}
-                        paginationData={meta}
-                        setMenuSelected={setMenuSelected}
-                        playRightAwayVideo={playRightAwayVideo}
-                        editCurrVideoStream={editCurrVideoStream}
-                        detailCurrVideoStream={detailCurrVideoStream}
-                        killCurrVideoStream={killCurrVideoStream}
-                        delCurrVideoStream={delCurrVideoStream}
-                    />
-                    {
-                        meta.total != 0 ? (
-                            <SimpleGrid columns={{ base: 1}} gap='15px'  pt="10px" pb="20px" pl="20px" pr="20px" backgroundColor="#f6f6f6">
-                                    <Pagination
-                                        color="orange"
-                                        currentPage={meta.current_page}
-                                        totalCount={meta.total}
-                                        pageSize={meta.per_page}
-                                        onPageChange={handleChangePage}
-                                    />
-                            </SimpleGrid>
-                        ) : null
-                    }
-                </React.Fragment>
-            )
-        }, []
-    );
-
     const filterGroup = () => {
         return (
             <FilterHeader
@@ -1016,32 +941,6 @@ export default function CreateLivestream() {
     const renderSwitchDisplay = (param) => {
         // TODO: xử lý lại, tách từng view ra từng Component, tránh gọi cùng 1 lúc
         switch(param) {
-        //   case 'card-thread':
-        //     return (
-        //         <TableListThreadStream
-        //             filterGroup={filterGroup()}
-        //             isLoading={false}
-        //             renderRowSubComponent={SubCardVideo}
-        //             handleSelectRow={handleSelectRow}
-        //             handleFetchResource={handleFetchUserStream}
-        //             columnsData={columnsThreadStreams}
-        //             tableData={tableThreadStream.items}
-        //             paginationData={tableThreadStream.meta}
-        //         />
-        //     );
-        //   case 'table-thread':
-        //     return (
-        //         <TableListThreadStream
-        //             filterGroup={filterGroup()}
-        //             isLoading={false}
-        //             renderRowSubComponent={SubTableVideo}
-        //             handleSelectRow={handleSelectRow}
-        //             handleFetchResource={handleFetchUserStream}
-        //             columnsData={columnsThreadStreams}
-        //             tableData={tableThreadStream.items}
-        //             paginationData={tableThreadStream.meta}
-        //         />
-        //     );
           case 'table-video':
             return (
                 <VideoStreamTable

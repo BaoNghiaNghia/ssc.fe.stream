@@ -14,6 +14,9 @@ import {
 
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
+import { FaRegUserCircle } from "react-icons/fa";
+import { MdAccessTime } from "react-icons/md";
+import { FiServer } from "react-icons/fi";
 
 import { MESSSAGE_STATUS_CODE, ROLE_USER, listOptionServerAgent, statusFieldVideo } from "../../../variables/index";
 import { fetchListAgentServerOfUser, fetchListAdminAgentServerStream, resetAdminAgentServerStream, deleteAgentServerStream, resetAgentServerStream } from "../../../api/Stream/index";
@@ -180,7 +183,7 @@ export default function ServerLiveStreamAgent() {
       Cell: ({ value, row }) => {
         return (
           <Flex>
-            <Icon as={MdComputer} color="gray" w='18px' h='18px' marginRight="7px"/>
+            <FiServer color="#80808080" style={{ width:'20px', height: '20px', marginRight: '7px' }} />
             <Text fontSize="sm" fontWeight={"bold"} color={"black"}>
               {value && truncate(value)}
             </Text>
@@ -218,10 +221,10 @@ export default function ServerLiveStreamAgent() {
             {
               row.original.user_obj ? (
                 <>
-                  <Icon as={MdPersonOutline} color="gray" w='20px' h='20px' marginRight="5px"/>
+                  <FaRegUserCircle color="gray" style={{ width:'20px', height: '20px', marginRight: '7px' }} />
                   <Text
                     colorScheme="black" 
-                    fontWeight={"700"}
+                    fontWeight={"900"}
                     fontSize={{ base: "sm", }}
                     me='8px'>{row.original.user_obj?.fullname && truncate(row.original.user_obj?.fullname)}
                   </Text>
@@ -237,7 +240,6 @@ export default function ServerLiveStreamAgent() {
       accessor: "",
       role: [ROLE_USER.USER_DEFAULT],
       Cell: ({ value, row }) => {
-        console.log('-- row nè ---', row.original)
         return (
           <Flex>
             {
@@ -246,7 +248,7 @@ export default function ServerLiveStreamAgent() {
                   <Icon as={MdPersonOutline} color="gray" w='20px' h='20px' marginRight="5px"/>
                   <Text
                     colorScheme="black" 
-                    fontWeight={"700"}
+                    fontWeight={"900"}
                     fontSize={{ base: "sm", }}
                     me='8px'>{row.original?.reseller_obj?.fullname && truncate(row.original?.reseller_obj?.fullname)}
                   </Text>
@@ -265,7 +267,7 @@ export default function ServerLiveStreamAgent() {
         return (
           <Text
             textColor="blue.700"
-            fontWeight={"700"}
+            fontWeight={"900"}
             fontSize={{ base: "sm", }}
             me='8px'>
             {
@@ -288,7 +290,7 @@ export default function ServerLiveStreamAgent() {
         return (
           <Text
             textColor="blue.700"
-            fontWeight={"700"}
+            fontWeight={"900"}
             fontSize={{ base: "sm", }}
             me='8px'>
             {
@@ -296,7 +298,7 @@ export default function ServerLiveStreamAgent() {
                 <Badge bg='gray.200'>
                     {temp}
                 </Badge>
-              ) : <>{temp}</>
+              ) : <span style={{ color: '#80808080' }}>{temp}</span>
             }
           </Text>
         )
@@ -311,7 +313,7 @@ export default function ServerLiveStreamAgent() {
         return (
           <Text
             textColor="blue.700"
-            fontWeight={"700"}
+            fontWeight={"900"}
             fontSize={{ base: "sm", }}
             me='8px'>
             {
@@ -319,7 +321,7 @@ export default function ServerLiveStreamAgent() {
                 <Badge colorScheme='green'>
                     {temp}
                 </Badge>
-              ) : <>{temp}</>
+              ) : <span style={{ color: '#80808080' }}>{temp}</span>
             }
           </Text>
         )
@@ -334,7 +336,7 @@ export default function ServerLiveStreamAgent() {
         return (
           <Text
             textColor="blue.700"
-            fontWeight={"700"}
+            fontWeight={"900"}
             fontSize={{ base: "sm", }}
             me='8px'>
             {
@@ -342,7 +344,7 @@ export default function ServerLiveStreamAgent() {
                 <Badge colorScheme='blue'>
                     {temp}
                 </Badge>
-              ) : <>{temp}</>
+              ) : <span style={{ color: '#80808080' }}>{temp}</span>
             }
           </Text>
         )
@@ -357,7 +359,7 @@ export default function ServerLiveStreamAgent() {
         return (
           <Text
             textColor="blue.700"
-            fontWeight={"700"}
+            fontWeight={"900"}
             fontSize={{ base: "sm", }}
             me='8px'>
             {
@@ -365,7 +367,7 @@ export default function ServerLiveStreamAgent() {
                 <Badge colorScheme='orange'>
                     {temp}
                 </Badge>
-              ) : <>{temp}</>
+              ) : <span style={{ color: '#80808080' }}>{temp}</span>
             }
           </Text>
         )
@@ -380,15 +382,15 @@ export default function ServerLiveStreamAgent() {
         return (
           <Text
             textColor="blue.700"
-            fontWeight={"700"}
+            fontWeight={"900"}
             fontSize={{ base: "sm", }}
             me='8px'>
             {
               temp !== 0 ? (
-                <Badge colorScheme='red'>
+                <Badge colorScheme='red' >
                     {temp}
                 </Badge>
-              ) : <>{temp}</>
+              ) : <span style={{ color: '#80808080' }}>{temp}</span>
             }
           </Text>
         )
@@ -403,7 +405,7 @@ export default function ServerLiveStreamAgent() {
         return (
           <Text
             textColor="blue.700"
-            fontWeight={"700"}
+            fontWeight={"900"}
             fontSize={{ base: "sm", }}
             me='8px'>
             {
@@ -411,7 +413,7 @@ export default function ServerLiveStreamAgent() {
                 <Badge colorScheme='green'>
                     {temp}
                 </Badge>
-              ) : <>{temp}</>
+              ) : <span style={{ color: '#80808080' }}>{temp}</span>
             }
           </Text>
         )
@@ -459,9 +461,10 @@ export default function ServerLiveStreamAgent() {
       accessor: "",
       Cell: ({ value, row }) =>  {
         return (
-          <Text fontSize={"sm"} fontWeight="bold">
-              {row.original?.expired_at ? formatDate(row.original?.expired_at) : "..."}
-            </Text>
+          <Text fontSize={"sm"} fontWeight="bold" style={{ display: 'flex', alignContent: 'center', alignItems: 'center', color:'#80808080' }}>
+            <MdAccessTime color="#80808080" style={{ width:'20px', height: '20px', marginRight: '7px' }} />
+            {row.original?.expired_at ? formatDate(row.original?.expired_at) : "..."}
+          </Text>
         )
       }
     }, 

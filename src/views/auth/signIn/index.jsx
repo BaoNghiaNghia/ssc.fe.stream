@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback } from "react";
 import { NavLink } from "react-router-dom";
 
 import * as Yup from "yup";
@@ -35,7 +35,7 @@ import illustration from "../../../assets/img/auth/auth.png";
 import { useAuth } from "../../../contexts/authenContext";
 import history from '../../../utils/history';
 import { loginUserApi } from '../../../api/Auth/index';
-import { MESSSAGE_STATUS_CODE, ROLE_USER } from "../../../variables/index";
+import { MESSSAGE_STATUS_CODE } from "../../../variables/index";
 
 import logo from '../../../assets/img/logo.svg';
 
@@ -60,7 +60,6 @@ const SignIn = () => {
     password: Yup.string()
       .required(t('content.required_field'))
       .min(8, t('content.check_number_character'))
-      // .matches(/(?=.*[a-z])(?=.*[A-Z])\w+/, "Password ahould contain at least one uppercase and lowercase character")
       .matches(/\d/, t('content.check_number_password'))
       .matches(/[`!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?~]/, t('content.check_special_character_password')),
   });
@@ -84,9 +83,9 @@ const SignIn = () => {
     try {
       const response = await loginUserApi(values);
       if (response.status === MESSSAGE_STATUS_CODE.SUCCESS.code) {
-        let dataResponse = response.data.data;
-        let {id, ...rest} = dataResponse.user;
-        setToken(dataResponse.token);
+        let dataResponse = response?.data?.data;
+        let {id, ...rest} = dataResponse?.user;
+        setToken(dataResponse?.token);
 
         setProfile(JSON.stringify({
           plan: 'trail',

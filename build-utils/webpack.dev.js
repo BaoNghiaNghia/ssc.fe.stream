@@ -12,11 +12,11 @@ module.exports = {
   ],
   devServer: {
     static: path.resolve(__dirname, '..', './dist'),
-    port: 16100,  // Set the custom port
-    open: true,   // Automatically opens the browser
-    hot: true,    // Enables Hot Module Replacement
-    compress: true,  // Enable gzip compression
-    historyApiFallback: true, // Fallback to index.html for SPA
+    port: 16100,
+    open: true,
+    hot: true,
+    compress: true,
+    historyApiFallback: true,
     host: '0.0.0.0',
     allowedHosts: [
       'localhost',

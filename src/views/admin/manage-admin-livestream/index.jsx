@@ -22,10 +22,11 @@ import { useAuth } from "../../../contexts/authenContext";
 import ModalCustomGeneral from "../../../components/modal/ModalCustomGeneral";
 import FilterHeader from "./components/FilterHeader";
 import CreateNewPackage from "./components/CreateNewPackage";
-import { MdCancel, MdCheckCircle } from "react-icons/md";
+import { MdAccessTime, MdCancel, MdCheckCircle } from "react-icons/md";
 import TableUserManager from "./components/TableUserManager";
 import { adminConfirmUserPackageApi, fetchAdminListApi } from "../../../api/UserPackage";
 import { fetchAdminListUser } from "../../../api/Auth";
+import { FaRegUserCircle } from "react-icons/fa";
 
 export default function ManageAdminLivestream() {
   const [tableList, setTableList] = useState([]);
@@ -104,6 +105,7 @@ export default function ManageAdminLivestream() {
       Cell: ({ value, row }) => {
         return (
           <Flex>
+            <FaRegUserCircle color="#80808080" style={{ width:'20px', height: '20px', marginRight: '7px' }} />
             <Text fontWeight={"600"} color={"black"}>
               {value?.fullname}
             </Text>
@@ -209,9 +211,10 @@ export default function ManageAdminLivestream() {
       accessor: "",
       Cell: ({ value, row }) =>  {
         return (
-          <Text fontSize={"sm"} fontWeight="bold">
-              {row.original?.started_at ? reverseTimeDate(row.original?.started_at) : "..."}
-            </Text>
+          <Text fontSize={"sm"} fontWeight="bold" style={{ display: 'flex', alignContent: 'center', alignItems: 'center', fontStyle: 'italic', color: 'gray' }}>
+            <MdAccessTime color="#80808080" style={{ width:'20px', height: '20px', marginRight: '7px' }} />
+            {row.original?.started_at ? reverseTimeDate(row?.original?.started_at) : "..."}
+          </Text>
         )
       }
     },
@@ -220,9 +223,10 @@ export default function ManageAdminLivestream() {
       accessor: "",
       Cell: ({ value, row }) =>  {
         return (
-          <Text fontSize={"sm"} fontWeight="bold">
-                {row.original?.expired_at ? reverseTimeDate(row.original?.expired_at) : "..."}
-            </Text>
+          <Text fontSize={"sm"} fontWeight="bold" style={{ display: 'flex', alignContent: 'center', alignItems: 'center', fontStyle: 'italic', color: 'gray' }}>
+            <MdAccessTime color="#80808080" style={{ width:'20px', height: '20px', marginRight: '7px' }} />
+            {row.original?.expired_at ? reverseTimeDate(row?.original?.expired_at) : "..."}
+          </Text>
         )
       }
     },
@@ -264,18 +268,19 @@ export default function ManageAdminLivestream() {
       accessor: "",
       role: [ROLE_USER.ADMIN, ROLE_USER.RESELLER],
       Cell: ({ value, row }) => {
-        if (!row.original.confirmed) {
+        if (!row?.original?.confirmed) {
           return (
             <MenuAgent
-              originalData={row.original}
+              originalData={row?.original}
               setMenuSelected={setMenuSelected}
               confirmActivePackage={() => {
                 confirmActivePackage(row.original)
               }}
             />
           )
+        } else {
+          return '...';
         }
-        return;
       }
     },
   ]
@@ -294,7 +299,7 @@ export default function ManageAdminLivestream() {
 
   const handleConfirmConfirmActivePackage= async () => {
     try {
-        const responseConfirmReset = await adminConfirmUserPackageApi({ id: menuSelected.id });
+        const responseConfirmReset = await adminConfirmUserPackageApi({ id: menuSelected?.id });
         if (responseConfirmReset.status === MESSSAGE_STATUS_CODE.SUCCESS.code) {
             toast.success(t(`error_code.${MESSSAGE_STATUS_CODE.SUCCESS.code}`));
             onCloseConfirmPayment();
@@ -302,8 +307,8 @@ export default function ManageAdminLivestream() {
             await handleFetchListUserPack();
         }
     } catch (err) {
-        if (err.response) {
-            toast.error(t(`error_code.${err.response.data.error_code}`));
+        if (err?.response) {
+            toast.error(t(`error_code.${err?.response?.data.error_code}`));
         }
         onCloseConfirmPayment();
     }
@@ -335,7 +340,7 @@ export default function ManageAdminLivestream() {
         handleConfirm={handleConfirmConfirmActivePackage}
       />
       {
-        tableList.length === 0 ? (
+        tableList?.length === 0 ? (
           <TableEmpty
             columnsData={columnsServerAgent}
             tableData={[]}

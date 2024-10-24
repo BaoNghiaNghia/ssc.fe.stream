@@ -38,6 +38,7 @@ import { VIDEO_RESOLUTION_DEFAULT, VIDEO_STREAMING_STATUS } from "../../../../va
 import { reverseTimeDate, toHHMMSS, truncate } from "../../../../utils/handleValidate";
 import MenuVideo from "./MenuVideo";
 import noVideoStreamImg from '../../../../assets/img/no-video-stream.png';
+import { FiServer } from "react-icons/fi";
 
 export default function TableSubRow(props) {
     const {
@@ -100,28 +101,16 @@ export default function TableSubRow(props) {
             accessor: "",
             Cell: ({ value, row }) => {
                 return (
-                    <>
-                        <Text
-                            color={textColor}
-                            fontSize={{
-                                base: "md",
-                            }}
-                            mb='5px'
-                            fontWeight='bold'
-                            me='14px'>
-                            {row.original?.stream_obj?.name}
-                        </Text>
-                        <Text
-                            color='gray.400'
-                            fontSize={{
-                                base: "xs",
-                            }}
-                            mb='5px'
-                            fontWeight='500'
-                            me='14px'>
-                            {row.original?.stream_obj?.description}
-                        </Text>
-                    </>
+                    <Text
+                        color={textColor}
+                        fontSize={{
+                            base: "md",
+                        }}
+                        mb='5px'
+                        fontWeight='bold'
+                        me='14px'>
+                        {row.original?.stream_obj?.name}
+                    </Text>
                 )
             }
         },
@@ -130,7 +119,8 @@ export default function TableSubRow(props) {
             accessor: "",
             Cell: ({ value, row }) => {
                 return (
-                    <>
+                    <div style={{ display: 'flex', alignContent: 'center', alignItems: 'center' }}>
+                        <FiServer color="#80808080" style={{ width:'20px', height: '20px', marginRight: '7px' }} />
                         <Text
                             color={textColor}
                             fontSize={{
@@ -141,7 +131,7 @@ export default function TableSubRow(props) {
                             me='14px'>
                             {row.original?.agent_obj?.name || '...'}
                         </Text>
-                    </>
+                    </div>
                 )
             }
         },
@@ -194,9 +184,7 @@ export default function TableSubRow(props) {
                                 <Badge variant='subtle' colorScheme={VIDEO_RESOLUTION_DEFAULT[row.original.resolution]?.color}>
                                     {VIDEO_RESOLUTION_DEFAULT[row.original.resolution]?.name}
                                 </Badge>
-                            ) : (
-                                '...'
-                            )
+                            ) : <span style={{ color: '#80808080' }}>Chưa có thông tin</span>
                         }
                     </Text>
                 )
@@ -206,68 +194,93 @@ export default function TableSubRow(props) {
             Header: "Video livestream",
             accessor: "",
             Cell: ({ value, row }) => {
-                console.log('--- data video livestream', row?.original)
                 return (
-                    <Text
-                        color='secondaryGray.900'
-                        fontSize={{ base: "sm", }}
-                        fontWeight='500'
-                        me='10px'>
-                        { row?.original?.ytb_live_link }
-                    </Text>
+                    <>
+                        { 
+                            row?.original?.ytb_live_link ? (
+                                <Text
+                                    color='secondaryGray.900'
+                                    fontSize={{ base: "sm", }}
+                                    fontWeight='500'
+                                    me='10px'>
+                                    {row?.original?.ytb_live_link}
+                                </Text>
+                            ) : <span style={{ color: '#80808080' }}>Chưa có thông tin</span>
+                        }
+                    </>
                 )
             }
         },
         {
             Header: "Trạng thái",
             accessor: "",
-            Cell: ({ value, row }) => {
-                let statusID = VIDEO_STREAMING_STATUS[row.original.status]?.id;
+            Cell: ({ row }) => {
+                const status = row.original.status;
+                const statusData = VIDEO_STREAMING_STATUS[status];
+                const statusID = statusData?.id;
+                
                 return (
-                    <div style={{textAlign: "center"}}>
-                        <Tooltip label={row.original?.status_label || VIDEO_STREAMING_STATUS[row.original.status]?.message} placement="top">
-                            <Text w="fit-content" style={{ display: "inline-flex" }} borderRadius="3px" py="3px" px="6px" fontSize="13px"
-                                bg={VIDEO_STREAMING_STATUS[row.original.status]?.color}
-                                color={VIDEO_STREAMING_STATUS[row.original.status]?.textColor}
-                            >
-                                {
-                                    (statusID === 6) ? (
+                    <div style={{ textAlign: "left" }}>
+                        <Tooltip 
+                            label={row.original?.status_label || statusData?.message} 
+                            placement="top"
+                        >
+                            <span style={{ display: 'flex', alignContent: 'center', alignItems: 'center' }}>
+                                <Text 
+                                    w="fit-content" 
+                                    style={{ display: "inline-flex" }} 
+                                    borderRadius="8px" 
+                                    py="3px" 
+                                    px="6px" 
+                                    fontSize="13px"
+                                    bg={statusData?.color}
+                                    color={statusData?.textColor}
+                                >
+                                    {statusID === 6 ? (
                                         <UseAnimations 
                                             name="download"
-                                            animation={download} size={22}
-                                            className="animation-icon" loop={false} autoplay={false}
-                                            fillColor={VIDEO_STREAMING_STATUS[row.original.status]?.textColor}
-                                            strokeColor={VIDEO_STREAMING_STATUS[row.original.status]?.textColor}
+                                            animation={download} 
+                                            size={20}
+                                            className="animation-icon" 
+                                            loop={false} 
+                                            autoplay={false}
+                                            fillColor={statusData.textColor}
+                                            strokeColor={statusData.textColor}
                                         />
-                                    ) : (statusID === 1) ? (
+                                    ) : statusID === 1 ? (
                                         <UseAnimations 
                                             name="activity"
-                                            animation={activity} size={22}
-                                            className="animation-icon" autoplay={true} 
-                                            fillColor={VIDEO_STREAMING_STATUS[row.original.status]?.textColor}
-                                            strokeColor={VIDEO_STREAMING_STATUS[row.original.status]?.textColor}
+                                            animation={activity} 
+                                            size={20}
+                                            className="animation-icon" 
+                                            autoplay={true} 
+                                            fillColor={statusData.textColor}
+                                            strokeColor={statusData.textColor}
                                         />
                                     ) : (
                                         <Icon 
-                                            as={VIDEO_STREAMING_STATUS[row.original.status]?.icon}
-                                            w='15px' h='auto' mr="3px"
-                                            color={VIDEO_STREAMING_STATUS[row.original.status]?.textColor}
+                                            as={statusData?.icon}
+                                            w='20px' 
+                                            fontWeight={800}
+                                            h='auto' 
+                                            color={statusData?.textColor}
                                         />
-                                    )
-                                }
-                                {VIDEO_STREAMING_STATUS[row.original.status]?.message}
-                            </Text>
+                                    )}
+                                </Text>
+                                {/* <span style={{ marginLeft: '8px' }} >{row.original?.status_label || statusData?.message}</span> */}
+                                <span style={{ marginLeft: '8px' }} >{statusData?.message}</span>
+                            </span>
                         </Tooltip>
                     </div>
-                )
+                );
             }
-        },
+        },        
         {
             Header: "Hành động",
             accessor: "",
             Cell: ({ value, row }) => {
                 return (
-                    <div style={{textAlign: "center"}}>
+                    <div style={{marginLeft: '20px'}}>
                         <MenuVideo
                             setMenuSelected={setMenuSelected}
                             dataVideo={row.original}
@@ -291,7 +304,6 @@ export default function TableSubRow(props) {
             columns,
             data,
             getTrProps: (state, rowInfo, column, instance) => {
-                // Define your getTrProps function here if needed
                 return {};
             }
         },
@@ -340,7 +352,7 @@ export default function TableSubRow(props) {
             <Tbody {...getTableBodyProps()}>
                 {isLoading ? (
                     <Tr>
-                        <Td colSpan={columns.length} textAlign="center">
+                        <Td colSpan={columns.length} textAlign="left">
                             <Spinner />
                         </Td>
                     </Tr>
@@ -373,9 +385,9 @@ export default function TableSubRow(props) {
                     })
                 ) : (
                     <Tr>
-                        <Td colSpan={columns.length} textAlign="center">
+                        <Td colSpan={columns.length} textAlign="left">
                             <Image src={noVideoStreamImg} alt="No Video Stream" />
-                            <Text>No Data Available</Text>
+                            <Text>Không có dữ liệu</Text>
                         </Td>
                     </Tr>
                 )}

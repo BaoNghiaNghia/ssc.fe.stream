@@ -13,6 +13,8 @@ import {
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
 
+import { HiOutlineMail } from "react-icons/hi";
+
 import { MESSSAGE_STATUS_CODE } from "../../../variables/index";
 
 import TableEmpty from "../list-user-livestream/components/TableEmpty";
@@ -21,6 +23,7 @@ import FilterHeader from "./components/FilterHeader";
 import TableUserManager from "./components/TableUserManager";
 import { fetchAdminListUser } from "../../../api/Auth";
 import CreateNewUser from "./components/CreateNewPackage";
+import { FaRegUserCircle } from "react-icons/fa";
 
 export default function ListAccountUser() {
   const [isLoading, setIsLoading] = useState(false);
@@ -66,6 +69,7 @@ export default function ListAccountUser() {
       Cell: ({ value, row }) => {
         return (
           <Flex>
+            <FaRegUserCircle color="gray" style={{ width:'20px', height: '20px', marginRight: '7px' }} />
             <Text fontSize="sm" fontWeight={"600"} color={"black"}>
               {value}
             </Text>
@@ -80,6 +84,7 @@ export default function ListAccountUser() {
       Cell: ({ value, row }) => {
         return (
           <Flex>
+            <HiOutlineMail color="#80808080" style={{ width:'20px', height: '20px', marginRight: '7px' }} />
             <Text fontSize="sm" fontWeight={"500"} color={"gray.500"}>
               {value}
             </Text>

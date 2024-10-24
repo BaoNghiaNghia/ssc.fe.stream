@@ -147,15 +147,15 @@ export default function EditUserStream(props) {
                         Channel ID<Text color={brandStars}>*</Text>
                     </FormLabel>
                     <Input
-                        name="description"
-                        value={formik.values.description}
-                        onChange={(e) => setInputValue("description", e.target.value)}
+                        name="channel_id"
+                        value={formik.values.channel_id}
+                        onChange={(e) => setInputValue("channel_id", e.target.value)}
                         isRequired={true}
                         fontSize='sm'
                         size='lg'
                     />
-                    {formik.errors.description && formik.touched.description && (
-                        <p className="text-error">{formik.errors.description}</p>
+                    {formik.errors.channel_id && formik.touched.channel_id && (
+                        <p className="text-error">{formik.errors.channel_id}</p>
                     )}
                     <FormHelperText fontSize='sm' color='gray.500' textAlign={'left'}>
                         Sử dụng để kiểm tra trạng thái livestream của video youtube

@@ -9,13 +9,11 @@ import { Box, useColorModeValue } from "@chakra-ui/react";
 import SidebarContext from "../../contexts";
 
 import { routesForNotAuthenticated } from "../../routes.js";
-// import ErrorBoundary from "../../components/errorBoundary/ErrorBoundary";
 
 // Custom Chakra theme
 export default function Auth() {
   // states and functions
   const [toggleSidebar, setToggleSidebar] = useState(false);
-  // functions for changing the states from components
   const getRoute = () => {
     return window.location.pathname !== "/auth/full-screen-maps";
   };
@@ -44,8 +42,6 @@ export default function Auth() {
   document.documentElement.dir = "ltr";
   return (
     <Box>
-      {/* <ErrorBoundary>
-      </ErrorBoundary> */}
       <SidebarContext.Provider
         value={{
           toggleSidebar,

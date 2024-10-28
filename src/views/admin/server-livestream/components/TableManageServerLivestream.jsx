@@ -20,17 +20,13 @@ import {
     usePagination,
     useSortBy,
     useTable,
-    useBlockLayout
   } from "react-table";
-  import { useSticky } from "react-table-sticky";
   
   // Custom components
   import Card from "../../../../components/card/Card";
   import Pagination from '../../../../components/paginationCustom/Pagination';
 
   export default function TableManageServerLivestream(props) {
-  
-    const textColor = useColorModeValue("secondaryGray.900", "white");
     const borderColor = useColorModeValue("gray.200", "whiteAlpha.100");
   
     const { 

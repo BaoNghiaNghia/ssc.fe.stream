@@ -121,7 +121,7 @@ export default function MenuAgent(props) {
         _active={bgFocus}
         w='37px'
         h='37px'
-        border="2px solid #dddddd"
+        border="1px solid #dddddd"
         lineHeight='100%'
         onClick={onOpen1}
         borderRadius='10px'
@@ -135,11 +135,11 @@ export default function MenuAgent(props) {
         backdropFilter='blur(63px)'
         bg={bgList}
         boxShadow={bgShadow}
-        borderRadius='20px'
-        p='10px'>
+        borderRadius='10px'
+        p='5px'>
         {
           groupVideoMenu.map((item, index) => {
-            if (item.role.includes(getCurrRoleUser(profile))) {
+            if (item?.role?.includes(getCurrRoleUser(profile))) {
               return (
                 <MenuItem
                   key={index}
@@ -164,7 +164,7 @@ export default function MenuAgent(props) {
                     <Icon as={item.icons} h='16px' w='16px' mr='8px' />
                     <Text fontSize='md' color="black" fontWeight='400'>
                       {
-                        (item.title === 'Gán User') ? (originalData?.user_obj ? 'Hủy Gán User' : 'Gán User') : (item.title === 'Gán Reseller') ? (originalData?.reseller_obj ? 'Hủy Gán Reseller' : 'Gán Reseller' ) : item.title 
+                        (item?.title === 'Gán User') ? (originalData?.user_obj ? 'Hủy Gán User' : 'Gán User') : (item?.title === 'Gán Reseller') ? (originalData?.reseller_obj ? 'Hủy Gán Reseller' : 'Gán Reseller' ) : item?.title 
                       }
                     </Text>
                   </Flex>

@@ -12,16 +12,10 @@ import {
   useDisclosure,
   useColorModeValue,
 } from "@chakra-ui/react";
-// Assets
+
 import {
   MdOutlineMoreHoriz,
-  MdCancel,
   MdDeleteOutline,
-  MdOutlinePerson,
-  MdPlayArrow,
-  MdEditSquare,
-  MdLockReset,
-  MdOutlineAssignmentInd,
 } from "react-icons/md";
 
 export default function MenuAgent(props) {
@@ -34,8 +28,8 @@ export default function MenuAgent(props) {
   
   const groupVideoMenu = [
     {
-      title: 'Xác nhận',
-      icons: MdEditSquare,
+      title: 'Xóa',
+      icons: MdDeleteOutline,
       action: confirmActivePackage
     },
   ]
@@ -79,7 +73,7 @@ export default function MenuAgent(props) {
         _active={bgFocus}
         w='37px'
         h='37px'
-        border="2px solid #dddddd"
+        border="1px solid #dddddd"
         lineHeight='100%'
         onClick={onOpen1}
         borderRadius='10px'
@@ -93,10 +87,10 @@ export default function MenuAgent(props) {
         backdropFilter='blur(63px)'
         bg={bgList}
         boxShadow={bgShadow}
-        borderRadius='20px'
-        p='15px'>
+        borderRadius='10px'
+        p='5px'>
         {
-          groupVideoMenu.map((item, index) => {
+          groupVideoMenu?.map((item, index) => {
             return (
               <MenuItem
                 key={index}
@@ -116,11 +110,12 @@ export default function MenuAgent(props) {
                   item.action()
                   setMenuSelected(originalData)
                 }}
-                mx="15px">
+                mx="15px"
+              >
                 <Flex align='center'>
                   <Icon as={item.icons} h='16px' w='16px' mr='8px' />
                   <Text fontSize='md' color="black" fontWeight='400'>
-                    {item.title}
+                    {item?.title}
                   </Text>
                 </Flex>
               </MenuItem>

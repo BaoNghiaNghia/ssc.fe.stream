@@ -15,9 +15,10 @@ import { useTranslation } from "react-i18next";
 
 import { HiOutlineMail } from "react-icons/hi";
 
-import { MESSSAGE_STATUS_CODE } from "../../../variables/index";
+import { MESSSAGE_STATUS_CODE, ROLE_USER } from "../../../variables/index";
 
 import TableEmpty from "../list-user-livestream/components/TableEmpty";
+import MenuAgent from "./components/MenuAgent";
 import ModalCustomGeneral from "../../../components/modal/ModalCustomGeneral";
 import FilterHeader from "./components/FilterHeader";
 import TableUserManager from "./components/TableUserManager";
@@ -29,6 +30,7 @@ export default function ListAccountUser() {
   const [isLoading, setIsLoading] = useState(false);
   const [paginationData, setPaginationData] = useState({});
   const [selectedAgentServer, setSelectedAgentServer] = useState({});
+  const [menuSelected, setMenuSelected] = useState();
 
   const [listAdminUser, setListAdminUser] = useState([]);
 
@@ -55,6 +57,10 @@ export default function ListAccountUser() {
             toast.error(t(`error_code.${err.response.data.error_code}`));
         }
     }
+  }
+
+  const detailAgentServer = (item) => {
+    console.log(' ---- show user for action ---- ', item)
   }
 
   useEffect(() => {
@@ -93,6 +99,25 @@ export default function ListAccountUser() {
       }
     }
   ];
+  
+  const columnAction = [
+    {
+      Header: "Hành động",
+      accessor: "",
+      role: [ROLE_USER.ADMIN],
+      Cell: ({ value, row }) => {
+        return (
+          <MenuAgent
+            originalData={row.original}
+            setMenuSelected={setMenuSelected}
+            detailAgentServer={() => {
+              detailAgentServer(row.original)
+            }}
+          />
+        )
+      }
+    },
+  ]
 
   const handleOpenModalCreateAgent = () => {
     onOpenNewAgentServer();
@@ -118,12 +143,12 @@ export default function ListAccountUser() {
         templateRows='repeat(1, 1fr)'
         templateColumns='repeat(2, 1fr)'
         gap={2}
-        >
+      >
         <GridItem colSpan={1} margin="auto 0">     
           {
             listAdminUser.length === 0 ? (
               <TableEmpty
-                columnsData={columnsListUser}
+                columnsData={[...columnsListUser, ...columnAction]}
                 tableData={[]}
               />
             ) : (
@@ -135,7 +160,7 @@ export default function ListAccountUser() {
                     onModalCreate={handleOpenModalCreateAgent}
                   />
                 }
-                columnsData={columnsListUser}
+                columnsData={[...columnsListUser, ...columnAction]}
                 tableData={listAdminUser}
                 handleFetchResource={handleFetchListUserDetail}
               />

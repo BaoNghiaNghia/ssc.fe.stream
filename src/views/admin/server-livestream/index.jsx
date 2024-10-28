@@ -1,6 +1,6 @@
 /* eslint-disable */
 // Chakra imports
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Flex,
@@ -32,7 +32,7 @@ import FilterHeader from "./components/FilterHeader";
 import CreateAgentServer from "./components/CreateAgentServer";
 import DetailAgentServer from "./components/DetailAgentServer";
 import AssignAgentFor from "./components/AssignAgentFor";
-import { MdComputer, MdLockReset, MdPersonOutline } from "react-icons/md";
+import { MdLockReset, MdPersonOutline } from "react-icons/md";
 import { truncate } from "lodash";
 import FormFilterCustom from "./components/FormFilterCustom";
 import AssignResellerFor from "./components/AssignResellerFor";
@@ -224,7 +224,7 @@ export default function ServerLiveStreamAgent() {
                   <FaRegUserCircle color="#80808080" style={{ width:'30px', height: '30px', marginRight: '9px' }} />
                   <Text
                     colorScheme="black" 
-                    fontWeight={"900"}
+                    fontWeight={"500"}
                     fontSize={{ base: "sm", }}
                     me='8px'>{row.original.user_obj?.fullname && truncate(row.original.user_obj?.fullname)}
                   </Text>
@@ -452,7 +452,7 @@ export default function ServerLiveStreamAgent() {
           />
         )
       }
-    },
+    }
   ]
 
   const columnsAdminServerAgent = [...columnsServerAgent,
@@ -570,7 +570,6 @@ export default function ServerLiveStreamAgent() {
 
             window.location.reload();
             await handleFetchAgentServerOfUserOriginal();
-
         }
     } catch (err) {
         if (err.response) {
@@ -584,7 +583,7 @@ export default function ServerLiveStreamAgent() {
     try {
       if (checkRoleUser(profile, ROLE_USER.ADMIN) || checkRoleUser(profile, ROLE_USER.RESELLER)) {
         const responseConfirmReset = await resetAdminAgentServerStream({ id: menuSelected.id });
-        if (responseConfirmReset.status === MESSSAGE_STATUS_CODE.SUCCESS.code) {
+        if (responseConfirmReset?.status === MESSSAGE_STATUS_CODE.SUCCESS.code) {
             toast.success(t(`error_code.${MESSSAGE_STATUS_CODE.SUCCESS.code}`));
             onCloseResetAgent();
             _sleep(500);
@@ -593,7 +592,7 @@ export default function ServerLiveStreamAgent() {
         }
       } else if (checkRoleUser(profile, ROLE_USER.USER_DEFAULT)) {
         const responseConfirmReset = await resetAgentServerStream({ id: menuSelected.id });
-        if (responseConfirmReset.status === MESSSAGE_STATUS_CODE.SUCCESS.code) {
+        if (responseConfirmReset?.status === MESSSAGE_STATUS_CODE.SUCCESS.code) {
             toast.success(t(`error_code.${MESSSAGE_STATUS_CODE.SUCCESS.code}`));
             onCloseResetAgent();
             _sleep(500);
@@ -663,7 +662,6 @@ export default function ServerLiveStreamAgent() {
           />
         }
       />
-
       <ModalCustomGeneral
         size={"lg"}
         isOpen={isOpenAssignAgentResellerServer}
@@ -677,7 +675,6 @@ export default function ServerLiveStreamAgent() {
           />
         }
       />
-
       <ModalCustomGeneral
         size="xl"
         isOpen={isOpenResetAgent}
@@ -687,7 +684,6 @@ export default function ServerLiveStreamAgent() {
         footer={true}
         handleConfirm={handleConfirmResetAgent}
       />
-
       <ModalCustomGeneral
         size="xl"
         isOpen={isOpenDelAgentServer}
@@ -755,7 +751,6 @@ export default function ServerLiveStreamAgent() {
                 ? [...columnsAdminServerAgent, ...columnAction]
                 : [...columnsServerAgent, ...columnAction]
             }
-            // tableData={[]}
             tableData={tableServerLivestream || []}
             handleFetchResource={handleFetchAgentServerOfUserOriginal}
           />

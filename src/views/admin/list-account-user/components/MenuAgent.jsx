@@ -20,7 +20,7 @@ import {
 
 export default function MenuAgent(props) {
   const {
-    confirmActivePackage,
+    deleteUserRequest,
     setMenuSelected,
     originalData,
     ...rest
@@ -30,7 +30,7 @@ export default function MenuAgent(props) {
     {
       title: 'Xóa',
       icons: MdDeleteOutline,
-      action: confirmActivePackage
+      action: deleteUserRequest
     },
   ]
 

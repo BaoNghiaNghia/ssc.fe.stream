@@ -22,7 +22,7 @@ import MenuAgent from "./components/MenuAgent";
 import ModalCustomGeneral from "../../../components/modal/ModalCustomGeneral";
 import FilterHeader from "./components/FilterHeader";
 import TableUserManager from "./components/TableUserManager";
-import { fetchAdminListUser } from "../../../api/Auth";
+import { deleteUserAPI, fetchAdminListUser } from "../../../api/Auth";
 import CreateNewUser from "./components/CreateNewPackage";
 import { FaRegUserCircle } from "react-icons/fa";
 
@@ -47,20 +47,32 @@ export default function ListAccountUser() {
     try {
         const responseEdit = await fetchAdminListUser(params || {});
         if (responseEdit.status === MESSSAGE_STATUS_CODE.SUCCESS.code) {
-            setListAdminUser(responseEdit.data.data.users);
-            setPaginationData(responseEdit.data.data.meta);
+            setListAdminUser(responseEdit?.data?.data?.users);
+            setPaginationData(responseEdit?.data?.data?.meta);
         }
         setIsLoading(false);
       } catch (err) {
         setIsLoading(false);
         if (err.response) {
-            toast.error(t(`error_code.${err.response.data.error_code}`));
+            toast.error(t(`error_code.${err?.response?.data?.error_code}`));
         }
     }
   }
 
-  const detailAgentServer = (item) => {
-    console.log(' ---- show user for action ---- ', item)
+  const deleteUserRequest = async (userObj) => {
+    setIsLoading(true);
+    try {
+      const responseDelete = await deleteUserAPI({ id: userObj?.id });
+      if (responseDelete.status === MESSSAGE_STATUS_CODE.SUCCESS.code) {
+        handleFetchListUserDetail();
+        toast.success('Xóa người dùng thành công!');
+      }
+    } catch (err) {
+      setIsLoading(false);
+      if (err.response) {
+          toast.error(t(`error_code.${err?.response?.data?.error_code}`));
+      }
+    }
   }
 
   useEffect(() => {
@@ -110,8 +122,8 @@ export default function ListAccountUser() {
           <MenuAgent
             originalData={row.original}
             setMenuSelected={setMenuSelected}
-            detailAgentServer={() => {
-              detailAgentServer(row.original)
+            deleteUserRequest={() => {
+              deleteUserRequest(row.original)
             }}
           />
         )

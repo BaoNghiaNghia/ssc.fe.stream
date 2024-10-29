@@ -1,8 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
 body {
-  /* font-family: "DM Sans", sans-serif; */
   font-family: 'Inter', sans-serif !important;
 }
 
@@ -51,7 +47,7 @@ input.largerCheckbox {
 
 .Toastify__toast--error {
   color: #EB5757;
-  border-radius: 10px !important;
+  border-radius: 4px !important;
   background: white !important;
 }
 
@@ -72,7 +68,7 @@ input.largerCheckbox {
 
 .Toastify__toast--success {
   color: '#3A9EA5' !important;
-  border-radius: 10px !important;
+  border-radius: 4px !important;
   background: white !important;
 }
 
@@ -94,7 +90,7 @@ input.largerCheckbox {
 
 .Toastify__toast--warning {
   color: '#E78326' !important;
-  border-radius: 10px !important;
+  border-radius: 4px !important;
   background: white !important;
 }
 

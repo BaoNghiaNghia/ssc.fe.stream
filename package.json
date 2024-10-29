@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "export SET NODE_OPTIONS=--openssl-legacy-provider && webpack serve --config build-utils/webpack.config.js --env env=dev",
+    "start:dev": "pm2 start npm --name 'SSC Stream' --node-args='--max-old-space-size=8192' -- run start",
     "start:prod": "export SET NODE_OPTIONS=--openssl-legacy-provider && webpack serve --config build-utils/webpack.config.js --env env=prod",
-    "start:pm2": "pm2 start npm --name 'SSC Stream' --node-args='--max-old-space-size=8192' -- run start",
     "build": "webpack --config build-utils/webpack.config.js --env env=${VENDOR}",
     "build:atan": "VENDOR=atan BUILD='./build_mkstream_atan' npm run build",
     "build:production": "VENDOR=prod npm run build",

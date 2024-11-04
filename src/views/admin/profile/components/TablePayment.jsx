@@ -12,7 +12,8 @@ import {
     Th,
     Tr,
     Td,
-    Badge
+    Badge,
+    Image
 } from "@chakra-ui/react";
   
 import {
@@ -22,6 +23,8 @@ import {
       useTable,
 } from "react-table";
 import { MdAccessTime, MdCancel, MdCheckCircle } from "react-icons/md";
+
+import emptyBackgroundImage from '../../../../assets/img/empty_bg_2.png';
 
 export default function TablePayment(props) {
 
@@ -61,17 +64,13 @@ export default function TablePayment(props) {
     let bodyWithNoData = () => {
         return (
             <Tr>
-                <Td></Td>
-                <Td></Td>
-                <Td></Td>
-                <Td></Td>
-                <Td colSpan={columns.length} style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                    <Text>Không có dữ liệu</Text>
+                <Td colSpan={columns.length} textAlign="center" py={8}>
+                    <Flex flexDirection="column" alignItems="center">
+                    <Image src={emptyBackgroundImage} alt="No Video Stream" width="20%" mb={4} />
+                    <Text fontSize="lg" fontWeight="bold" color="gray.600" className="pb-1">Không có dữ liệu</Text>
+                    <Text fontSize="md" color="gray.500">Hãy tiến hành mua gói mới để bắt đầu.</Text>
+                    </Flex>
                 </Td>
-                <Td></Td>
-                <Td></Td>
-                <Td></Td>
-                <Td></Td>
             </Tr>
         );
     };

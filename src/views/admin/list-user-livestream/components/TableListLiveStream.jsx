@@ -14,7 +14,8 @@ import {
   SimpleGrid,
   Button,
   Icon,
-  FormControl
+  FormControl,
+  Image
 } from "@chakra-ui/react";
 
 import React, { useEffect, useMemo, useState } from "react";
@@ -29,9 +30,11 @@ import {
 // Custom components
 import Card from "../../../../components/card/Card";
 import Pagination from '../../../../components/paginationCustom/Pagination';
+
+import emptyBackgroundImage from '../../../../assets/img/empty_bg_2.png';
+
 export default function TableListLiveStream(props) {
 
-  const textColor = useColorModeValue("secondaryGray.900", "white");
   const borderColor = useColorModeValue("gray.200", "whiteAlpha.100");
 
   const { 
@@ -78,17 +81,13 @@ export default function TableListLiveStream(props) {
   const bodyWithoutData = () => {
     return (
       <Tr>
-        <Td></Td>
-        <Td></Td>
-        <Td></Td>
-        <Td></Td>
-        <Td colSpan={columns.length} style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-          <Text>Không có dữ liệu</Text>
+        <Td colSpan={columns.length} textAlign="center" py={8}>
+          <Flex flexDirection="column" alignItems="center">
+            <Image src={emptyBackgroundImage} alt="No Video Stream" width="20%" mb={4} />
+            <Text fontSize="lg" fontWeight="bold">Không có dữ liệu</Text>
+            <Text fontSize="md" color="gray.500">Hãy thêm một video stream để bắt đầu.</Text>
+          </Flex>
         </Td>
-        <Td></Td>
-        <Td></Td>
-        <Td></Td>
-        <Td></Td>
       </Tr>
     )
   };

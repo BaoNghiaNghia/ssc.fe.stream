@@ -1,6 +1,7 @@
 /* eslint-disable */
 import {
   Flex,
+  Image,
   Table,
   Tbody,
   Td,
@@ -13,6 +14,8 @@ import {
 import React, { useMemo } from "react";
 import { useGlobalFilter, usePagination, useSortBy, useTable } from "react-table";
 import Card from "../../../../components/card/Card";
+
+import emptyBackgroundImage from '../../../../assets/img/empty_bg_2.png';
 
 export default function TableListLiveStream({ columnsData, tableData, filterHeader }) {
   const borderColor = useColorModeValue("gray.200", "whiteAlpha.100");
@@ -31,8 +34,12 @@ export default function TableListLiveStream({ columnsData, tableData, filterHead
 
   const renderNoData = () => (
     <Tr>
-      <Td colSpan={columns.length} textAlign="center">
-        <Text textAlign="center">Không có dữ liệu</Text>
+      <Td colSpan={columns.length} textAlign="center" py={8}>
+        <Flex flexDirection="column" alignItems="center">
+          <Image src={emptyBackgroundImage} alt="No Video Stream" width="20%" mb={4} />
+          <Text fontSize="lg" fontWeight="bold">Không có dữ liệu</Text>
+          <Text fontSize="md" color="gray.500">Hãy thêm một video / luồng để bắt đầu.</Text>
+        </Flex>
       </Td>
     </Tr>
   );

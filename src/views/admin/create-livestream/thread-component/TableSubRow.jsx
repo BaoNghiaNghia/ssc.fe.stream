@@ -387,11 +387,15 @@ export default function TableSubRow(props) {
                     })
                 ) : (
                     <Tr>
-                        <Td colSpan={columns?.length} style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                            <Image src={noVideoStreamImg} alt="No Video Stream" style={{ width: '20%' }} />
-                            <Text>Không có dữ liệu</Text>
+                        <Td colSpan={columns?.length} textAlign="center" py={8}>
+                            <Flex flexDirection="column" alignItems="center" justifyContent="center">
+                            <Image src={noVideoStreamImg} alt="No Video Stream" width="20%" my={4} />
+                            <Text fontSize="lg" fontWeight="bold" color="gray.600" className="mb-1">Không có dữ liệu</Text>
+                            <Text fontSize="md" color="gray.500">Hãy thêm luồng mới để bắt đầu.</Text>
+                            </Flex>
                         </Td>
                     </Tr>
+
                 )}
             </Tbody>
         </Table>

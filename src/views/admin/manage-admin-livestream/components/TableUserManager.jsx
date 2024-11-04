@@ -10,7 +10,8 @@ import {
     Thead,
     Tr,
     useColorModeValue,
-    FormControl
+    FormControl,
+    Image
   } from "@chakra-ui/react";
   
   import React, { useEffect, useMemo, useState } from "react";
@@ -27,9 +28,9 @@ import {
   import Card from "../../../../components/card/Card";
   import Pagination from '../../../../components/paginationCustom/Pagination';
 
+  import emptyBackgroundImage from '../../../../assets/img/empty_bg_2.png';
+
   export default function TableUserManager(props) {
-  
-    const textColor = useColorModeValue("secondaryGray.900", "white");
     const borderColor = useColorModeValue("gray.200", "whiteAlpha.100");
   
     const { 
@@ -80,7 +81,8 @@ import {
           <Td></Td>
           <Td></Td>
           <Td></Td>
-          <Td colSpan={columns.length} style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+          <Td colSpan={columns?.length} style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+            <Image src={emptyBackgroundImage} alt="No Video Stream" />
             <Text>Không có dữ liệu</Text>
           </Td>
           <Td></Td>
@@ -159,7 +161,7 @@ import {
         </Card>
         <Pagination
           color="blue"
-          typeName="livesstream"
+          typeName="livestream"
           currentPage={currentPage}
           totalCount={paginationData.total}
           pageSize={paginationData.per_page}

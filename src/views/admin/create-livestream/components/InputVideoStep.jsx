@@ -28,7 +28,6 @@ import {
 import { useTranslation } from 'react-i18next';
 
 import { IoAddCircleOutline, IoRemoveCircleOutline } from 'react-icons/io5';
-import history from '../../../../utils/history';
 import VideoCardInfo from "./VideoCardInfo";
 import noVideoStreamImg from '../../../../assets/img/no-video-stream.png';
 

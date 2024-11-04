@@ -23,6 +23,7 @@ export const renderThumb = ({ style, ...props }) => {
     borderRadius: 15,
     background: "rgba(222, 222, 222, .1)",
   };
+
   return <div style={{ ...style, ...thumbStyle }} {...props} />;
 };
 export const renderView = ({ style, ...props }) => {

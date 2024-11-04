@@ -19,7 +19,7 @@ export default function TabPayment(props) {
     let tableData = [];
 
     return (
-        <Card mb={{ base: "20px", lg: "20px" }}>
+        <Card mb={{ base: "20px", lg: "20px" }} style={{ boxShadow: 'none' }}>
             <Flex justify='space-between' mx="30px" mt="30px" mb='37px' display="flex">
                 <Text color="black" align="left" pb="10px" fontSize={"lg"} fontWeight="bold">
                     Lịch sử giao dịch

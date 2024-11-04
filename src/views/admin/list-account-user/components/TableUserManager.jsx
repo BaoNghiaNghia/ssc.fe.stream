@@ -2,14 +2,14 @@
 import {
     Flex,
     Table,
-    Checkbox,
     Tbody,
     Td,
     Text,
     Th,
     Thead,
     Tr,
-    useColorModeValue
+    useColorModeValue,
+    Image
   } from "@chakra-ui/react";
   
   import React, { useEffect, useMemo, useState } from "react";
@@ -19,12 +19,13 @@ import {
     usePagination,
     useSortBy,
     useTable,
-    useBlockLayout
   } from "react-table";
   
   // Custom components
   import Card from "../../../../components/card/Card";
   import Pagination from '../../../../components/paginationCustom/Pagination';
+
+  import emptyBackgroundImage from '../../../../assets/img/empty_bg_2.png';
 
   export default function TableUserManager(props) {
   
@@ -74,17 +75,10 @@ import {
     const bodyWithoutData = () => {
       return (
         <Tr>
-          <Td></Td>
-          <Td></Td>
-          <Td></Td>
-          <Td></Td>
-          <Td colSpan={columns.length} style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+          <Td colSpan={columns?.length} style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+            <Image src={emptyBackgroundImage} alt="No Video Stream" />
             <Text>Không có dữ liệu</Text>
           </Td>
-          <Td></Td>
-          <Td></Td>
-          <Td></Td>
-          <Td></Td>
         </Tr>
       )
     };

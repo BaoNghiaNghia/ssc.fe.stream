@@ -2,7 +2,6 @@
 import {
     Flex,
     Table,
-    Checkbox,
     Tbody,
     Td,
     Text,
@@ -10,7 +9,7 @@ import {
     Thead,
     Tr,
     useColorModeValue,
-    FormControl
+    Image
   } from "@chakra-ui/react";
   
   import React, { useEffect, useMemo, useState } from "react";
@@ -25,6 +24,7 @@ import {
   // Custom components
   import Card from "../../../../components/card/Card";
   import Pagination from '../../../../components/paginationCustom/Pagination';
+  import emptyBackgroundImage from '../../../../assets/img/empty_bg_2.png';
 
   export default function TableManageServerLivestream(props) {
     const borderColor = useColorModeValue("gray.200", "whiteAlpha.100");
@@ -77,7 +77,8 @@ import {
           <Td></Td>
           <Td></Td>
           <Td></Td>
-          <Td colSpan={columns.length} style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+          <Td colSpan={columns?.length} style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+            <Image src={emptyBackgroundImage} alt="No Video Stream" />
             <Text>Không có dữ liệu</Text>
           </Td>
           <Td></Td>

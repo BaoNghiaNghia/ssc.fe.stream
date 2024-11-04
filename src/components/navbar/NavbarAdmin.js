@@ -39,7 +39,6 @@ export default function AdminNavbar(props) {
 	const navbarBg = useColorModeValue('rgba(244, 247, 254, 0.2)', 'rgba(11,20,55,0.5)');
 	const navbarBorder = 'transparent';
 	const secondaryMargin = '0px';
-	const paddingX = '15px';
 	let menuColor = useColorModeValue("gray.600", "white");
 	const gap = '0px';
 

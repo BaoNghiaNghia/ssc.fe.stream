@@ -96,12 +96,19 @@ export default function TablePayment(props) {
                                 </Flex>
                             );
                         } else if (cell.column.Header === "TÊN GÓI") {
+                            const badgeStyle = cell?.value === "premium" 
+                                ? { background: 'linear-gradient(45deg, rgb(0, 128, 255) 0%, rgb(250, 82, 82) 100%)', color: 'white' } 
+                                : { background: 'green', color: 'white' }; // Adjust the color for "Normal" as needed
+
                             data = (
                                 <Flex align='center'>
-                                    <Text color={textColor} fontSize='sm' fontWeight='500'>
-                                    <Badge variant='subtle' borderColor="white" bgColor='green' justifyContent="center"  color="white"
-                                    alignContent="center">{cell?.value?.toUpperCase()}</Badge>
-                                    </Text>
+                                    <Badge
+                                        style={{ ...badgeStyle, fontWeight: 500, borderRadius: '6px'}}
+                                        justifyContent="center"
+                                        alignContent="center"
+                                    >
+                                        {cell?.value}
+                                    </Badge>
                                 </Flex>
                             );
                         } else if (cell.column.Header === "SỐ LUỒNG") {

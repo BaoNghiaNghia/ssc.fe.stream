@@ -1,10 +1,9 @@
 /* eslint-disable */
-import React, { useState, useCallback, useEffect, useRef } from 'react'
+import React, { useState, useCallback } from 'react'
 import {
     Button,
     Text,
     Icon,
-    useOutsideClick,
     useColorModeValue,
     FormLabel,
     Input,
@@ -15,7 +14,7 @@ import {
 } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 import * as Yup from "yup";
-import { setIn, useFormik } from "formik";
+import { useFormik } from "formik";
 
 import { toast } from 'react-toastify';
 

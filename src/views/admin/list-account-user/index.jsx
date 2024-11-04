@@ -27,7 +27,7 @@ import FilterHeader from "./components/FilterHeader";
 import TableUserManager from "./components/TableUserManager";
 import { deleteUserAPI, fetchAdminListUser } from "../../../api/Auth";
 import CreateNewUser from "./components/CreateNewPackage";
-import { FaRegUserCircle } from "react-icons/fa";
+import AvatarText from "../../../components/AvatarText";
 
 export default function ListAccountUser() {
   const [isLoading, setIsLoading] = useState(false);
@@ -104,14 +104,15 @@ export default function ListAccountUser() {
               alignItems: "center",
             }}
           >
-            <FaRegUserCircle
+            {/* <FaRegUserCircle
               color="#80808080"
               style={{
                 width: "30px",
                 height: "30px",
                 marginRight: "9px",
               }}
-            />
+            /> */}
+            <AvatarText name={value} />
             <Text fontSize="sm" fontWeight={"600"} color={"black"}>
               {value}
             </Text>

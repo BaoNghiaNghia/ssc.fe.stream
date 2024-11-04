@@ -13,7 +13,6 @@ import {
 
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
-import { FaRegUserCircle } from "react-icons/fa";
 import { MdAccessTime } from "react-icons/md";
 import { FiServer } from "react-icons/fi";
 
@@ -35,6 +34,7 @@ import { MdLockReset, MdPersonOutline } from "react-icons/md";
 import { truncate } from "lodash";
 import FormFilterCustom from "./components/FormFilterCustom";
 import AssignResellerFor from "./components/AssignResellerFor";
+import AvatarText from "../../../components/AvatarText";
 
 const initFormFilter = {
   keyword: '',
@@ -218,14 +218,15 @@ export default function ServerLiveStreamAgent() {
         return (
           <Flex style={{ display: 'flex', alignContent: 'center', alignItems: 'center' }}>
             {
-              row.original.user_obj ? (
+              row?.original?.user_obj ? (
                 <>
-                  <FaRegUserCircle color="#80808080" style={{ width:'30px', height: '30px', marginRight: '9px' }} />
+                  {/* <FaRegUserCircle color="#80808080" style={{ width:'30px', height: '30px', marginRight: '9px' }} /> */}
+                  <AvatarText name={row?.original.user_obj?.fullname} />
                   <Text
                     colorScheme="black" 
                     fontWeight={"500"}
                     fontSize={{ base: "sm", }}
-                    me='8px'>{row.original.user_obj?.fullname && truncate(row.original.user_obj?.fullname)}
+                    me='8px'>{row?.original.user_obj?.fullname && truncate(row?.original.user_obj?.fullname)}
                   </Text>
                 </>
               ) : "..."
@@ -240,16 +241,19 @@ export default function ServerLiveStreamAgent() {
       role: [ROLE_USER.USER_DEFAULT],
       Cell: ({ value, row }) => {
         return (
-          <Flex>
+          <Flex style={{ display: 'flex', alignContent: 'center', alignItems: 'center' }}>
             {
-              row.original?.reseller_obj ? (
+              row?.original?.reseller_obj ? (
                 <>
-                  <FaRegUserCircle color="#80808080" style={{ width:'30px', height: '30px', marginRight: '9px' }} />
+                  {/* <FaRegUserCircle color="#80808080" style={{ width:'30px', height: '30px', marginRight: '9px' }} /> */}
+                  <AvatarText name={row?.original?.reseller_obj?.fullname} />
                   <Text
                     colorScheme="black" 
-                    fontWeight={"900"}
+                    fontWeight={"500"}
                     fontSize={{ base: "sm", }}
-                    me='8px'>{row.original?.reseller_obj?.fullname && truncate(row.original?.reseller_obj?.fullname)}
+                    me='8px'
+                  >
+                      {row?.original?.reseller_obj?.fullname && truncate(row?.original?.reseller_obj?.fullname)}
                   </Text>
                 </>
               ) : "..."
@@ -285,7 +289,7 @@ export default function ServerLiveStreamAgent() {
       accessor: "",
       role: [ROLE_USER.USER_DEFAULT],
       Cell: ({ value, row }) => {
-        let temp = row.original.statuses.find(item => item.status === 0).total;
+        let temp = row?.original?.statuses?.find(item => item.status === 0)?.total;
         return (
           <Text
             textColor="blue.700"
@@ -308,7 +312,7 @@ export default function ServerLiveStreamAgent() {
       accessor: "",
       role: [ROLE_USER.USER_DEFAULT],
       Cell: ({ value, row }) => {
-        let temp = row.original.statuses.find(item => item.status === 1).total;
+        let temp = row?.original?.statuses?.find(item => item.status === 1)?.total;
         return (
           <Text
             textColor="blue.700"
@@ -331,7 +335,7 @@ export default function ServerLiveStreamAgent() {
       accessor: "",
       role: [ROLE_USER.USER_DEFAULT],
       Cell: ({ value, row }) => {
-        let temp = row.original.statuses.find(item => item.status === 2).total;
+        let temp = row?.original?.statuses?.find(item => item.status === 2)?.total;
         return (
           <Text
             textColor="blue.700"
@@ -354,7 +358,7 @@ export default function ServerLiveStreamAgent() {
       accessor: "",
       role: [ROLE_USER.USER_DEFAULT],
       Cell: ({ value, row }) => {
-        let temp = row.original.statuses.find(item => item.status === 3).total;
+        let temp = row?.original?.statuses?.find(item => item.status === 3)?.total;
         return (
           <Text
             textColor="blue.700"
@@ -377,7 +381,7 @@ export default function ServerLiveStreamAgent() {
       accessor: "",
       role: [ROLE_USER.USER_DEFAULT],
       Cell: ({ value, row }) => {
-        let temp = row.original.statuses.find(item => item.status === 4).total;
+        let temp = row?.original?.statuses?.find(item => item.status === 4)?.total;
         return (
           <Text
             textColor="blue.700"
@@ -400,7 +404,7 @@ export default function ServerLiveStreamAgent() {
       accessor: "",
       role: [ROLE_USER.USER_DEFAULT],
       Cell: ({ value, row }) => {
-        let temp = row.original.statuses.find(item => item.status === 5).total;
+        let temp = row?.original?.statuses?.find(item => item?.status === 5)?.total;
         return (
           <Text
             textColor="blue.700"
@@ -428,25 +432,25 @@ export default function ServerLiveStreamAgent() {
       Cell: ({ value, row }) => {
         return (
           <MenuAgent
-            originalData={row.original}
+            originalData={row?.original}
             setMenuSelected={setMenuSelected}
             detailAgentServer={() => {
-              detailAgentServer(row.original)
+              detailAgentServer(row?.original)
             }}
             assignAgentFor={() => {
-              assignAgentFor(row.original)
+              assignAgentFor(row?.original)
             }}
             assignAgentResellerFor={() => {
-              assignAgentResellerFor(row.original)
+              assignAgentResellerFor(row?.original)
             }}
             editAgentServer={() => {
-              editAgentServer(row.original)
+              editAgentServer(row?.original)
             }}
             delAgentServer={() => {
-              delAgentServer(row.original)
+              delAgentServer(row?.original)
             }}
             resetAgent={() => {
-              resetAgent(row.original)
+              resetAgent(row?.original)
             }}
           />
         )
@@ -462,7 +466,7 @@ export default function ServerLiveStreamAgent() {
         return (
           <Text fontSize={"sm"} fontWeight="bold" style={{ display: 'flex', alignContent: 'center', alignItems: 'center', color:'#80808080' }}>
             <MdAccessTime color="#80808080" style={{ width:'20px', height: '20px', marginRight: '7px' }} />
-            {row.original?.expired_at ? formatDate(row.original?.expired_at) : "..."}
+            {row?.original?.expired_at ? formatDate(row?.original?.expired_at) : "..."}
           </Text>
         )
       }

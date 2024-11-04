@@ -27,6 +27,7 @@ import TableUserManager from "./components/TableUserManager";
 import { adminConfirmUserPackageApi, fetchAdminListApi } from "../../../api/UserPackage";
 import { fetchAdminListUser } from "../../../api/Auth";
 import { FaRegUserCircle } from "react-icons/fa";
+import AvatarText from "../../../components/AvatarText";
 
 export default function ManageAdminLivestream() {
   const [tableList, setTableList] = useState([]);
@@ -103,11 +104,14 @@ export default function ManageAdminLivestream() {
       role: [ROLE_USER.USER_DEFAULT],
       sticky: "left",
       Cell: ({ value, row }) => {
+        const truncateName = (name) => (name.length > 25 ? `${name.substring(0, 22)}...` : name);
+
         return (
           <Flex style={{ display: 'flex', alignContent: 'center', alignItems: 'center' }}>
-            <FaRegUserCircle color="#80808080" style={{ width:'30px', height: '30px', marginRight: '9px' }} />
+            {/* <FaRegUserCircle color="#80808080" style={{ width:'30px', height: '30px', marginRight: '9px' }} /> */}
+            <AvatarText name={value?.fullname} />
             <Text fontWeight={"600"} color={"black"}>
-              {value?.fullname}
+              {truncateName(value?.fullname)}
             </Text>
           </Flex>
         )
@@ -154,7 +158,7 @@ export default function ManageAdminLivestream() {
       Cell: ({ value, row }) => {
         return (
           <span style={{ display: 'flex', alignContent: 'center', alignItems: 'center' }}>
-            <MdOutlineHub style={{ color: 'orange', marginRight: '7px', width: '25px', height: '25px' }} />
+            <MdOutlineHub style={{ color: 'gray', marginRight: '7px', width: '18px', height: '18px' }} />
             <Text
               colorScheme="black" 
               fontSize={{ base: "sm", }}
@@ -190,7 +194,9 @@ export default function ManageAdminLivestream() {
       Cell: ({ value, row }) => {
         return (
           <Text
-            colorScheme="black" 
+            colorScheme="green"
+            textColor="green"
+            fontWeight={600}
             textDecoration="line-through"
             fontSize={{ base: "sm", }}
             me='8px'>{value?.toLocaleString()} VNĐ
@@ -219,7 +225,7 @@ export default function ManageAdminLivestream() {
       Cell: ({ value, row }) => {
         return (
           <Text
-            textColor="facebook.600"
+            textColor="green"
             fontWeight="600" 
             fontSize={{ base: "sm", }}
             me='8px'>{value?.toLocaleString()} VNĐ

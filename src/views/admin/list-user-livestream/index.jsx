@@ -191,7 +191,7 @@ export default function ListUserLivestream() {
       Cell: ({ value, row }) => {
         return (
           <span style={{ display: 'flex', alignContent: 'center', alignItems: 'center' }}>
-            <MdOutlineHub style={{ color: 'red', marginRight: '7px', width: '25px', height: '25px' }} />
+            <MdOutlineHub style={{ color: 'gray', marginRight: '7px', width: '18px', height: '18px' }} />
             <Text fontWeight={"600"} color={"black"}>
               { truncate(value, 25) }
             </Text>
@@ -206,7 +206,7 @@ export default function ListUserLivestream() {
         return (
           <>
             { value !== "" ? (
-              <Text color="black">{ truncate(value, 25) }</Text>
+              <Text color="black" style={{ fontStyle: 'italic' }}>{ truncate(value, 25) }</Text>
             ): (<Text>...</Text>)}
           </>
         )
@@ -258,8 +258,8 @@ export default function ListUserLivestream() {
         return (
           <Text fontSize={"sm"} fontWeight="600" style={{ display: 'flex', alignContent: 'center', alignItems: 'center', color: 'gray' }}>
             <MdAccessTime color="#80808080" style={{ width:'20px', height: '20px', marginRight: '7px' }} />
-              {reverseTimeDate(row.original.started_at)}
-            </Text>
+            {reverseTimeDate(row.original.started_at)}
+          </Text>
         )
       }
     },
@@ -270,8 +270,8 @@ export default function ListUserLivestream() {
         return (
           <Text fontSize={"sm"} fontWeight="600" style={{ display: 'flex', alignContent: 'center', alignItems: 'center', color: 'gray' }}>
             <MdAccessTime color="#80808080" style={{ width:'20px', height: '20px', marginRight: '7px' }} />
-                {reverseTimeDate(row.original.expired_at)}
-            </Text>
+            {reverseTimeDate(row.original.expired_at)}
+          </Text>
         )
       }
     },

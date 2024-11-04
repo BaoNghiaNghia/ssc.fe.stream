@@ -21,7 +21,7 @@ import {
       useSortBy,
       useTable,
 } from "react-table";
-import { MdCancel, MdCheckCircle } from "react-icons/md";
+import { MdAccessTime, MdCancel, MdCheckCircle } from "react-icons/md";
 
 export default function TablePayment(props) {
 
@@ -77,7 +77,7 @@ export default function TablePayment(props) {
     };
 
     let bodyWithData = () => {
-        return page.map((row, index) => {
+        return page?.map((row, index) => {
             prepareRow(row);
             return (
                 <Tr {...row.getRowProps()} key={index}>
@@ -87,9 +87,9 @@ export default function TablePayment(props) {
                             data = (
                                 <Flex align='center'>
                                     {
-                                        cell.value ? (
-                                            <Text color={textColor} fontSize='sm' fontWeight='700'>
-                                                {cell.value} ngày
+                                        cell?.value ? (
+                                            <Text color={textColor} fontSize='sm' fontWeight='500'>
+                                                {cell?.value} ngày
                                             </Text>
                                         ) : '...'
                                     }
@@ -98,25 +98,25 @@ export default function TablePayment(props) {
                         } else if (cell.column.Header === "TÊN GÓI") {
                             data = (
                                 <Flex align='center'>
-                                    <Text color={textColor} fontSize='sm' fontWeight='700'>
+                                    <Text color={textColor} fontSize='sm' fontWeight='500'>
                                     <Badge variant='subtle' borderColor="white" bgColor='green' justifyContent="center"  color="white"
-                                    alignContent="center">{cell.value.toUpperCase()}</Badge>
+                                    alignContent="center">{cell?.value?.toUpperCase()}</Badge>
                                     </Text>
                                 </Flex>
                             );
                         } else if (cell.column.Header === "SỐ LUỒNG") {
                             data = (
                                 <Flex align='center'>
-                                    <Text color={textColor} fontSize='sm' fontWeight='700'>
-                                        {cell.value} luồng
+                                    <Text color={textColor} fontSize='sm' fontWeight='500'>
+                                        {cell?.value} luồng
                                     </Text>
                                 </Flex>
                             );
                         } else if (cell.column.Header === "KHUYẾN MÃI") {
                             data = (
                                 <Flex align='center'>
-                                    <Text color="facebook.500" fontSize='sm' fontWeight='700'>
-                                        {cell.value} %
+                                    <Text color="facebook.500" fontSize='sm' fontWeight='500'>
+                                        {cell?.value} %
                                     </Text>
                                 </Flex>
                             );
@@ -124,9 +124,10 @@ export default function TablePayment(props) {
                             data = (
                                 <Flex align='center'>
                                     {
-                                        cell.value ? (
-                                            <Text fontSize='sm' color="green" fontWeight='500'>
-                                                {cell.value}
+                                        cell?.value ? (
+                                            <Text fontSize='sm' color="green" fontWeight='500' style={{ display: 'flex', alignContent: 'center', alignItems: 'center' }}>
+                                                <MdAccessTime color="green" style={{ width:'20px', height: '20px', marginRight: '7px' }} />
+                                                {cell?.value}
                                             </Text>
                                         ) : "..."
                                     }
@@ -136,9 +137,10 @@ export default function TablePayment(props) {
                             data = (
                                 <Flex align='center'>
                                     {
-                                        cell.value ? (
-                                            <Text fontSize='sm' color="red" fontWeight='500'>
-                                                {cell.value}
+                                        cell?.value ? (
+                                            <Text fontSize='sm' color="red" fontWeight='500' style={{ display: 'flex', alignContent: 'center', alignItems: 'center' }}>
+                                                <MdAccessTime color="red" style={{ width:'20px', height: '20px', marginRight: '7px' }} />
+                                                {cell?.value}
                                             </Text>
                                         ) : "..."
                                     }
@@ -150,39 +152,39 @@ export default function TablePayment(props) {
                                     <Icon
                                         w='24px' h='24px' me='5px'
                                         color={
-                                            cell.value === true ? "green.500"
-                                            : cell.value === false ? "red.500" : null
+                                            cell?.value === true ? "green.500"
+                                            : cell?.value === false ? "red.500" : null
                                         }
                                         as={
-                                            cell.value === true ? MdCheckCircle
-                                            : cell.value === false ? MdCancel : null
+                                            cell?.value === true ? MdCheckCircle
+                                            : cell?.value === false ? MdCancel : null
                                         }
                                     />
-                                    <Text color="black" fontSize='sm' fontWeight='700'>
-                                    {cell.value === true ? 'Đã xác nhận' : 'Chưa xác nhận'}
+                                    <Text color="black" fontSize='sm' fontWeight='500'>
+                                    {cell?.value === true ? 'Đã xác nhận' : 'Chưa xác nhận'}
                                     </Text>
                                 </Flex>
                             );
                         } else if (cell.column.Header === "GIÁ BAN ĐẦU") {
                             data = (
                                 <Flex align='center'>
-                                    <Text color={textColor} textDecoration="line-through" fontSize='sm' fontWeight='700'>
-                                        {cell.value.toLocaleString()} VNĐ
+                                    <Text color={textColor} textDecoration="line-through" fontSize='sm' fontWeight='500'>
+                                        {cell?.value.toLocaleString()} VNĐ
                                     </Text>
                                 </Flex>
                             );
                         } else if (cell.column.Header === "TỔNG CỘNG") {
                             data = (
                                 <Flex align='center'>
-                                    <Text color="facebook.500" fontSize='sm' fontWeight='700'>
-                                        {cell.value.toLocaleString()} VNĐ
+                                    <Text color="green" fontSize='sm' fontWeight='500'>
+                                        {cell?.value.toLocaleString()} VNĐ
                                     </Text>
                                 </Flex>
                             );
                         } else {
                             data = (
-                                <Text color={textColor} fontSize='sm' fontWeight='700'>
-                                  {cell.value}
+                                <Text color={textColor} fontSize='sm' fontWeight='500'>
+                                  {cell?.value}
                                 </Text>
                             )
                         }

@@ -25,9 +25,7 @@ import {
     converter_ISO8601_To_YYYYMMDDHHMMSS,
 } from '../../../../utils/handleValidate';
 
-import {
-    createStreamingApi, updateUserStream,
-} from '../../../../api/Stream';
+import { updateUserStream } from '../../../../api/Stream';
 import { MESSSAGE_STATUS_CODE } from '../../../../variables';
 import { RiEyeCloseLine } from 'react-icons/ri';
 import { MdOutlineRemoveRedEye } from 'react-icons/md';
@@ -63,9 +61,9 @@ export default function EditUserStream(props) {
             const responseEdit = await updateUserStream({ ...values, id: dataGeneral.id });
             if (responseEdit.status === MESSSAGE_STATUS_CODE.SUCCESS.code) {
                 toast.success(t(`error_code.${MESSSAGE_STATUS_CODE.SUCCESS.code}`));
-                // await handleFetchResource({});
-                // resetForm();
-                // onCloseUserStream();
+                await handleFetchResource({});
+                resetForm();
+                onCloseUserStream();
             }
         } catch (err) {
             if (err.response) {

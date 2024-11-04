@@ -118,6 +118,21 @@ export default function ManageAdminLivestream() {
       accessor: "package_name",
       role: [ROLE_USER.USER_DEFAULT],
       Cell: ({ value, row }) => {
+        const badgeStyle = value === "premium" 
+          ? { background: 'linear-gradient(45deg, orange 0%, rgb(250, 82, 82) 100%)', color: 'white' } 
+          : { background: 'green', color: 'white' };
+
+        return (
+          <Flex align='center'>
+            <Badge
+                style={{ ...badgeStyle, fontWeight: 500, borderRadius: '6px'}}
+                justifyContent="center"
+                alignContent="center"
+            >
+                {value}
+            </Badge>
+          </Flex>
+        )
         return (
           <Flex align='center'>
             <Text color="black" fontSize='sm'>

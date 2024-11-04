@@ -96,7 +96,7 @@ export default function TablePayment(props) {
                             );
                         } else if (cell.column.Header === "TÊN GÓI") {
                             const badgeStyle = cell?.value === "premium" 
-                                ? { background: 'linear-gradient(45deg, rgb(0, 128, 255) 0%, rgb(250, 82, 82) 100%)', color: 'white' } 
+                                ? { background: 'linear-gradient(45deg, orange 0%, rgb(250, 82, 82) 100%)', color: 'white' } 
                                 : { background: 'green', color: 'white' }; // Adjust the color for "Normal" as needed
 
                             data = (

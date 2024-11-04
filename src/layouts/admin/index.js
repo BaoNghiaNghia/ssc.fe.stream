@@ -171,7 +171,7 @@ export default function Dashboard(props) {
 
 	const handleRenderRoutes = () => {
 		return (
-			<Box mx='auto' p={{ base: '20px', md: '30px' }} pe='20px' minH='100vh' pt='50px'>
+			<Box mx='auto' p={{ base: '20px', md: '30px' }} pe='20px' minH='100vh' pt='30px'>
 				<Switch>
 					{getRoutes([...mappingRouteByRole] || [])}
 					<Redirect from='/' to='/admin/home-page' />

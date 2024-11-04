@@ -642,3 +642,5 @@ export const USER_PACKAGE_USED = {
     color: 'gray'
   },
 }
+
+export const DEFAULT_PERPAGE = 15;

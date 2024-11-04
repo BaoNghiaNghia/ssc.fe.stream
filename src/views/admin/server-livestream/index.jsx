@@ -30,7 +30,7 @@ import FilterHeader from "./components/FilterHeader";
 import CreateAgentServer from "./components/CreateAgentServer";
 import DetailAgentServer from "./components/DetailAgentServer";
 import AssignAgentFor from "./components/AssignAgentFor";
-import { MdLockReset, MdPersonOutline } from "react-icons/md";
+import { MdLockReset } from "react-icons/md";
 import { truncate } from "lodash";
 import FormFilterCustom from "./components/FormFilterCustom";
 import AssignResellerFor from "./components/AssignResellerFor";
@@ -220,7 +220,6 @@ export default function ServerLiveStreamAgent() {
             {
               row?.original?.user_obj ? (
                 <>
-                  {/* <FaRegUserCircle color="#80808080" style={{ width:'30px', height: '30px', marginRight: '9px' }} /> */}
                   <AvatarText name={row?.original.user_obj?.fullname} />
                   <Text
                     colorScheme="black" 
@@ -245,7 +244,6 @@ export default function ServerLiveStreamAgent() {
             {
               row?.original?.reseller_obj ? (
                 <>
-                  {/* <FaRegUserCircle color="#80808080" style={{ width:'30px', height: '30px', marginRight: '9px' }} /> */}
                   <AvatarText name={row?.original?.reseller_obj?.fullname} />
                   <Text
                     colorScheme="black" 

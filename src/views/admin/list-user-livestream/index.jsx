@@ -90,7 +90,6 @@ export default function ListUserLivestream() {
 
   const handleConfirmFilter = async () => {
     try {
-      console.log('--- filter nè ---')
         await handleFetchResource({});
         // setActiveFilter(true);
         onCloseFilterModal();
@@ -170,7 +169,6 @@ export default function ListUserLivestream() {
   const handleResetFilter = async () => {
     try {
         setFilter(prevState => ({ ...prevState, 'keyword': '' }));
-        // setActiveFilter(false);
         await handleFetchResourceOriginal();
         onCloseFilterModal();
     } catch (err) {
@@ -218,8 +216,8 @@ export default function ListUserLivestream() {
       Header: "Mã livestream",
       accessor: "key",
       Cell: ({ value, row }) => {
-        let objIndex = showArr.findIndex((obj => obj.id == row.index));
-        let state = showArr[objIndex].value
+        let objIndex = showArr.findIndex((obj => obj?.id == row?.index));
+        let state = showArr[objIndex]?.value;
         return (
           <>
             {
@@ -228,7 +226,6 @@ export default function ListUserLivestream() {
                   <Input
                     name="key"
                     value={value}
-                    // onChange={(e) => setInputValue("key", e.target.value)}
                     isRequired={true}
                     fontSize='sm'
                     color="black"
@@ -296,7 +293,7 @@ export default function ListUserLivestream() {
                       fillColor="green"
                       strokeColor="white"
                     />
-                    {USER_PACKAGE_USED[Number(row.original?.live_streaming)]?.message}
+                    {USER_PACKAGE_USED[Number(row?.original?.live_streaming)]?.message}
                   </Text>
                 ) :  (
                   '...'
@@ -314,7 +311,7 @@ export default function ListUserLivestream() {
             <Flex align='center'>
                 <Badge borderRadius="4px" variant='subtle' colorScheme={USER_PACKAGE_STATUS[value]?.color}>
                     <Text fontSize='xs' fontWeight='700'> 
-                        {USER_PACKAGE_STATUS[value].message}
+                        {USER_PACKAGE_STATUS[value]?.message}
                     </Text>
                 </Badge>
             </Flex>
@@ -328,7 +325,7 @@ export default function ListUserLivestream() {
         return (
           <MenuUserStream
             // idVideo={row.original.id}
-            editCurrUserStream={editCurrUserStream(row.original)}
+            editCurrUserStream={editCurrUserStream(row?.original)}
           />
         )
       }

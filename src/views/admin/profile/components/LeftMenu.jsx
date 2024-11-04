@@ -2,17 +2,15 @@
 // Chakra imports
 import React from "react";
 import {
-  Avatar, Box, Flex, Text, useColorModeValue,
+  useColorModeValue,
   List,
   ListItem,
   Button,
   Icon
 } from "@chakra-ui/react";
-import Card from "../../../../components/card/Card.js";
 import { MdLockOutline, MdPayment, MdPersonOutline } from "react-icons/md";
 
 export default function LeftMenu(props) {
-  const navbarIcon = useColorModeValue('gray.400', 'white');
 
   const { handleChangeVerticalTabs, activeTabId, resumeData } = props;
 

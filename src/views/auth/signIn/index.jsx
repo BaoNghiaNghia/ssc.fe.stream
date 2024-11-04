@@ -28,9 +28,7 @@ import { toast } from 'react-toastify';
 
 import { useTranslation } from 'react-i18next';
 
-// Custom components
 import DefaultAuth from "../../../layouts/auth/Default";
-// Assets
 import illustration from "../../../assets/img/auth/auth.png";
 import { useAuth } from "../../../contexts/authenContext";
 import history from '../../../utils/history';
@@ -44,9 +42,7 @@ const initialValues = {
   password: ""
 }
 
-
 const SignIn = () => {
-  // Chakra color mode
   const textColor = useColorModeValue("navy.700", "white");
   const textColorSecondary = "gray.400";
   const textColorDetails = useColorModeValue("navy.700", "secondaryGray.600");
@@ -256,13 +252,7 @@ const SignIn = () => {
         <Flex
           zIndex='2'
           direction='column'
-          w={{ base: "100%", md: "420px" }}
-          maxW='100%'
-          background='transparent'
-          borderRadius='15px'
-          mx={{ base: "auto", lg: "unset" }}
-          me='auto'
-          mb={{ base: "20px", md: "auto" }}>
+          w={{ base: "100%", md: "420px" }}>
           { formLogin }
           <Flex
             flexDirection='column'

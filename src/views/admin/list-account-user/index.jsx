@@ -45,10 +45,10 @@ export default function ListAccountUser() {
   const handleFetchListUserDetail = async (params) => {
     setIsLoading(true);
     try {
-        const responseEdit = await fetchAdminListUser(params || {});
-        if (responseEdit.status === MESSSAGE_STATUS_CODE.SUCCESS.code) {
-            setListAdminUser(responseEdit?.data?.data?.users);
-            setPaginationData(responseEdit?.data?.data?.meta);
+        const responseLisUser = await fetchAdminListUser(params || {});
+        if (responseLisUser.status === MESSSAGE_STATUS_CODE.SUCCESS.code) {
+            setListAdminUser(responseLisUser?.data?.data?.users);
+            setPaginationData(responseLisUser?.data?.data?.meta);
         }
         setIsLoading(false);
       } catch (err) {
@@ -158,7 +158,7 @@ export default function ListAccountUser() {
       >
         <GridItem colSpan={1} margin="auto 0">     
           {
-            listAdminUser.length === 0 ? (
+            listAdminUser?.length === 0 ? (
               <TableEmpty
                 columnsData={[...columnsListUser, ...columnAction]}
                 tableData={[]}

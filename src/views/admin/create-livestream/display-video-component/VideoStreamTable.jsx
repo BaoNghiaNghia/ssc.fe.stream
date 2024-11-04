@@ -23,9 +23,9 @@ export default function VideoStreamTable(props) {
 
     const [currentPage, setCurrentPage] = useState(1);
 
-    const handleChangePage = () => async (page) => {
+    const handleChangePage = () => async (page, limit) => {
         setCurrentPage(page);
-        await handleFetchResource({ 'page': page });
+        await handleFetchResource({ page, limit });
     }
 
     return (

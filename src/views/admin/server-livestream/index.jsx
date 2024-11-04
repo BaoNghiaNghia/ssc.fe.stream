@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import {
   Box,
   Flex,
-  Icon,
   Text,
   Badge,
   useDisclosure,
@@ -245,7 +244,7 @@ export default function ServerLiveStreamAgent() {
             {
               row.original?.reseller_obj ? (
                 <>
-                  <Icon as={MdPersonOutline} color="gray" w='20px' h='20px' marginRight="5px"/>
+                  <FaRegUserCircle color="#80808080" style={{ width:'30px', height: '30px', marginRight: '9px' }} />
                   <Text
                     colorScheme="black" 
                     fontWeight={"900"}

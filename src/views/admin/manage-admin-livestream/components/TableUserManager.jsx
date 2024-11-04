@@ -69,9 +69,9 @@ import {
       setPageSize(paginationData.per_page)
     }, []);
   
-    const handleChangePage = async (page) => {
+    const handleChangePage = async (page, limit) => {
       setCurrentPage(page);
-      await handleFetchResource({ 'page': page });
+      await handleFetchResource({ page, limit });
     }
   
     const bodyWithoutData = () => {

@@ -15,7 +15,10 @@ import { useTranslation } from "react-i18next";
 
 import { HiOutlineMail } from "react-icons/hi";
 
-import { MESSSAGE_STATUS_CODE, ROLE_USER } from "../../../variables/index";
+import {
+  MESSSAGE_STATUS_CODE,
+  ROLE_USER,
+} from "../../../variables/index";
 
 import TableEmpty from "../list-user-livestream/components/TableEmpty";
 import MenuAgent from "./components/MenuAgent";
@@ -37,7 +40,7 @@ export default function ListAccountUser() {
   const {
     isOpen: isOpenNewAgentServer,
     onOpen: onOpenNewAgentServer,
-    onClose: onCloseNewAgentServer
+    onClose: onCloseNewAgentServer,
   } = useDisclosure();
 
   const { t } = useTranslation();
@@ -45,35 +48,43 @@ export default function ListAccountUser() {
   const handleFetchListUserDetail = async (params) => {
     setIsLoading(true);
     try {
-        const responseLisUser = await fetchAdminListUser(params || {});
-        if (responseLisUser.status === MESSSAGE_STATUS_CODE.SUCCESS.code) {
-            setListAdminUser(responseLisUser?.data?.data?.users);
-            setPaginationData(responseLisUser?.data?.data?.meta);
-        }
-        setIsLoading(false);
-      } catch (err) {
-        setIsLoading(false);
-        if (err.response) {
-            toast.error(t(`error_code.${err?.response?.data?.error_code}`));
-        }
+      const responseLisUser = await fetchAdminListUser(params || {});
+      if (
+        responseLisUser.status === MESSSAGE_STATUS_CODE.SUCCESS.code
+      ) {
+        setListAdminUser(responseLisUser?.data?.data?.users);
+        setPaginationData(responseLisUser?.data?.data?.meta);
+      }
+      setIsLoading(false);
+    } catch (err) {
+      setIsLoading(false);
+      if (err.response) {
+        toast.error(
+          t(`error_code.${err?.response?.data?.error_code}`)
+        );
+      }
     }
-  }
+  };
 
   const deleteUserRequest = async (userObj) => {
     setIsLoading(true);
     try {
       const responseDelete = await deleteUserAPI({ id: userObj?.id });
-      if (responseDelete.status === MESSSAGE_STATUS_CODE.SUCCESS.code) {
+      if (
+        responseDelete.status === MESSSAGE_STATUS_CODE.SUCCESS.code
+      ) {
         handleFetchListUserDetail();
-        toast.success('Xóa người dùng thành công!');
+        toast.success("Xóa người dùng thành công!");
       }
     } catch (err) {
       setIsLoading(false);
       if (err.response) {
-          toast.error(t(`error_code.${err?.response?.data?.error_code}`));
+        toast.error(
+          t(`error_code.${err?.response?.data?.error_code}`)
+        );
       }
     }
-  }
+  };
 
   useEffect(() => {
     handleFetchListUserDetail();
@@ -86,14 +97,27 @@ export default function ListAccountUser() {
       sticky: "left",
       Cell: ({ value, row }) => {
         return (
-          <Flex style={{ display: 'flex', alignContent: 'center', alignItems: 'center' }}>
-            <FaRegUserCircle color="#80808080" style={{ width:'30px', height: '30px', marginRight: '9px' }} />
+          <Flex
+            style={{
+              display: "flex",
+              alignContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <FaRegUserCircle
+              color="#80808080"
+              style={{
+                width: "30px",
+                height: "30px",
+                marginRight: "9px",
+              }}
+            />
             <Text fontSize="sm" fontWeight={"600"} color={"black"}>
               {value}
             </Text>
           </Flex>
-        )
-      }
+        );
+      },
     },
     {
       Header: "Email",
@@ -102,16 +126,23 @@ export default function ListAccountUser() {
       Cell: ({ value, row }) => {
         return (
           <Flex>
-            <HiOutlineMail color="#80808080" style={{ width:'20px', height: '20px', marginRight: '7px' }} />
+            <HiOutlineMail
+              color="#80808080"
+              style={{
+                width: "20px",
+                height: "20px",
+                marginRight: "7px",
+              }}
+            />
             <Text fontSize="sm" fontWeight={"500"} color={"gray.500"}>
               {value}
             </Text>
           </Flex>
-        )
-      }
-    }
+        );
+      },
+    },
   ];
-  
+
   const columnAction = [
     {
       Header: "Hành động",
@@ -123,17 +154,17 @@ export default function ListAccountUser() {
             originalData={row.original}
             setMenuSelected={setMenuSelected}
             deleteUserRequest={() => {
-              deleteUserRequest(row.original)
+              deleteUserRequest(row.original);
             }}
           />
-        )
-      }
+        );
+      },
     },
-  ]
+  ];
 
   const handleOpenModalCreateAgent = () => {
     onOpenNewAgentServer();
-  }
+  };
 
   return (
     <Box pt={{ base: "130px", md: "80px", xl: "80px" }}>
@@ -152,32 +183,30 @@ export default function ListAccountUser() {
         }
       />
       <Grid
-        templateRows='repeat(1, 1fr)'
-        templateColumns='repeat(2, 1fr)'
+        templateRows="repeat(1, 1fr)"
+        templateColumns="repeat(2, 1fr)"
         gap={2}
       >
-        <GridItem colSpan={1} margin="auto 0">     
-          {
-            listAdminUser?.length === 0 ? (
-              <TableEmpty
-                columnsData={[...columnsListUser, ...columnAction]}
-                tableData={[]}
-              />
-            ) : (
-              <TableUserManager
-                paginationData={paginationData}
-                filterHeader={
-                  <FilterHeader
-                    title="Danh sách người dùng"
-                    onModalCreate={handleOpenModalCreateAgent}
-                  />
-                }
-                columnsData={[...columnsListUser, ...columnAction]}
-                tableData={listAdminUser}
-                handleFetchResource={handleFetchListUserDetail}
-              />
-            )
-          }
+        <GridItem colSpan={1} margin="auto 0">
+          {listAdminUser?.length === 0 ? (
+            <TableEmpty
+              columnsData={[...columnsListUser, ...columnAction]}
+              tableData={[]}
+            />
+          ) : (
+            <TableUserManager
+              paginationData={paginationData}
+              filterHeader={
+                <FilterHeader
+                  title="Danh sách người dùng"
+                  onModalCreate={handleOpenModalCreateAgent}
+                />
+              }
+              columnsData={[...columnsListUser, ...columnAction]}
+              tableData={listAdminUser}
+              handleFetchResource={handleFetchListUserDetail}
+            />
+          )}
         </GridItem>
       </Grid>
     </Box>

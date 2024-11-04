@@ -64,12 +64,12 @@ import {
     } = tableInstance;
   
     useEffect(() => {
-      setPageSize(paginationData.per_page)
-    }, []);
+      setPageSize(paginationData?.per_page)
+    }, [paginationData?.per_page]);
   
-    const handleChangePage = async (page) => {
+    const handleChangePage = async (page, limit) => {
       setCurrentPage(page);
-      await handleFetchResource({ 'page': page });
+      await handleFetchResource({ page, limit });
     }
   
     const bodyWithoutData = () => {
@@ -85,7 +85,7 @@ import {
   
     const bodyWithData = () => {
       return (
-        page.map((row, index) => {
+        page?.map((row, index) => {
           prepareRow(row);
           return (
             <Tr

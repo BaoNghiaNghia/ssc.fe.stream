@@ -82,9 +82,9 @@ export default function TableListThreadStream(props) {
     toggleAllRowsExpanded(true);
   }, []);
 
-  const handleChangePage = () => async (page) => {
+  const handleChangePage = () => async (page, limit) => {
     setCurrentPage(page);
-    await handleFetchResource({ 'page': page });
+    await handleFetchResource({ page, limit });
   }
 
 

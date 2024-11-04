@@ -37,15 +37,15 @@ export default function HeaderLinks(props) {
 
 	const { t } = useTranslation();
     const fetchCurrentUser = async () => {
-		const responseProfile = await fetchProfileDetail({}, {
-			headers: {
-				Agency: MK_AGENCY_PROVIDER
+		try {
+			const responseProfile = await fetchProfileDetail({}, {
+				headers: {
+					Agency: MK_AGENCY_PROVIDER
+				}
+			});
+			if (responseProfile.status === MESSSAGE_STATUS_CODE.SUCCESS.code) {
+				setProfile_(responseProfile?.data?.data);
 			}
-		});
-		if (responseProfile.status === MESSSAGE_STATUS_CODE.SUCCESS.code) {
-			setProfile_(responseProfile?.data?.data);
-		}
-        try {
         } catch (err) {
             if (err?.response) {
                 toast.error(t(`error_code.${err?.response?.data?.error_code}`));

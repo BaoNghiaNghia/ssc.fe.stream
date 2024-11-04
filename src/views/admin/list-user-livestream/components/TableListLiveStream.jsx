@@ -82,7 +82,9 @@ export default function TableListLiveStream(props) {
         <Td></Td>
         <Td></Td>
         <Td></Td>
-        <Td> Hiện không có dữ liệu</Td>
+        <Td colSpan={columns.length} style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+          <Text>Không có dữ liệu</Text>
+        </Td>
         <Td></Td>
         <Td></Td>
         <Td></Td>

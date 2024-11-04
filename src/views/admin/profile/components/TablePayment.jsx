@@ -1,18 +1,11 @@
 /* eslint-disable */
 // Chakra imports
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useMemo } from "react";
 import {
-    Box,
-    Button,
     Flex,
     Icon,
     Text,
     useColorModeValue,
-    Avatar,
-    FormControl,
-    FormLabel,
-    Input,
-    Card,
     Table,
     Tbody,
     Thead,
@@ -28,8 +21,7 @@ import {
       useSortBy,
       useTable,
 } from "react-table";
-import { useTranslation } from "react-i18next";
-import { MdCancel, MdCheckCircle, MdClose, MdOutlineClose } from "react-icons/md";
+import { MdCancel, MdCheckCircle } from "react-icons/md";
 
 export default function TablePayment(props) {
 
@@ -71,11 +63,13 @@ export default function TablePayment(props) {
             <Tr>
                 <Td></Td>
                 <Td></Td>
-                <Td>
-                    <Flex flexDirection="column" justify='center' width="100%" align='center' my='20px'>
-                        <Text>Trống</Text>
-                    </Flex>
+                <Td></Td>
+                <Td></Td>
+                <Td colSpan={columns.length} style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                    <Text>Không có dữ liệu</Text>
                 </Td>
+                <Td></Td>
+                <Td></Td>
                 <Td></Td>
                 <Td></Td>
             </Tr>

@@ -1,8 +1,7 @@
 /* eslint-disable */
 // Chakra imports
-import React, { useEffect, useState, useMemo } from "react";
+import React from "react";
 import {
-    Box,
     Button,
     Flex,
     Icon,
@@ -14,19 +13,17 @@ import {
 import {
     columnsPaymentHistory
 } from "../../../../variables/index";
-import { useTranslation } from "react-i18next";
 import TablePayment from "../../profile/components/TablePayment";
 import { IoAddCircleOutline } from "react-icons/io5";
 
 export default function TabPayment(props) {
-    
     const { onOpen, tableData } = props;
 
     return (
         <Card mb={{ base: "20px", lg: "20px" }}>
             <Flex justify='space-between' mx="30px" mt="30px" mb='37px' display="flex">
                 <Text color="black" align="left" pb="10px" fontSize={"lg"} fontWeight="bold">
-                    Lịch sử giao dịch :
+                    Lịch sử giao dịch
                 </Text>
                 <Button 
                     mt={{ base: "20px", "2xl": "auto" }}

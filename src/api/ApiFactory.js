@@ -5,6 +5,25 @@ import { BASE_URL, TIMEOUT_REQUEST_API } from '../variables/index';
 let token = localStorage.getItem('persist:auth');
 axios.defaults.timeout = TIMEOUT_REQUEST_API;
 
+const logout = () => {
+  localStorage.removeItem('persist:auth');
+  window.location.href = '/#/auth/sign-in';
+}
+
+axios.interceptors.response.use(
+  response => response,
+  error => {
+    if (error.response && error.response.status === 401) {
+      logout();
+    }
+    if (error.response && error.response.status === 500) {
+      window.location.href = '/#/auth/sign-in';
+    }
+    return Promise.reject(error);
+  }
+);
+
+
 class ApiFactory {
 
   constructor({ url }) {
@@ -95,8 +114,6 @@ class ApiFactory {
      */
     endpoints.submitPost = (toSubmit, config) => {
       const customHeaders = config && config.headers && { ...config.headers };
-      console.log('---- resource url -----', resourceURL.replace("id", toSubmit), toSubmit);
-      // const id = toSubmit && (toSubmit.id || toSubmit.get('id'));
       return axios.post(resourceURL.replace("id", toSubmit), toSubmit, {
         ...config,
         headers: {

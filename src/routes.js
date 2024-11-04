@@ -153,6 +153,20 @@ const routesForNotAuthenticated = [
     path: "/forgot-password",
     icon: <Icon as={MdLock} width='20px' height='20px' color='inherit' />,
     component: ForgotPassword
+  },
+  {
+    name: "Underconstruction",
+    layout: "/under-construction",
+    path: "/forgot-password",
+    icon: <Icon as={MdLock} width='20px' height='20px' color='inherit' />,
+    component: ForgotPassword
+  },
+  {
+    name: "Underconstruction",
+    layout: "/under-construction",
+    path: "/forgot-password",
+    icon: <Icon as={MdLock} width='20px' height='20px' color='inherit' />,
+    component: ForgotPassword
   }
 ];
 

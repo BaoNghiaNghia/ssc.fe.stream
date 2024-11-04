@@ -358,8 +358,8 @@ export default function TableSubRow(props) {
                             <Spinner />
                         </Td>
                     </Tr>
-                ) : tableData.length > 0 ? (
-                    page.map(row => {
+                ) : tableData?.length > 0 ? (
+                    page?.map(row => {
                         prepareRow(row);
                         return (
                             <React.Fragment key={row?.id}>
@@ -377,7 +377,7 @@ export default function TableSubRow(props) {
                                 </Tr>
                                 {renderRowSubComponent && row?.isExpanded ? (
                                     <Tr>
-                                        <Td colSpan={columns.length}>
+                                        <Td colSpan={columns?.length}>
                                             {renderRowSubComponent({ row })}
                                         </Td>
                                     </Tr>
@@ -387,8 +387,8 @@ export default function TableSubRow(props) {
                     })
                 ) : (
                     <Tr>
-                        <Td colSpan={columns.length} textAlign="left">
-                            <Image src={noVideoStreamImg} alt="No Video Stream" />
+                        <Td colSpan={columns?.length} style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                            <Image src={noVideoStreamImg} alt="No Video Stream" style={{ width: '20%' }} />
                             <Text>Không có dữ liệu</Text>
                         </Td>
                     </Tr>

@@ -46,6 +46,7 @@ const App = () => {
 								} />
 								<Redirect from='/' exact to='/admin' />
 								<Route path="*" component={NotFound} />
+								<Route component={NotFound} />
 							</Switch>
 						</HashRouter>
 					</Router>

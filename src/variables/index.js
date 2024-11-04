@@ -401,12 +401,6 @@ export const columnsPaymentHistory = [
   },
 ];
 
-// export const paymentPackage = [
-//   {
-//     id: 
-//   }
-// ]
-
 export const listPricingMonthly = [
   {
       label: '1 Tháng',
@@ -492,10 +486,7 @@ export const resumeData = [
   },
   {
     menu: "Mật khẩu"
-  },
-  // {
-  //   menu: "Lịch sử giao dịch"
-  // }
+  }
 ];
 
 export const VIDEO_STATUS_GENERAL = {

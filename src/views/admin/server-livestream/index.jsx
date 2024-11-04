@@ -39,7 +39,7 @@ import AvatarText from "../../../components/AvatarText";
 const initFormFilter = {
   keyword: '',
   order_by: null
-}
+};
 
 export default function ServerLiveStreamAgent() {
   const [isLoading, setIsLoading] = useState(false);
@@ -167,7 +167,6 @@ export default function ServerLiveStreamAgent() {
       }
     }
   }
-  
 
   useEffect(() => {
     handleFetchAgentServerOfUserOriginal({});
@@ -407,7 +406,7 @@ export default function ServerLiveStreamAgent() {
           <Text
             textColor="blue.700"
             fontWeight={"900"}
-            fontSize={{ base: "sm", }}
+            fontSize={{ base: "sm" }}
             me='8px'>
             {
               temp !== 0 ? (

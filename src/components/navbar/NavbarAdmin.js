@@ -147,11 +147,10 @@ export default function AdminNavbar(props) {
 				</Box>
 				<Box
 					ms="auto"
-					w="45px" /* Equal width and height for the circle */
 					h="45px"
-					bg="transparent" /* Transparent background */
-					borderRadius="full" /* Circular border radius */
-					>
+					bg="transparent"
+					borderRadius="full"
+				>
 					<AdminNavbarLinks
 						onOpen={props.onOpen}
 						logoText={props.logoText}

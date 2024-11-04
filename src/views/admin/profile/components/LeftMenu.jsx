@@ -2,7 +2,6 @@
 // Chakra imports
 import React from "react";
 import {
-  useColorModeValue,
   List,
   ListItem,
   Button,

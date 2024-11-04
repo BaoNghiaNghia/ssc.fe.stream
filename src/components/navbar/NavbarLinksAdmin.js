@@ -25,7 +25,7 @@ import { toast } from 'react-toastify';
 import { useTranslation } from 'react-i18next';
 import AvatarText from '../../components/AvatarText';
 
-export default function HeaderLinks(props) {
+export default function AdminNavbarLinks(props) {
 	const { secondary } = props;
 	// Chakra Color Mode
 	const textColor = useColorModeValue('secondaryGray.900', 'white');
@@ -92,10 +92,11 @@ export default function HeaderLinks(props) {
 					bg="transparent"
 					onClick={toggleMenu}
 					_hover={{ bg: 'gray.200' }}
-					style={{ outline: '1px solid #9fae8e38', marginLeft: '-20px' }}
+					style={{ outline: '1px solid #9fae8e38', marginLeft: '-20px', backgroundColor: 'white' }}
 				>
 					<Flex alignItems="center">
 						<AvatarText name={profile_?.fullname} inputSize="lg" />
+						<span style={{ fontWeight: '600', color: 'gray' }}>{profile_?.fullname}</span>
 						<Icon
 							as={isOpen ? ChevronUpIcon : ChevronDownIcon}
 							w={5}
@@ -135,8 +136,8 @@ export default function HeaderLinks(props) {
 					</Flex>
 					<Flex flexDirection="column" p="10px">
 						<MenuItem
-							_hover={{ bg: 'blue.100' }} // Change background color on hover for MenuItem
-							_focus={{ bg: 'blue.100' }} // Optional: focus state styling
+							_hover={{ bg: 'blue.100' }}
+							_focus={{ bg: 'blue.100' }}
 							borderRadius="8px"
 							px="14px"
 							fontSize="md"
@@ -145,8 +146,8 @@ export default function HeaderLinks(props) {
 							<Text fontSize="sm">Thông tin cá nhân</Text>
 						</MenuItem>
 						<MenuItem
-							_hover={{ bg: 'red.100' }} // Change background color on hover for logout MenuItem
-							_focus={{ bg: 'red.100' }} // Optional: focus state styling
+							_hover={{ bg: 'red.100' }}
+							_focus={{ bg: 'red.100' }}
 							onClick={handleLogoutEvent}
 							color="red.400"
 							borderRadius="8px"
@@ -162,7 +163,7 @@ export default function HeaderLinks(props) {
 	);
 }
 
-HeaderLinks.propTypes = {
+AdminNavbarLinks.propTypes = {
 	variant: PropTypes.string,
 	fixed: PropTypes.bool,
 	secondary: PropTypes.bool

@@ -1,27 +1,12 @@
 /* eslint-disable */
 import {
-    Flex,
-    Table,
-    Checkbox,
-    Tbody,
-    Td,
     Text,
-    Th,
-    Thead,
-    Tr,
     useColorModeValue,
-    Badge,
-    SimpleGrid,
     Button,
     Icon,
     FormControl,
-    Spinner,
     Grid,
     GridItem,
-    Avatar,
-    AvatarGroup,
-    FormLabel,
-    Select
 } from "@chakra-ui/react";
 import { useAuth } from "../../../../contexts/authenContext";
 

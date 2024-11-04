@@ -219,7 +219,7 @@ export default function Dashboard(props) {
 								brandText={getActiveRoute(mappingRouteByRole || [])}
 								secondary={getActiveNavbar(mappingRouteByRole || [])}
 								message={getActiveNavbarText(mappingRouteByRole || [])}
-								fixed={fixed}
+								fixed={false}
 								{...rest}
 							/>
 						</Portal>

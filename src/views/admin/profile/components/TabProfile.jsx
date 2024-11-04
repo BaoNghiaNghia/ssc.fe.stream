@@ -1,6 +1,6 @@
 /* eslint-disable */
 // Chakra imports
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
     Box,
     Button,
@@ -21,8 +21,6 @@ import { useAuth } from "../../../../contexts/authenContext";
 
 import avatar from "../../../../assets/img/avatars/avatar.png";
 import banner from "../../../../assets/img/auth/banner.png";
-import { MESSSAGE_STATUS_CODE, ROLE_USER } from "../../../../variables";
-import { fetchListUserPackageApi } from "../../../../api/UserPackage";
 import { IoNewspaper } from "react-icons/io5";
 import { useTranslation } from "react-i18next";
 

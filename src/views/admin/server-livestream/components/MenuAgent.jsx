@@ -15,17 +15,15 @@ import {
 // Assets
 import {
   MdOutlineMoreHoriz,
-  MdCancel,
   MdDeleteOutline,
   MdOutlinePerson,
-  MdPlayArrow,
   MdEditSquare,
   MdLockReset,
   MdOutlineAssignmentInd,
   MdOutlineAssignmentReturn
 } from "react-icons/md";
 import { ROLE_USER } from "../../../../variables";
-import { checkRoleUser, getCurrRoleUser } from "../../../../utils/handleValidate";
+import { getCurrRoleUser } from "../../../../utils/handleValidate";
 import { useAuth } from "../../../../contexts/authenContext";
 
 export default function MenuAgent(props) {

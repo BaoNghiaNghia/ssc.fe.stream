@@ -1,16 +1,12 @@
 /* eslint-disable */
-import React, { useState, useCallback, useEffect, useRef } from 'react'
+import React, { useState, useCallback } from 'react'
 import {
-    Button,
-    Text,
     Icon,
-    useOutsideClick,
     useColorModeValue,
     FormLabel,
     Input,
     FormControl,
     InputGroup,
-    InputRightElement,
     NumberInput,
     NumberInputField,
     NumberInputStepper,
@@ -23,19 +19,16 @@ import {
 } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 import * as Yup from "yup";
-import { setIn, useFormik } from "formik";
+import { useFormik } from "formik";
 
 import Card from "../../../../components/card/Card";
-import { MdComputer, MdOutlineRemoveRedEye } from 'react-icons/md';
+import { MdComputer } from 'react-icons/md';
 
 export default function DetailAgentServer(props) {
     const { dataGeneral, handleFetchResource, onClose } = props;
 
     const [show, setShow] = useState(false);
-    const handleClick = () => setShow(!show);
     const textColor = useColorModeValue("navy.700", "white");
-    const brandStars = useColorModeValue("brand.500", "brand.400");
-    const textColorSecondary = "gray.400";
 
     const initialValues = {
         name: dataGeneral?.name,

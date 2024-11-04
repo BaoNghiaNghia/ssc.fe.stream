@@ -23,7 +23,7 @@ import {
 } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 import * as Yup from "yup";
-import { setIn, useFormik } from "formik";
+import { useFormik } from "formik";
 
 import { toast } from 'react-toastify';
 

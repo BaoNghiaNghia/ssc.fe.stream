@@ -1,14 +1,11 @@
 /* eslint-disable */
 // Chakra imports
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import {
-    Box,
     Button,
-    Flex,
     Icon,
     Text,
     useColorModeValue,
-    Avatar,
     FormControl,
     FormLabel,
     Input,

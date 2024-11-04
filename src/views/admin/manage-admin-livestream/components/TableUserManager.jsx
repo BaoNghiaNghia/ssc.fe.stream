@@ -159,6 +159,7 @@ import {
         </Card>
         <Pagination
           color="blue"
+          typeName="livesstream"
           currentPage={currentPage}
           totalCount={paginationData.total}
           pageSize={paginationData.per_page}

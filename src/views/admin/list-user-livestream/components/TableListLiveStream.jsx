@@ -156,6 +156,7 @@ export default function TableListLiveStream(props) {
       </Table>
       <Pagination
         color="blue"
+        typeName="luồng"
         currentPage={currentPage}
         totalCount={paginationData.total}
         pageSize={paginationData.per_page}

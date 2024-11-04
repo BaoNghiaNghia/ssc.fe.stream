@@ -53,6 +53,7 @@ export default function VideoStreamTable(props) {
                 paginationData && (
                     <Pagination
                         color="blue"
+                        typeName="video stream"
                         currentPage={currentPage}
                         totalCount={paginationData.total}
                         pageSize={paginationData.per_page}

@@ -2,7 +2,6 @@
     display: flex;
     justify-content: center;
     list-style-type: none;
-    margin-top: 5px;
   
     .pagination-item-blue {
       padding: 0 12px;

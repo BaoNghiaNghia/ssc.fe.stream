@@ -118,29 +118,33 @@ export default function ManageAdminLivestream() {
       accessor: "package_name",
       role: [ROLE_USER.USER_DEFAULT],
       Cell: ({ value, row }) => {
-        const badgeStyle = value === "premium" 
-          ? { background: 'linear-gradient(45deg, orange 0%, rgb(250, 82, 82) 100%)', color: 'white' } 
-          : { background: 'green', color: 'white' };
+        let badgeStyle;
+    
+        switch (value) {
+          case "premium":
+            badgeStyle = { background: 'linear-gradient(45deg, orange 0%, rgb(250, 82, 82) 100%)', color: 'white' };
+            break;
+          case "vip":
+            badgeStyle = { background: 'linear-gradient(45deg, rgb(0, 128, 255) 0%, rgb(250, 82, 82) 100%)', color: 'white' };
+            break;
+          default: // 'normal' case
+            badgeStyle = { background: 'green', color: 'white' };
+        }
 
+        // Add gray text shadow
+        badgeStyle.textShadow = '1px 1px 6px gray';
+    
         return (
-          <Flex align='center'>
+          <Flex align="center">
             <Badge
-                style={{ ...badgeStyle, fontWeight: 500, borderRadius: '6px'}}
-                justifyContent="center"
-                alignContent="center"
+              style={{ ...badgeStyle, fontWeight: 500, borderRadius: '6px' }}
+              justifyContent="center"
+              alignContent="center"
             >
-                {value}
+              {value}
             </Badge>
           </Flex>
-        )
-        return (
-          <Flex align='center'>
-            <Text color="black" fontSize='sm'>
-            <Badge variant='solid' borderColor="white" bgColor='green' justifyContent="center"  color="white"
-                alignContent="center">{value?.toUpperCase()}</Badge>
-            </Text>
-          </Flex>
-        )
+        );
       }
     },
     {

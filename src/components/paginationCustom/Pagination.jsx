@@ -21,10 +21,6 @@ const Pagination = ({
 
     let className = 'pagination-bar';
 
-    // if (currentPage === 0 || paginationRange.length < 2) {
-    //     return null;
-    // }
-
     const onNext = () => {
         onPageChange(currentPage + 1);
     };
@@ -36,7 +32,7 @@ const Pagination = ({
     let lastPage = paginationRange[paginationRange.length - 1];
 
     return (
-        <div style={{ display: 'flex', alignContent: 'center', alignItems: 'center', justifyContent: 'center' }}>
+        <div style={{ display: 'flex', alignContent: 'center', alignItems: 'center', justifyContent: 'center', marginTop: '8px' }}>
             <span style={{ paddingTop: '8px', marginRight: '3%' }}>Tổng cộng <strong>{totalCount}</strong> {typeName}</span>
             <ul className={classnames('pagination-container', { [className]: className })}>
                 <li className={classnames(`pagination-item-${color}`, {disabled: currentPage === 1})} onClick={onPrevious}>

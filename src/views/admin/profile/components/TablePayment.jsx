@@ -183,7 +183,7 @@ export default function TablePayment(props) {
                             data = (
                                 <Flex align='center'>
                                     <Text color="green" fontSize='sm' fontWeight='500'>
-                                        {cell?.value.toLocaleString()} VNĐ
+                                        {cell?.value?.toLocaleString()} VNĐ
                                     </Text>
                                 </Flex>
                             );
@@ -241,9 +241,7 @@ export default function TablePayment(props) {
                 ))}
             </Thead>
             <Tbody {...getTableBodyProps()}>
-                {
-                    (tableData.length != 0) ? bodyWithData() : bodyWithNoData()
-                }
+                {tableData.length ? bodyWithData() : bodyWithNoData()}
             </Tbody>
         </Table>
     );

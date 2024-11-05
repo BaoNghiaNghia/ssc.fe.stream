@@ -37,7 +37,7 @@ export default function TableListLiveStream({ columnsData, tableData, filterHead
       <Td colSpan={columns.length} textAlign="center" py={8}>
         <Flex flexDirection="column" alignItems="center">
           <Image src={emptyBackgroundImage} alt="No Video Stream" width="20%" mb={4} />
-          <Text fontSize="lg" fontWeight="bold">Không có dữ liệu</Text>
+          <Text fontSize="lg" fontWeight="bold" style={{ marginBottom: '5px' }}>Không có dữ liệu</Text>
           <Text fontSize="md" color="gray.500">Hãy thêm một video / luồng để bắt đầu.</Text>
         </Flex>
       </Td>

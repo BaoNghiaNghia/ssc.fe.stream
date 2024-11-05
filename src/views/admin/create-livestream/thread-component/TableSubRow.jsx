@@ -390,7 +390,7 @@ export default function TableSubRow(props) {
                         <Td colSpan={columns?.length} textAlign="center" py={8}>
                             <Flex flexDirection="column" alignItems="center" justifyContent="center">
                             <Image src={noVideoStreamImg} alt="No Video Stream" width="20%" my={4} />
-                            <Text fontSize="lg" fontWeight="bold" color="gray.600" className="mb-1">Không có dữ liệu</Text>
+                            <Text fontSize="lg" fontWeight="bold" color="gray.600" className="mb-1" style={{ marginBottom: '5px' }}>Không có dữ liệu</Text>
                             <Text fontSize="md" color="gray.500">Hãy thêm luồng mới để bắt đầu.</Text>
                             </Flex>
                         </Td>

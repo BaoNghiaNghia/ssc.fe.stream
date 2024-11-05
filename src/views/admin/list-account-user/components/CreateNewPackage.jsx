@@ -40,7 +40,6 @@ export default function CreateNewUser(props) {
     }
 
     const { t } = useTranslation();
-
     const { profile } = useAuth();
 
     const validateSchema = Yup.object().shape({
@@ -49,11 +48,9 @@ export default function CreateNewUser(props) {
         password: Yup.string()
             .required(t('content.required_field'))
             .min(8, t('content.check_number_character'))
-            // .matches(/(?=.*[a-z])(?=.*[A-Z])\w+/, "Password ahould contain at least one uppercase and lowercase character")
             .matches(/\d/, t('content.check_number_password'))
             .matches(/[`!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?~]/, t('content.check_special_character_password')),
     });
-
 
     const handleOnSubmitFormCreate = async (values, { resetForm }) => {
         setLoading(true);

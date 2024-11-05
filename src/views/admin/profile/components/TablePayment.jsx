@@ -67,7 +67,7 @@ export default function TablePayment(props) {
                 <Td colSpan={columns.length} textAlign="center" py={8}>
                     <Flex flexDirection="column" alignItems="center">
                     <Image src={emptyBackgroundImage} alt="No Video Stream" width="20%" mb={4} />
-                    <Text fontSize="lg" fontWeight="bold" color="gray.600" className="pb-1">Không có dữ liệu</Text>
+                    <Text fontSize="lg" fontWeight="bold" color="gray.600" style={{ marginBottom: '5px' }}>Không có dữ liệu</Text>
                     <Text fontSize="md" color="gray.500">Hãy tiến hành mua gói mới để bắt đầu.</Text>
                     </Flex>
                 </Td>

@@ -92,7 +92,7 @@ export default function AdminNavbarLinks(props) {
 					bg="transparent"
 					onClick={toggleMenu}
 					_hover={{ bg: 'gray.200' }}
-					style={{ outline: '1px solid #9fae8e38', marginLeft: '-20px', backgroundColor: 'white' }}
+					style={{ outline: '1px solid #b7caa1bf', marginLeft: '-20px', backgroundColor: 'white' }}
 				>
 					<Flex alignItems="center">
 						<AvatarText name={profile_?.fullname} inputSize="lg" />

@@ -25,7 +25,8 @@
         "admin": "Administrator",
         "superadmin": "Super Admin",
         "reseller": "Reseller",
-        "protocol_corrention": "The path must start with http:// or https://"
+        "protocol_corrention": "The path must start with http:// or https://",
+        "invalid_email": "Invalid email"
     },
     "error_code": {
         "200": "Success",

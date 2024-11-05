@@ -1,31 +1,37 @@
 /* eslint-disable */
-// Chakra imports
 import React, { useEffect, useState } from "react";
 import {
   Box,
+  Flex,
+  Switch,
+  Text,
+  Icon,
   useDisclosure,
 } from "@chakra-ui/react";
+import { HiCheck, HiX } from "react-icons/hi"
 
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
 import { DEFAULT_PERPAGE, MESSSAGE_STATUS_CODE, ROLE_USER } from "../../../variables/index";
 
 import TableEmpty from "../list-user-livestream/components/TableEmpty";
-import { useAuth } from "../../../contexts/authenContext";
 import FilterHeader from "./components/FilterHeader";
 import TableUserManager from "./components/TableUserManager";
 import { fetchListAllGoogleKeyAPI } from "../../../api/GoogleKey";
+import CreateGoogleKey from "./components/CreateGoogleKey";
+import AvatarText from '../../../components/AvatarText';
+import ModalCustomGeneral from "../../../components/modal/ModalCustomGeneral";
+import { MdAccessTime } from "react-icons/md";
+import { reverseTimeDate } from "../../../utils/handleValidate";
 
 export default function ManageGoogleKey() {
   const [tableList, setTableList] = useState([]);
   const [paginationData, setPaginationData] = useState({});
 
-  const { profile } = useAuth();
-
   const {
-    isOpen: isOpenNewAgentServer,
-    onOpen: onOpenNewAgentServer,
-    onClose: onCloseNewAgentServer
+    isOpen: isOpenNewGoogleKey,
+    onOpen: onOpenNewGoogleKey,
+    onClose: onCloseNewGoogleKey
   } = useDisclosure();
 
   const { t } = useTranslation();
@@ -36,11 +42,9 @@ export default function ManageGoogleKey() {
   const handleFetchListUserPack = async (page, limit) => {
     try {
       const respListGoogleKey = await fetchListAllGoogleKeyAPI({ page, limit });
-
-      if (respListGoogleKey.error_code === MESSSAGE_STATUS_CODE.SUCCESS.code) {
-        let adminList = respListGoogleKey.data.data;
-        setPaginationData(adminList?.meta);
-        setTableList(adminList?.google_keys);
+      if (respListGoogleKey?.data?.error_code === 0) {
+        setPaginationData(respListGoogleKey.data.data?.meta);
+        setTableList(respListGoogleKey.data.data?.google_keys);
       }
     } catch (err) {
       console.log(err);
@@ -61,8 +65,14 @@ export default function ManageGoogleKey() {
       role: [ROLE_USER.USER_DEFAULT],
       sticky: "left",
       Cell: ({ value, row }) => {
+        const truncateName = (value) => (value.length > 25 ? `${value.substring(0, 22)}...` : value);
         return (
-          <span>{value}</span>
+          <Flex style={{ display: 'flex', alignContent: 'center', alignItems: 'center' }}>
+            <AvatarText name={value} inputSize="md" />
+            <Text fontWeight={"500"} color={"black"}>
+              {truncateName(value)}
+            </Text>
+          </Flex>
         )
       }
     },
@@ -71,7 +81,7 @@ export default function ManageGoogleKey() {
       accessor: "key",
       role: [ROLE_USER.USER_DEFAULT],
       Cell: ({ value, row }) => {
-        return <span>{value}</span>
+        return <code>{value}</code>
       }
     },
     {
@@ -79,7 +89,14 @@ export default function ManageGoogleKey() {
       accessor: "status",
       role: [ROLE_USER.USER_DEFAULT],
       Cell: ({ value, row }) => {
-        return (<span>{value}</span>)
+        return (
+          <Switch
+            colorPalette="blue"
+            size="lg"
+            isChecked={value}
+            thumbLabel={{ on: <><HiCheck />Hoạt động</>, off: <><HiX />Không hoạt động</> }}
+          />
+        )
       }
     },
     {
@@ -87,7 +104,12 @@ export default function ManageGoogleKey() {
       accessor: "created_at",
       role: [ROLE_USER.USER_DEFAULT],
       Cell: ({ value, row }) => {
-        return (<span>{value}</span>)
+        return (
+          <Text fontSize={"sm"} fontWeight="600" style={{ display: 'flex', alignContent: 'center', alignItems: 'center', color: 'gray' }}>
+            <MdAccessTime color="#80808080" style={{ width:'20px', height: '20px', marginRight: '7px' }} />
+            {reverseTimeDate(value)}
+          </Text>
+        )
       }
     },
     {
@@ -95,7 +117,12 @@ export default function ManageGoogleKey() {
       accessor: "updated_at",
       role: [ROLE_USER.USER_DEFAULT],
       Cell: ({ value, row }) => {
-        return (<span>{value}</span>)
+        return (
+          <Text fontSize={"sm"} fontWeight="600" style={{ display: 'flex', alignContent: 'center', alignItems: 'center', color: 'gray' }}>
+            <MdAccessTime color="#80808080" style={{ width:'20px', height: '20px', marginRight: '7px' }} />
+            {reverseTimeDate(value)}
+          </Text>
+        )
       }
     },
     {
@@ -113,11 +140,23 @@ export default function ManageGoogleKey() {
   ];
 
   const handleOpenModalCreateAgent = () => {
-    onOpenNewAgentServer();
+    onOpenNewGoogleKey();
   }
 
   return (
     <Box pt={{ base: "130px", md: "80px", xl: "80px" }}>
+      <ModalCustomGeneral
+        size="lg"
+        isOpen={isOpenNewGoogleKey}
+        onClose={onCloseNewGoogleKey}
+        title="Tạo mới Google Key"
+        content={
+          <CreateGoogleKey
+            handleFetchResource={handleFetchListUserPack}
+            onClose={onCloseNewGoogleKey}
+          />
+        }
+      />
       {
         tableList?.length === 0 ? (
           <TableEmpty
@@ -125,7 +164,7 @@ export default function ManageGoogleKey() {
             tableData={[]}
             filterHeader={
               <FilterHeader
-                title="Danh sách đăng ký gói "
+                title="Danh sách google keys "
                 onModalCreate={handleOpenModalCreateAgent}
               />
             }
@@ -135,7 +174,7 @@ export default function ManageGoogleKey() {
             paginationData={paginationData}
             filterHeader={
               <FilterHeader
-                title="Danh sách đăng ký gói "
+                title="Danh sách google keys "
                 onModalCreate={handleOpenModalCreateAgent}
               />
             }

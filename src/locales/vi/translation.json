@@ -25,7 +25,8 @@
         "admin": "Quản trị viên",
         "superadmin": "Quản trị viên cấp cao",
         "reseller": "Đại lý",
-        "protocol_corrention": "Đường dẫn phải bắt đầu với http:// hoặc https://"
+        "protocol_corrention": "Đường dẫn phải bắt đầu với http:// hoặc https://",
+        "invalid_email": "Không đúng định dạng mail"
     },
     "error_code": {
         "200": "Thành công",

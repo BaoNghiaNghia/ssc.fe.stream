@@ -98,7 +98,7 @@ export default function TabProfile(props) {
                     Chỉnh sửa
                 </Button>
             </Flex>
-            <Card mb={{ base: "0px", lg: "20px" }} px="20px" py="20px" align='center'>
+            <Card  align='center'>
                 <FormControl mb="10px">
                     <FormLabel
                         display='flex'

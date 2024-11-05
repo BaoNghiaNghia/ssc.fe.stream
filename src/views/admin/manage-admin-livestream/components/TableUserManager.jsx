@@ -2,7 +2,6 @@
 import {
     Flex,
     Table,
-    Checkbox,
     Tbody,
     Td,
     Text,
@@ -10,7 +9,6 @@ import {
     Thead,
     Tr,
     useColorModeValue,
-    FormControl,
     Image
   } from "@chakra-ui/react";
   
@@ -20,8 +18,7 @@ import {
     useGlobalFilter,
     usePagination,
     useSortBy,
-    useTable,
-    useBlockLayout
+    useTable
   } from "react-table";
   
   // Custom components

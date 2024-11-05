@@ -102,14 +102,11 @@ export function SidebarResponsive(props) {
   const { routes } = props;
   return (
     <Flex display={{ sm: "flex", xl: "none" }} alignItems='center' borderRadius={3} bgColor={"blackAlpha.100"}>
-      <Flex ref={btnRef} w='max-content' h='max-content' onClick={onOpen}>
+      <Flex ref={btnRef} onClick={onOpen}>
         <Icon
           as={IoMenuOutline}
           color={menuColor}
           my='auto'
-          w='20px'
-          h='20px'
-          me='10px'
           _hover={{ cursor: "pointer" }}
         />
       </Flex>
@@ -140,7 +137,6 @@ export function SidebarResponsive(props) {
     </Flex>
   );
 }
-// PROPS
 
 Sidebar.propTypes = {
   logoText: PropTypes.string,

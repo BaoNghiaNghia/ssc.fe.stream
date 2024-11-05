@@ -102,16 +102,8 @@ export default function ListAccountUser() {
               alignItems: "center",
             }}
           >
-            {/* <FaRegUserCircle
-              color="#80808080"
-              style={{
-                width: "30px",
-                height: "30px",
-                marginRight: "9px",
-              }}
-            /> */}
             <AvatarText name={value} inputSize="md"/>
-            <Text fontSize="sm" fontWeight={"600"} color={"black"}>
+            <Text fontSize="sm" fontWeight={"500"} color={"black"}>
               {value}
             </Text>
           </Flex>

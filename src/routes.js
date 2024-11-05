@@ -38,7 +38,7 @@ const routesForAuthenticated = [
     name: "Thống kê",
     layout: "/admin",
     path: "/home-page",
-    icon: <Icon as={MdHome} width='27px' height='27px' color='inherit' />,
+    icon: <Icon as={MdHome} width='27px' height='27px' color='inherit' style={{ marginTop: '6px' }}/>,
     component: MainDashboard,
     role: [ROLE_USER.SUPER_ADMIN, ROLE_USER.USER_DEFAULT],
     children: [
@@ -54,7 +54,7 @@ const routesForAuthenticated = [
     name: "Quản lý người dùng",
     layout: "/admin",
     path: "/list-account",
-    icon: <Icon as={MdVerifiedUser} width='27px' height='27px' color='inherit' />,
+    icon: <Icon as={MdVerifiedUser} width='27px' height='27px' color='inherit' style={{ marginTop: '6px' }} />,
     component: ListAccountUser,
     role: [ROLE_USER.ADMIN, ROLE_USER.RESELLER],
     children: []
@@ -63,7 +63,7 @@ const routesForAuthenticated = [
     name: "Quản lý luồng",
     layout: "/admin",
     path: "/list-livestream",
-    icon: <Icon as={MdPerson} width='27px' height='27px' color='inherit' />,
+    icon: <Icon as={MdPerson} width='27px' height='27px' color='inherit' style={{ marginTop: '6px' }}/>,
     component: ListUserLivestream,
     role: [ROLE_USER.USER_DEFAULT]
   },
@@ -71,7 +71,7 @@ const routesForAuthenticated = [
     name: "Quản lý livestream",
     layout: "/admin",
     path: "/create-livestream",
-    icon: <Icon as={MdHome} width='27px' height='27px' color='inherit' />,
+    icon: <Icon as={MdHome} width='27px' height='27px' color='inherit' style={{ marginTop: '6px' }}/>,
     component: CreateLivestream,
     role: [ROLE_USER.USER_DEFAULT]
   },
@@ -79,7 +79,7 @@ const routesForAuthenticated = [
     name: "Server livestream",
     layout: "/admin",
     path: "/server-livestream",
-    icon: <Icon as={MdConnectedTv} width='27px' height='27px' color='inherit' />,
+    icon: <Icon as={MdConnectedTv} width='27px' height='27px' color='inherit' style={{ marginTop: '6px' }}/>,
     component: ServerLiveStreamAgent,
     role: [ROLE_USER.USER_DEFAULT, ROLE_USER.ADMIN, ROLE_USER.RESELLER]
   },
@@ -87,7 +87,7 @@ const routesForAuthenticated = [
     name: "Quản lý gói livestream",
     layout: "/admin",
     path: "/manage-admin-livestream",
-    icon: <Icon as={MdAllInbox} width='27px' height='27px' color='inherit' />,
+    icon: <Icon as={MdAllInbox} width='27px' height='27px' color='inherit' style={{ marginTop: '6px' }}/>,
     component: ManageAdminLivestream,
     role: [ROLE_USER.ADMIN, ROLE_USER.SUPER_ADMIN, ROLE_USER.RESELLER]
   },
@@ -95,7 +95,7 @@ const routesForAuthenticated = [
     name: "Quản lý Google Key",
     layout: "/admin",
     path: "/manage-google-key",
-    icon: <Icon as={FcGoogle} width='27px' height='27px' color='inherit' />,
+    icon: <Icon as={FcGoogle} width='27px' height='27px' color='inherit' style={{ marginTop: '6px' }}/>,
     component: ManageGoogleKey,
     role: [ROLE_USER.ADMIN, ROLE_USER.SUPER_ADMIN]
   },
@@ -106,7 +106,7 @@ const routePublic = [
     name: "Cá nhân",
     layout: "/admin",
     path: "/profile",
-    icon: <Icon as={MdPerson} width='27px' height='27px' color='inherit' />,
+    icon: <Icon as={MdPerson} width='27px' height='27px' color='inherit' style={{ marginTop: '6px' }}/>,
     component: Profile,
     role: [ROLE_USER.USER_DEFAULT, ROLE_USER.ADMIN, ROLE_USER.SUPER_ADMIN, ROLE_USER.RESELLER]
   },
@@ -117,7 +117,7 @@ const routeBlank = [
     name: "Chính sách",
     layout: "/general",
     path: "/policy",
-    icon: <Icon as={MdPerson} width='27px' height='27px' color='inherit' />,
+    icon: <Icon as={MdPerson} width='27px' height='27px' color='inherit' style={{ marginTop: '6px' }}/>,
     component: Policy,
     role: [ROLE_USER.USER_DEFAULT, ROLE_USER.ADMIN, ROLE_USER.SUPER_ADMIN, ROLE_USER.RESELLER]
   },
@@ -128,7 +128,7 @@ const routePayments = [
       name: "Gói cước",
       layout: "/admin",
       path: "/plan",
-      icon: <Icon as={MdPerson} width='27px' height='27px' color='inherit' />,
+      icon: <Icon as={MdPerson} width='27px' height='27px' color='inherit' style={{ marginTop: '6px' }}/>,
       component: PackagePlanInfo,
       role: [ROLE_USER.USER_DEFAULT],
       children: [
@@ -147,35 +147,35 @@ const routesForNotAuthenticated = [
     name: "Đăng Nhập",
     layout: "/auth",
     path: "/sign-in",
-    icon: <Icon as={MdLock} width='27px' height='27px' color='inherit' />,
+    icon: <Icon as={MdLock} width='27px' height='27px' color='inherit' style={{ marginTop: '6px' }}/>,
     component: SignInCentered
   },
   {
     name: "Đăng ký",
     layout: "/auth",
     path: "/register",
-    icon: <Icon as={MdLock} width='27px' height='27px' color='inherit' />,
+    icon: <Icon as={MdLock} width='27px' height='27px' color='inherit' style={{ marginTop: '6px' }}/>,
     component: Register
   },
   {
     name: "Forgot Password",
     layout: "/auth",
     path: "/forgot-password",
-    icon: <Icon as={MdLock} width='27px' height='27px' color='inherit' />,
+    icon: <Icon as={MdLock} width='27px' height='27px' color='inherit' style={{ marginTop: '6px' }}/>,
     component: ForgotPassword
   },
   {
     name: "Underconstruction",
     layout: "/under-construction",
     path: "/forgot-password",
-    icon: <Icon as={MdLock} width='27px' height='27px' color='inherit' />,
+    icon: <Icon as={MdLock} width='27px' height='27px' color='inherit' style={{ marginTop: '6px' }}/>,
     component: ForgotPassword
   },
   {
     name: "Underconstruction",
     layout: "/under-construction",
     path: "/forgot-password",
-    icon: <Icon as={MdLock} width='27px' height='27px' color='inherit' />,
+    icon: <Icon as={MdLock} width='27px' height='27px' color='inherit' style={{ marginTop: '6px' }}/>,
     component: ForgotPassword
   }
 ];

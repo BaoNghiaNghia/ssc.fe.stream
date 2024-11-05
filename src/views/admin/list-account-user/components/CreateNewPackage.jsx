@@ -88,7 +88,7 @@ export default function CreateNewUser(props) {
 
     return (
         <form onSubmit={formik.handleSubmit} >
-            <Card mb={{ base: "0px", lg: "20px" }} px="20px" py="20px" align='left'>
+            <Card  align='left'>
                 <FormControl as={GridItem} colSpan={[6, 3]} mb="3%">
                     <FormLabel
                         htmlFor="fullname"

@@ -93,7 +93,7 @@ export default function EditAgentServer(props) {
 
     return (
         <form onSubmit={formik.handleSubmit} >
-            <Card mb={{ base: "0px", lg: "20px" }} px="20px" py="20px" align='center'>
+            <Card  align='center'>
                 <FormControl mb="15px">
                     <FormLabel
                         display='flex'

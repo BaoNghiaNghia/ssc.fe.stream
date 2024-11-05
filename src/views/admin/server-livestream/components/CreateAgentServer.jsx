@@ -1,16 +1,13 @@
 /* eslint-disable */
-import React, { useState, useCallback, useEffect, useRef } from 'react'
+import React, { useState, useCallback } from 'react'
 import {
     Button,
-    Text,
     Icon,
-    useOutsideClick,
     useColorModeValue,
     FormLabel,
     Input,
     FormControl,
     InputGroup,
-    InputRightElement,
     NumberInput,
     NumberInputField,
     NumberInputStepper,
@@ -42,12 +39,8 @@ import { MdComputer } from 'react-icons/md';
 export default function CreateAgentServer(props) {
     const { dataGeneral, handleFetchResource, onClose } = props;
 
-    const [show, setShow] = useState(false);
     const [loading, setLoading] = useState(false);
-    const handleClick = () => setShow(!show);
     const textColor = useColorModeValue("navy.700", "white");
-    const brandStars = useColorModeValue("brand.500", "brand.400");
-    const textColorSecondary = "gray.400";
 
     const initialValues = {
         name: "",
@@ -104,7 +97,7 @@ export default function CreateAgentServer(props) {
 
     return (
         <form onSubmit={formik.handleSubmit} >
-            <Card mb={{ base: "0px", lg: "20px" }} px="20px" py="20px" align='center'>
+            <Card  align='center'>
                 <FormControl mb="15px">
                     <FormLabel
                         display='flex'
@@ -242,7 +235,7 @@ export default function CreateAgentServer(props) {
                             </FormLabel>
                             <Switch
                                 isChecked={formik.values.status}
-                                size={"md"}
+                                size="lg"
                                 pt="10px"
                                 onChange={(e) => setInputValue("status", e.target.checked)}
                             />

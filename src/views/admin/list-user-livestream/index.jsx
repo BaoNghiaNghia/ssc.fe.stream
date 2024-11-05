@@ -258,7 +258,7 @@ export default function ListUserLivestream() {
         return (
           <Text fontSize={"sm"} fontWeight="600" style={{ display: 'flex', alignContent: 'center', alignItems: 'center', color: 'gray' }}>
             <MdAccessTime color="#80808080" style={{ width:'20px', height: '20px', marginRight: '7px' }} />
-            {reverseTimeDate(row.original.started_at)}
+            {reverseTimeDate(row?.original?.started_at)}
           </Text>
         )
       }
@@ -270,7 +270,7 @@ export default function ListUserLivestream() {
         return (
           <Text fontSize={"sm"} fontWeight="600" style={{ display: 'flex', alignContent: 'center', alignItems: 'center', color: 'gray' }}>
             <MdAccessTime color="#80808080" style={{ width:'20px', height: '20px', marginRight: '7px' }} />
-            {reverseTimeDate(row.original.expired_at)}
+            {reverseTimeDate(row?.original.expired_at)}
           </Text>
         )
       }
@@ -282,7 +282,7 @@ export default function ListUserLivestream() {
         return (
             <Flex align='center'>
               {
-                (row.original?.live_streaming == true) ? (
+                (row?.original?.live_streaming == true) ? (
                   <Text w="fit-content" style={{ display: "inline-flex" }} borderRadius="3px" py="3px" px="6px" fontSize="13px"
                     bg="green"
                     color="white">
@@ -324,7 +324,7 @@ export default function ListUserLivestream() {
       Cell: ({ value, row }) => {
         return (
           <MenuUserStream
-            // idVideo={row.original.id}
+            // idVideo={row?.original.id}
             editCurrUserStream={editCurrUserStream(row?.original)}
           />
         )

@@ -1,17 +1,14 @@
 /* eslint-disable */
-import React, { useState } from 'react'
+import React from 'react'
 import {
     Button,
-    FormLabel,
-    Input,
     Modal,
     ModalOverlay,
     ModalContent,
     ModalHeader,
     ModalFooter,
     ModalBody,
-    ModalCloseButton,
-    Spinner
+    ModalCloseButton
 } from '@chakra-ui/react';
 
 import { useTranslation } from 'react-i18next';
@@ -34,7 +31,7 @@ const ModalCustomGeneral = ({
             <ModalContent>
                 <ModalHeader>{title}</ModalHeader>
                 <ModalCloseButton />
-                <ModalBody>
+                <ModalBody style={{ paddingTop: 0 }}>
                     <p>{content}</p>
                 </ModalBody>
                 {
@@ -47,7 +44,6 @@ const ModalCustomGeneral = ({
                             <Button 
                                 colorScheme='blue'
                                 size="sm"
-                                // isDisabled={formik.errors.url}
                                 onClick={() => handleConfirm()}
                             >Đồng ý</Button>
                         </ModalFooter>

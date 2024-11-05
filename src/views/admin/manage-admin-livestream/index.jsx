@@ -108,9 +108,8 @@ export default function ManageAdminLivestream() {
 
         return (
           <Flex style={{ display: 'flex', alignContent: 'center', alignItems: 'center' }}>
-            {/* <FaRegUserCircle color="#80808080" style={{ width:'30px', height: '30px', marginRight: '9px' }} /> */}
             <AvatarText name={value?.fullname} inputSize="md" />
-            <Text fontWeight={"600"} color={"black"}>
+            <Text fontWeight={"500"} color={"black"}>
               {truncateName(value?.fullname)}
             </Text>
           </Flex>
@@ -241,10 +240,14 @@ export default function ManageAdminLivestream() {
       accessor: "",
       Cell: ({ value, row }) =>  {
         return (
-          <Text fontSize={"sm"} fontWeight="bold" style={{ display: 'flex', alignContent: 'center', alignItems: 'center', fontStyle: 'italic', color: 'gray' }}>
-            <MdAccessTime color="#80808080" style={{ width:'20px', height: '20px', marginRight: '7px' }} />
-            {row.original?.started_at ? reverseTimeDate(row?.original?.started_at) : "..."}
-          </Text>
+          <>
+            {row.original?.started_at ? (
+              <Text fontSize={"sm"} fontWeight="bold" style={{ display: 'flex', alignContent: 'center', alignItems: 'center', fontStyle: 'italic', color: 'gray' }}>
+                  <MdAccessTime color="#80808080" style={{ width:'20px', height: '20px', marginRight: '7px' }} />
+                  {reverseTimeDate(row?.original?.started_at)}
+                </Text>
+              ) : "..."}
+          </>
         )
       }
     },
@@ -253,10 +256,14 @@ export default function ManageAdminLivestream() {
       accessor: "",
       Cell: ({ value, row }) =>  {
         return (
-          <Text fontSize={"sm"} fontWeight="bold" style={{ display: 'flex', alignContent: 'center', alignItems: 'center', fontStyle: 'italic', color: 'gray' }}>
-            <MdAccessTime color="#80808080" style={{ width:'20px', height: '20px', marginRight: '7px' }} />
-            {row.original?.expired_at ? reverseTimeDate(row?.original?.expired_at) : "..."}
-          </Text>
+          <>
+            {row?.original?.expired_at ? (
+              <Text fontSize={"sm"} fontWeight="bold" style={{ display: 'flex', alignContent: 'center', alignItems: 'center', fontStyle: 'italic', color: 'gray' }}>
+                <MdAccessTime color="#80808080" style={{ width:'20px', height: '20px', marginRight: '7px' }} />
+                {reverseTimeDate(row?.original?.expired_at)}
+              </Text>
+            ) : "..."}
+          </>
         )
       }
     },
@@ -286,7 +293,7 @@ export default function ManageAdminLivestream() {
                   : null
               }
             />
-            <Text color="black" fontSize='sm' fontWeight='700'>
+            <Text color="black" fontSize='sm' fontWeight='500' style={{ color: value === true ? 'green' : 'red' }}>
               {value === true ? 'Đã xác nhận' : 'Chưa xác nhận'}
             </Text>
           </Flex>

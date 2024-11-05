@@ -6,6 +6,7 @@ import {
     Icon,
     FormControl,
     Grid,
+    Flex,
     GridItem,
 } from "@chakra-ui/react";
 import { useAuth } from "../../../../contexts/authenContext";
@@ -26,12 +27,14 @@ export default function FilterHeader(props) {
         handleOpenFilterModal
     } = props;
 
+    const isAdmin = [ROLE_USER.ADMIN].includes(getCurrRoleUser(profile));
+
     return (
         <Grid
             templateRows='repeat(1, 1fr)'
             templateColumns='repeat(8, 1fr)'
-            gap={4}
-            mb={0}
+            gap={0}
+            px={4}
         >
             <GridItem colSpan={6} margin="auto 0">
                 <FormControl>
@@ -40,58 +43,61 @@ export default function FilterHeader(props) {
                         fontSize='lg'
                         fontWeight='700'
                         mb="5px"
-                        ml="20px"
                         lineHeight='100%'>
                         {title}
                     </Text>
                 </FormControl>
             </GridItem>
-            <GridItem colSpan={1} align="right" mr="10px">
-                {
-                    [ROLE_USER.ADMIN].includes(getCurrRoleUser(profile)) ? (
-                        <FormControl>
-                            <Button
-                                _hover={{ bg: "gray.100" }}
-                                size="md"
-                                variant='outline'
-                                borderRadius='10px'
-                                px='10px'
-                                w="fit-content"
-                                onClick={() => onModalCreate()}
-                                py='20px'>
-                                <Icon
-                                    transition='0.2s linear'
-                                    w='28px'
-                                    h='28px'
-                                    pr='10px'
-                                    as={IoAddCircleOutline}
-                                    color={"black"}
-                                />
-                                Thêm server
-                            </Button>
-                        </FormControl>
-                    ) : null
-                }
-                <Button 
-                    _hover={{ bg: "gray.100" }}
-                    size="md"
-                    variant='outline' 
-                    borderRadius='5px'
-                    px='10px'
-                    w="fit-content"
-                    py='20px'
-                    onClick={() => handleOpenFilterModal()}
-                >
-                    <Icon
-                        transition='0.2s linear'
-                        w='32px'
-                        h='32px'
-                        pr='10px'
-                        as={MdFilterList}
-                        color={"black"}
-                    />
-                    Bộ lọc
-                </Button>
+
+            <GridItem colSpan={2} display="flex" justifyContent="flex-end" alignItems="center">
+                <Flex gap={4}>
+                    {isAdmin && (
+                        <Button
+                            _hover={{ bg: "gray.100" }}
+                            size="md"
+                            variant='outline'
+                            borderRadius='10px'
+                            px='10px'
+                            w="fit-content"
+                            onClick={onModalCreate}
+                            py='20px'
+                            aria-label="Add Server"
+                            mr={0}
+                        >
+                            <Icon
+                                transition='0.2s linear'
+                                w='28px'
+                                h='28px'
+                                pr='10px'
+                                as={IoAddCircleOutline}
+                                color={"black"}
+                            />
+                            Thêm server
+                        </Button>
+                    )}
+                    <Button 
+                        _hover={{ bg: "gray.100" }}
+                        size="md"
+                        variant='outline' 
+                        borderRadius='5px'
+                        px='10px'
+                        w="fit-content"
+                        py='20px'
+                        onClick={handleOpenFilterModal}
+                        aria-label="Open Filter Modal"
+                        ml={0}
+                    >
+                        <Icon
+                            transition='0.2s linear'
+                            w='32px'
+                            h='32px'
+                            pr='10px'
+                            as={MdFilterList}
+                            color={"black"}
+                        />
+                        Bộ lọc
+                    </Button>
+                </Flex>
             </GridItem>
         </Grid>
     );

@@ -67,13 +67,11 @@ export default function MenuAgent(props) {
       <MenuButton
         align='center'
         justifyContent='center'
-        bg={bgButton}
         _hover={bgHover}
         _focus={bgFocus}
         _active={bgFocus}
         w='37px'
         h='37px'
-        border="1px solid #dddddd"
         lineHeight='100%'
         onClick={onOpen1}
         borderRadius='10px'

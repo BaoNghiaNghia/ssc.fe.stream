@@ -1,16 +1,12 @@
 /* eslint-disable */
-import React, { useState, useCallback, useEffect, useRef } from 'react'
+import React, { useCallback } from 'react'
 import {
-    Button,
-    Text,
     Icon,
-    useOutsideClick,
     useColorModeValue,
     FormLabel,
     Input,
     FormControl,
     InputGroup,
-    InputRightElement,
     NumberInput,
     NumberInputField,
     NumberInputStepper,
@@ -23,32 +19,15 @@ import {
 } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 import * as Yup from "yup";
-import { setIn, useFormik } from "formik";
-
-import { toast } from 'react-toastify';
+import { useFormik } from "formik";
 
 import Card from "../../../../components/card/Card";
 
-import {
-    converter_ISO8601_To_YYYYMMDDHHMMSS,
-} from '../../../../utils/handleValidate';
-
-import {
-    updateAgentServerStream,
-    updateUserStream,
-} from '../../../../api/Stream';
-import { MESSSAGE_STATUS_CODE } from '../../../../variables';
-import { RiEyeCloseLine } from 'react-icons/ri';
-import { MdComputer, MdOutlineRemoveRedEye } from 'react-icons/md';
+import { MdComputer } from 'react-icons/md';
 
 export default function DetailAgentServer(props) {
-    const { dataGeneral, handleFetchResource, onClose } = props;
-
-    const [show, setShow] = useState(false);
-    const handleClick = () => setShow(!show);
+    const { dataGeneral } = props;
     const textColor = useColorModeValue("navy.700", "white");
-    const brandStars = useColorModeValue("brand.500", "brand.400");
-    const textColorSecondary = "gray.400";
 
     const initialValues = {
         name: dataGeneral.name,
@@ -57,6 +36,7 @@ export default function DetailAgentServer(props) {
         max_stream: dataGeneral.max_stream || 0,
         status: dataGeneral.status,
     }
+    
     const { t } = useTranslation();
 
     const validateSchema = Yup.object().shape({

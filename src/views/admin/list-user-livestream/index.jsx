@@ -295,9 +295,7 @@ export default function ListUserLivestream() {
                     />
                     {USER_PACKAGE_USED[Number(row?.original?.live_streaming)]?.message}
                   </Text>
-                ) :  (
-                  '...'
-                )
+                ) :  '...'
               }
             </Flex>
         )
@@ -324,7 +322,6 @@ export default function ListUserLivestream() {
       Cell: ({ value, row }) => {
         return (
           <MenuUserStream
-            // idVideo={row?.original.id}
             editCurrUserStream={editCurrUserStream(row?.original)}
           />
         )

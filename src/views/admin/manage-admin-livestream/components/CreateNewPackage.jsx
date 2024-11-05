@@ -2,21 +2,16 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react'
 import {
     Button,
-    Text,
     Icon,
-    useOutsideClick,
     useColorModeValue,
     FormLabel,
-    Input,
     FormControl,
     InputGroup,
-    InputRightElement,
     NumberInput,
     NumberInputField,
     NumberInputStepper,
     NumberIncrementStepper,
     NumberDecrementStepper,
-    Switch,
     Grid,
     GridItem,
     InputLeftAddon,
@@ -30,15 +25,13 @@ import { toast } from 'react-toastify';
 
 import Card from "../../../../components/card/Card";
 import { MESSSAGE_STATUS_CODE } from '../../../../variables';
-import { MdComputer, MdOutlineFolder, MdPerson, MdPersonPin } from 'react-icons/md';
+import { MdOutlineFolder, MdPerson } from 'react-icons/md';
 import { createUserPackageApi, fetchInfoUserPackageApi } from '../../../../api/UserPackage';
 
 export default function CreateNewPackage(props) {
-    const { dataGeneral, handleFetchResource, onClose, listAdmin } = props;
+    const { handleFetchResource, onClose, listAdmin } = props;
 
-    const [show, setShow] = useState(false);
     const [loading, setLoading] = useState(false);
-    const handleClick = () => setShow(!show);
     const textColor = useColorModeValue("navy.700", "white");
 
     const [infoPackage, setInfoPackage] = useState([]);

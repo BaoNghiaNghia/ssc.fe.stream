@@ -76,7 +76,6 @@ const groupVideoMenu = [
       <MenuButton
         align='center'
         justifyContent='center'
-        bg={bgButton}
         _hover={bgHover}
         _focus={bgFocus}
         _active={bgFocus}
@@ -92,7 +91,6 @@ const groupVideoMenu = [
         w='fit-content'
         minW='unset'
         maxW='150px !important'
-        // border='transparent'
         backdropFilter='blur(63px)'
         bg={bgList}
         boxShadow={bgShadow}

@@ -22,6 +22,7 @@ import {
   MdPlayArrow,
   MdEditSquare,
 } from "react-icons/md";
+import { FaRegEdit } from "react-icons/fa";
 import { VIDEO_STATUS_GENERAL } from "../../../../variables";
 
 export default function MenuVideo(props) {
@@ -45,7 +46,7 @@ export default function MenuVideo(props) {
     },
     {
       title: 'Chỉnh sửa',
-      icons: MdEditSquare,
+      icons: FaRegEdit,
       action: editCurrVideoStream,
       stateValidate: [
         VIDEO_STATUS_GENERAL.PENDING,
@@ -125,14 +126,11 @@ export default function MenuVideo(props) {
       <MenuButton
         id="menu-video-action"
         justifyContent='center'
-        bg={bgButton}
         _hover={bgHover}
-
         _focus={bgFocus}
         _active={bgFocus}
         w='30px'
         h='30px'
-        border="1px solid #dddddd"
         onClick={(e) => {
           // e.preventDefault();
           onOpenModal()

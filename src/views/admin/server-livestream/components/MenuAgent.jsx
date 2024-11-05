@@ -22,6 +22,7 @@ import {
   MdOutlineAssignmentInd,
   MdOutlineAssignmentReturn
 } from "react-icons/md";
+import { FaRegEdit } from "react-icons/fa";
 import { ROLE_USER } from "../../../../variables";
 import { getCurrRoleUser } from "../../../../utils/handleValidate";
 import { useAuth } from "../../../../contexts/authenContext";
@@ -44,7 +45,7 @@ export default function MenuAgent(props) {
   const groupVideoMenu = [
     {
       title: 'Chỉnh sửa',
-      icons: MdEditSquare,
+      icons: FaRegEdit,
       action: editAgentServer,
       role: [ROLE_USER.ADMIN]
     },
@@ -113,13 +114,11 @@ export default function MenuAgent(props) {
       <MenuButton
         align='center'
         justifyContent='center'
-        bg={bgButton}
         _hover={bgHover}
         _focus={bgFocus}
         _active={bgFocus}
         w='37px'
         h='37px'
-        border="1px solid #dddddd"
         lineHeight='100%'
         onClick={onOpen1}
         borderRadius='10px'

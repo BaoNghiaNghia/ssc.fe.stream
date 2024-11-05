@@ -40,7 +40,6 @@ export default function FilterHeader(props) {
             templateRows='repeat(1, 1fr)'
             templateColumns='repeat(8, 1fr)'
             gap={4}
-            mb={4}
         >
             <GridItem colSpan={6} margin="auto 0">
                 <FormControl>

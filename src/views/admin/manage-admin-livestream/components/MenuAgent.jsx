@@ -17,6 +17,7 @@ import {
   MdOutlineMoreHoriz,
   MdEditSquare,
 } from "react-icons/md";
+import { FaRegEdit } from "react-icons/fa";
 
 export default function MenuAgent(props) {
   const {
@@ -29,7 +30,7 @@ export default function MenuAgent(props) {
   const groupVideoMenu = [
     {
       title: 'Xác nhận',
-      icons: MdEditSquare,
+      icons: FaRegEdit,
       action: confirmActivePackage
     },
   ]
@@ -66,13 +67,11 @@ export default function MenuAgent(props) {
       <MenuButton
         align='center'
         justifyContent='center'
-        bg={bgButton}
         _hover={bgHover}
         _focus={bgFocus}
         _active={bgFocus}
         w='37px'
         h='37px'
-        border="1px solid #dddddd"
         lineHeight='100%'
         onClick={onOpen1}
         borderRadius='10px'

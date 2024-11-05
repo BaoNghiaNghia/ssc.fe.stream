@@ -40,7 +40,7 @@ export default function FilterHeader(props) {
             templateRows='repeat(1, 1fr)'
             templateColumns='repeat(8, 1fr)'
             gap={4}
-            mb={0}
+            mb={4}
         >
             <GridItem colSpan={6} margin="auto 0">
                 <FormControl>
@@ -60,8 +60,6 @@ export default function FilterHeader(props) {
                     <Button
                         _hover={{ bg: "gray.100" }}
                         size="md"
-                        color={"facebook"}
-                        colorScheme='facebook' 
                         variant='outline'
                         borderRadius='10px'
                         px='10px'

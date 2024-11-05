@@ -45,8 +45,6 @@ export default function FilterHeader(props) {
                     <Button
                         _hover={{ bg: "gray.100" }}
                         size="md"
-                        color={"facebook"}
-                        colorScheme='facebook' 
                         variant='outline'
                         borderRadius='10px'
                         borderColor={'#b4b4b4'}

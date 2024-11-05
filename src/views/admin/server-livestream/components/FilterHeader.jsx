@@ -46,16 +46,14 @@ export default function FilterHeader(props) {
                     </Text>
                 </FormControl>
             </GridItem>
-            <GridItem colSpan={1} align="right" mr="20px">
+            <GridItem colSpan={1} align="right" mr="10px">
                 {
                     [ROLE_USER.ADMIN].includes(getCurrRoleUser(profile)) ? (
                         <FormControl>
                             <Button
                                 _hover={{ bg: "gray.100" }}
                                 size="md"
-                                color={"black"}
-                                colorScheme='black' 
-                                variant='ghost'
+                                variant='outline'
                                 borderRadius='10px'
                                 px='10px'
                                 w="fit-content"
@@ -74,14 +72,10 @@ export default function FilterHeader(props) {
                         </FormControl>
                     ) : null
                 }
-            </GridItem>
-            <GridItem colSpan={1} margin="auto 0" align="center">
                 <Button 
                     _hover={{ bg: "gray.100" }}
                     size="md"
-                    color={"black"}
-                    colorScheme='black' 
-                    variant='ghost' 
+                    variant='outline' 
                     borderRadius='5px'
                     px='10px'
                     w="fit-content"

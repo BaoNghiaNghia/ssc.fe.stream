@@ -219,7 +219,7 @@ export default function ServerLiveStreamAgent() {
             {
               row?.original?.user_obj ? (
                 <>
-                  <AvatarText name={row?.original.user_obj?.fullname} />
+                  <AvatarText name={row?.original.user_obj?.fullname} inputSize="md" />
                   <Text
                     colorScheme="black" 
                     fontWeight={"500"}
@@ -243,7 +243,7 @@ export default function ServerLiveStreamAgent() {
             {
               row?.original?.reseller_obj ? (
                 <>
-                  <AvatarText name={row?.original?.reseller_obj?.fullname} />
+                  <AvatarText name={row?.original?.reseller_obj?.fullname} inputSize="md" />
                   <Text
                     colorScheme="black" 
                     fontWeight={"500"}

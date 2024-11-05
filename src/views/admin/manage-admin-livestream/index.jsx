@@ -109,7 +109,7 @@ export default function ManageAdminLivestream() {
         return (
           <Flex style={{ display: 'flex', alignContent: 'center', alignItems: 'center' }}>
             {/* <FaRegUserCircle color="#80808080" style={{ width:'30px', height: '30px', marginRight: '9px' }} /> */}
-            <AvatarText name={value?.fullname} />
+            <AvatarText name={value?.fullname} inputSize="md" />
             <Text fontWeight={"600"} color={"black"}>
               {truncateName(value?.fullname)}
             </Text>

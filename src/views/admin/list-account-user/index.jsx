@@ -110,7 +110,7 @@ export default function ListAccountUser() {
                 marginRight: "9px",
               }}
             /> */}
-            <AvatarText name={value} />
+            <AvatarText name={value} inputSize="md"/>
             <Text fontSize="sm" fontWeight={"600"} color={"black"}>
               {value}
             </Text>

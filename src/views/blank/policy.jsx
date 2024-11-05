@@ -40,8 +40,6 @@ export default function Policy() {
           <GridItem colSpan={1}>
             <Button
               onClick={handleGoBackStep}
-              colorScheme="gray"
-              color="gray.400"
               variant="ghost"
               mt="10px"
               fontWeight="400"

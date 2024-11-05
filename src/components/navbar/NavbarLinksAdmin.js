@@ -136,7 +136,6 @@ export default function AdminNavbarLinks(props) {
 					</Flex>
 					<Flex flexDirection="column" p="10px">
 						<MenuItem
-							_hover={{ bg: 'blue.100' }}
 							_focus={{ bg: 'blue.100' }}
 							borderRadius="8px"
 							px="14px"

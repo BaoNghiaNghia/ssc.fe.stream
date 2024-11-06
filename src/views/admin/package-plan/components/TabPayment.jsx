@@ -28,7 +28,6 @@ export default function TabPayment(props) {
                 <Button 
                     mt={{ base: "20px", "2xl": "auto" }}
                     variant='outline'
-                    colorScheme="black"
                     alignContent="center"
                     justifyContent="center"
                     onClick={onOpen}

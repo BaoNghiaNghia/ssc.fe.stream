@@ -68,10 +68,10 @@ export default function TabProfile(props) {
                         >
                         <GridItem colSpan={1} margin="auto 0">    
                             <Text color={textColorPrimary} fontWeight='bold' fontSize='2xl' mt='10px'>
-                                {profileUser.fullname}
+                                {profileUser?.fullname}
                             </Text>
                             <Text color={textColorSecondary} fontSize='sm'>
-                                {t(`content.${profileUser.group.role}`)}
+                                {t(`content.${profileUser?.group?.role}`)}
                             </Text>
                         </GridItem>
                     </Grid>
@@ -98,7 +98,7 @@ export default function TabProfile(props) {
                     Chỉnh sửa
                 </Button>
             </Flex>
-            <Card  align='center'>
+            <Card  align='center' style={{ padding: '10px' }}>
                 <FormControl mb="10px">
                     <FormLabel
                         display='flex'

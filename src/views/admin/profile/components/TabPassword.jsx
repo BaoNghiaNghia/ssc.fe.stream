@@ -126,7 +126,7 @@ export default function TabPassword(props) {
             <Text color="black" align="left" pb="10px">
                 Cập nhật mật khẩu:
             </Text>
-            <Card  align='center'>
+            <Card align='center' style={{ padding: '10px' }}>
                 <FormControl mb="15px">
                     <FormLabel
                         display='flex'

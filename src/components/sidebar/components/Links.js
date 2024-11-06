@@ -63,11 +63,7 @@ export function SidebarLinks(props) {
                   ps='10px'>
                   <Flex w='100%' alignItems='center' justifyContent='center'>
                     <Box
-                      color={
-                        activeRoute(route.path.toLowerCase())
-                          ? activeIcon
-                          : textColor
-                      }
+                      color={ activeRoute(route.path.toLowerCase()) ? activeIcon : textColor }
                       me='18px'>
                       {route.icon}
                     </Box>
@@ -80,7 +76,7 @@ export function SidebarLinks(props) {
                       }
                       fontWeight={
                         activeRoute(route.path.toLowerCase())
-                          ? "bold"
+                          ? "600"
                           : "normal"
                       }>
                       {route.name}
@@ -114,7 +110,7 @@ export function SidebarLinks(props) {
                         : inactiveColor
                     }
                     fontWeight={
-                      activeRoute(route.path.toLowerCase()) ? "bold" : "normal"
+                      activeRoute(route.path.toLowerCase()) ? "600" : "normal"
                     }>
                     {route.name}
                   </Text>

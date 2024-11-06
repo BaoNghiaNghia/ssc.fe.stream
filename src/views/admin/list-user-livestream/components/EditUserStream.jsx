@@ -125,6 +125,7 @@ export default function EditUserStream(props) {
                         value={formik.values.description}
                         onChange={(e) => setInputValue("description", e.target.value)}
                         isRequired={true}
+                        placeholder='Nhập mô tả luồng'
                         fontSize='sm'
                         size='lg'
                     />

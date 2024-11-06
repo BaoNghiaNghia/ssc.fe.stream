@@ -34,7 +34,7 @@ import * as Yup from "yup";
 import { useFormik } from "formik";
 
 import { toast } from 'react-toastify';
-import { FiServer } from "react-icons/fi";
+import { RxReset } from "react-icons/rx";
 
 import Card from "../../../components/card/Card";
 import InputVideoStep from './components/InputVideoStep';
@@ -1062,7 +1062,7 @@ export default function CreateLivestream() {
                 handleConfirm={handleConfirmFilter}
                 footer={true}
                 addButton={
-                    <Button rightIcon={<MdLockReset fontSize="md" />} 
+                    <Button rightIcon={<RxReset />} 
                         colorScheme='blue' variant='ghost' 
                         size="sm" borderRadius="5px" mr="5px"
                         fontWeight="500"

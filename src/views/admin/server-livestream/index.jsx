@@ -15,6 +15,7 @@ import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
 import { MdAccessTime } from "react-icons/md";
 import { FiServer } from "react-icons/fi";
+import { RxReset } from "react-icons/rx";
 
 import { MESSSAGE_STATUS_CODE, ROLE_USER, listOptionServerAgent, statusFieldVideo } from "../../../variables/index";
 import { fetchListAgentServerOfUser, fetchListAdminAgentServerStream, resetAdminAgentServerStream, deleteAgentServerStream, resetAgentServerStream } from "../../../api/Stream/index";
@@ -711,7 +712,7 @@ export default function ServerLiveStreamAgent() {
         handleConfirm={handleConfirmFilter}
         footer={true}
         addButton={
-          <Button rightIcon={<MdLockReset fontSize="md" />} 
+          <Button rightIcon={<RxReset fontSize="md" />} 
               colorScheme='blue' variant='ghost' 
               size="md" borderRadius="5px" mr="5px"
               fontWeight="500"

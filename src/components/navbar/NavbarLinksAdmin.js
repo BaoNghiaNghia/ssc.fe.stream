@@ -95,8 +95,8 @@ export default function AdminNavbarLinks(props) {
 					style={{ outline: '1px solid #b7caa1bf', marginLeft: '-20px', backgroundColor: 'white' }}
 				>
 					<Flex alignItems="center">
-						<AvatarText name={profile_?.fullname} inputSize="lg" />
-						<span style={{ fontWeight: '600', color: 'gray' }}>{profile_?.fullname}</span>
+						<AvatarText name={profile_?.fullname} inputSize="md" />
+						<span style={{ fontWeight: '400', color: 'black', margin: 'auto 6px' }}>{profile_?.fullname}</span>
 						<Icon
 							as={isOpen ? ChevronUpIcon : ChevronDownIcon}
 							w={5}
@@ -112,28 +112,31 @@ export default function AdminNavbarLinks(props) {
 					borderRadius="8px"
 					border="none"
 				>
-					<Flex w="100%" mb="0px">
-						<Tooltip label={`Xin chào, ${profile_?.fullname}`} position="top">
-							<Text
-								ps="20px"
-								pt="16px"
-								pb="10px"
-								w="100%"
-								borderBottom="1px solid"
-								borderColor={borderColor}
-								fontSize="sm"
-								fontWeight="600"
-								color={textColor}
-							>
-								👋&nbsp;
-								{profile_ ? (
-									<span>Chào, {profile_?.fullname}</span>
-								) : (
-									<span>'Chào bạn'</span>
-								)}
-							</Text>
-						</Tooltip>
+					<Flex w="100%" mb="0px" flexDirection="row" alignItems="center" style={{ margin: 'auto 20px' }}>
+						<AvatarText name={profile_?.fullname} inputSize="lg" />
+						<Text
+							ps="10px"
+							pt="7px"
+							pb="7px"
+							w="auto"
+							borderColor={borderColor}
+							fontSize="sm"
+							fontWeight="400"
+							color={textColor}
+							textAlign="left"
+						>
+							{profile_ ? (
+							<span style={{ fontWeight: 700 }}>{profile_?.fullname}</span>
+							) : (
+							<span>'Chào bạn'</span>
+							)}
+							<p style={{ textAlign: 'left' }}>
+							{profile_?.email}
+							</p>
+						</Text>
 					</Flex>
+
+
 					<Flex flexDirection="column" p="10px">
 						<MenuItem
 							_focus={{ bg: 'blue.100' }}

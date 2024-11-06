@@ -14,6 +14,8 @@ import {
 } from "@chakra-ui/react";
 import TableListLiveStream from "./components/TableListLiveStream";
 import { MdOutlineHub } from "react-icons/md";
+import { RxReset } from "react-icons/rx";
+
 // Assets
 import { MESSSAGE_STATUS_CODE, USER_PACKAGE_STATUS, USER_PACKAGE_USED} from "../../../variables/index";
 import { fetchListUserStreamApi } from "../../../api/Stream/index";
@@ -368,7 +370,7 @@ export default function ListUserLivestream() {
         handleConfirm={handleConfirmFilter}
         footer={true}
         addButton={
-            <Button rightIcon={<MdLockReset fontSize="md" />} 
+            <Button rightIcon={<RxReset fontSize="md" />} 
                 colorScheme='blue' variant='ghost' 
                 size="md" borderRadius="5px" mr="5px"
                 fontWeight="500"

@@ -115,8 +115,8 @@ export default function AdminNavbarLinks(props) {
 					<Flex w="100%" mb="0px" flexDirection="row" alignItems="center" style={{ margin: 'auto 20px' }}>
 						<AvatarText name={profile_?.fullname} inputSize="lg" />
 						<Text
-							ps="10px"
-							pt="7px"
+							ps="5px"
+							pt="10px"
 							pb="7px"
 							w="auto"
 							borderColor={borderColor}
@@ -139,7 +139,6 @@ export default function AdminNavbarLinks(props) {
 
 					<Flex flexDirection="column" p="10px">
 						<MenuItem
-							_focus={{ bg: 'blue.100' }}
 							borderRadius="8px"
 							px="14px"
 							fontSize="md"

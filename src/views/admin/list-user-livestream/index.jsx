@@ -254,6 +254,17 @@ export default function ListUserLivestream() {
       }
     },
     {
+      Header: "Channel ID",
+      accessor: "",
+      Cell: ({ value, row }) =>  {
+        return (
+          <Text fontSize={"sm"} fontWeight="600" style={{ display: 'flex', alignContent: 'center', alignItems: 'center', color: 'gray' }}>
+            {row?.original?.channel_id || '...'}
+          </Text>
+        )
+      }
+    },
+    {
       Header: "Từ ngày",
       accessor: "",
       Cell: ({ value, row }) =>  {

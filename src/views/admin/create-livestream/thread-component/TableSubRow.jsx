@@ -103,7 +103,7 @@ export default function TableSubRow(props) {
             Cell: ({ value, row }) => {
                 return (
                     <span style={{ display: 'flex', alignContent: 'center', alignItems: 'center' }}>
-                        <MdOutlineHub style={{ color: 'red', marginRight: '7px', width: '25px', height: '25px' }} />
+                        <MdOutlineHub style={{ color: 'gray', marginRight: '7px', width: '18px', height: '18px' }} />
                         <Text
                             color={textColor}
                             fontSize={{

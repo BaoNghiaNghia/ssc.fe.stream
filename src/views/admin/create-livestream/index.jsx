@@ -16,7 +16,6 @@ import {
     StepStatus,
     StepTitle,
     Stepper,
-    Spinner,
     Text,
     Badge,
     Avatar,
@@ -24,7 +23,6 @@ import {
     Icon,
     useOutsideClick,
     GridItem,
-    SimpleGrid,
     SkeletonCircle,
     SkeletonText,
     Center,
@@ -73,18 +71,13 @@ import {
 import { MESSSAGE_STATUS_CODE } from '../../../variables';
 
 import ModalAddUrl from './components/ModalAddUrl';
-import TableListThreadStream from './thread-component/TableListThreadStream';
-import CardSubRow from './thread-component/CardSubRow';
 import { MdArrowCircleDown, MdArrowCircleRight, MdLockReset, MdOutlineClose, MdOutlineDone, MdOutlineError, MdPause, MdPlayArrow, MdWatchLater } from 'react-icons/md';
 import ModalStreamVideo from './thread-component/ModalStreamVideo';
 import DetailVideoLivestream from './thread-component/DetailVideoLivestream';
-import Pagination from '../../../components/paginationCustom/Pagination';
-import TableSubRow from './thread-component/TableSubRow';
 import FilterHeader from './display-video-component/FilterHeader';
 import VideoStreamTable from './display-video-component/VideoStreamTable';
 import EditVideoLivestream from './thread-component/EditVideoLivestream';
 import FormFilterCustom from './display-video-component/FilterForm';
-import { isEmpty } from 'lodash';
 
 const initialValues = {
     name: "",
@@ -332,7 +325,7 @@ export default function CreateLivestream() {
     
     const [displaySubRowState, setDisplaySubRowState] = useState('table-video');
 
-    const [tableThreadStream, setTableThreadStream] = useState({});
+    // const [tableThreadStream, setTableThreadStream] = useState({});
     const [tableVideosStream, setTableVideosStream] = useState({});
 
     const [filter, setFilter] = useState(initFormFilter);
@@ -529,10 +522,10 @@ export default function CreateLivestream() {
                 );
 
                 setListUserStream(data);
-                setTableThreadStream({
-                    items: listItems,
-                    meta: dataResponse.meta
-                });
+                // setTableThreadStream({
+                //     items: listItems,
+                //     meta: dataResponse.meta
+                // });
             }
             return responseUserStream;
         } catch (err) {
@@ -933,30 +926,6 @@ export default function CreateLivestream() {
             />
         )
     }
-
-    const renderSwitchDisplay = (param) => {
-        // TODO: xử lý lại, tách từng view ra từng Component, tránh gọi cùng 1 lúc
-        switch(param) {
-          case 'table-video':
-            return (
-                <VideoStreamTable
-                    filterGroup={filterGroup()}
-                    tableData={tableVideosStream && tableVideosStream?.items}
-                    paginationData={tableVideosStream && tableVideosStream?.meta}
-                    setMenuSelected={setMenuSelected}
-                    playRightAwayVideo={playRightAwayVideo}
-                    editCurrVideoStream={editCurrVideoStream}
-                    detailCurrVideoStream={detailCurrVideoStream}
-                    killCurrVideoStream={killCurrVideoStream}
-                    delCurrVideoStream={delCurrVideoStream}
-                    handleFetchResource={handleFetchListVideoStream}
-                />
-            );
-          default:
-            return 'table-video';
-        }
-    }
-
     const handleChangeStateFilter = (e) => {
         const { name, value } = e.target;
         setFilter(prevState => ({ ...prevState, [name]: value }));
@@ -1100,7 +1069,18 @@ export default function CreateLivestream() {
                             </React.Fragment>
                         ) : (
                             <React.Fragment>
-                                {renderSwitchDisplay(displaySubRowState)}
+                                <VideoStreamTable
+                                    filterGroup={filterGroup()}
+                                    tableData={tableVideosStream && tableVideosStream?.items}
+                                    paginationData={tableVideosStream && tableVideosStream?.meta}
+                                    setMenuSelected={setMenuSelected}
+                                    playRightAwayVideo={playRightAwayVideo}
+                                    editCurrVideoStream={editCurrVideoStream}
+                                    detailCurrVideoStream={detailCurrVideoStream}
+                                    killCurrVideoStream={killCurrVideoStream}
+                                    delCurrVideoStream={delCurrVideoStream}
+                                    handleFetchResource={handleFetchListVideoStream}
+                                />
                             </React.Fragment>
                         )
                     }

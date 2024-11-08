@@ -201,7 +201,6 @@ export default function ServerLiveStreamAgent() {
               value ? (
                 <Text
                   colorScheme="black" 
-                  fontSize={{ base: "sm", }}
                   me='8px'>{value && truncate(value)}
                 </Text>
               ) : "..."
@@ -224,7 +223,6 @@ export default function ServerLiveStreamAgent() {
                   <Text
                     colorScheme="black" 
                     fontWeight={"500"}
-                    fontSize={{ base: "sm", }}
                     me='8px'>{row?.original.user_obj?.fullname && truncate(row?.original.user_obj?.fullname)}
                   </Text>
                 </>
@@ -248,7 +246,6 @@ export default function ServerLiveStreamAgent() {
                   <Text
                     colorScheme="black" 
                     fontWeight={"500"}
-                    fontSize={{ base: "sm", }}
                     me='8px'
                   >
                       {row?.original?.reseller_obj?.fullname && truncate(row?.original?.reseller_obj?.fullname)}
@@ -268,8 +265,6 @@ export default function ServerLiveStreamAgent() {
         return (
           <Text
             textColor="blue.700"
-            fontWeight={"900"}
-            fontSize={{ base: "sm", }}
             me='8px'>
             {
               value !== 0 ? (
@@ -291,8 +286,6 @@ export default function ServerLiveStreamAgent() {
         return (
           <Text
             textColor="blue.700"
-            fontWeight={"900"}
-            fontSize={{ base: "sm", }}
             me='8px'>
             {
               temp !== 0 ? (
@@ -314,8 +307,6 @@ export default function ServerLiveStreamAgent() {
         return (
           <Text
             textColor="blue.700"
-            fontWeight={"900"}
-            fontSize={{ base: "sm", }}
             me='8px'>
             {
               temp !== 0 ? (
@@ -337,8 +328,6 @@ export default function ServerLiveStreamAgent() {
         return (
           <Text
             textColor="blue.700"
-            fontWeight={"900"}
-            fontSize={{ base: "sm", }}
             me='8px'>
             {
               temp !== 0 ? (
@@ -360,8 +349,7 @@ export default function ServerLiveStreamAgent() {
         return (
           <Text
             textColor="blue.700"
-            fontWeight={"900"}
-            fontSize={{ base: "sm", }}
+            fontSize={{ base: "sm"}}
             me='8px'>
             {
               temp !== 0 ? (
@@ -383,8 +371,6 @@ export default function ServerLiveStreamAgent() {
         return (
           <Text
             textColor="blue.700"
-            fontWeight={"900"}
-            fontSize={{ base: "sm", }}
             me='8px'>
             {
               temp !== 0 ? (
@@ -406,7 +392,6 @@ export default function ServerLiveStreamAgent() {
         return (
           <Text
             textColor="blue.700"
-            fontWeight={"900"}
             fontSize={{ base: "sm" }}
             me='8px'>
             {

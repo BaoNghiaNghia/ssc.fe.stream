@@ -114,6 +114,7 @@ export default function CreateAgentServer(props) {
                         <Input
                             name="name"
                             value={formik.values.name}
+                            placeholder='Nhập tên server'
                             onChange={(e) => setInputValue("name", e.target.value)}
                             isRequired={true}
                             fontSize='sm'
@@ -129,6 +130,7 @@ export default function CreateAgentServer(props) {
                         ms='4px'
                         fontSize='sm'
                         fontWeight='500'
+                        placeholder='Nhập mô tả server'
                         color={textColor}
                         mb='8px'>
                         Mô tả:

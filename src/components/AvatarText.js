@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Avatar = ({ name, inputSize }) => {
+const Avatar = ({ name, inputSize, color }) => {
     const sizeStyles = {
         sm: {
             width: '25px',
@@ -25,7 +25,7 @@ const Avatar = ({ name, inputSize }) => {
     const styles = {
         ...appliedSize,
         borderRadius: '50%',
-        backgroundColor: '#4CAF50',
+        backgroundColor: color,
         color: 'white',
         display: 'flex',
         alignItems: 'center',
@@ -53,10 +53,12 @@ const Avatar = ({ name, inputSize }) => {
 Avatar.propTypes = {
     name: PropTypes.string.isRequired,
     inputSize: PropTypes.oneOf(['sm', 'md', 'lg']),
+    color: PropTypes.string
 };
 
 Avatar.defaultProps = {
     inputSize: 'sm', 
+    color: '#4CAF50'
 };
 
 export default Avatar;

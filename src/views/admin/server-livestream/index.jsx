@@ -183,7 +183,7 @@ export default function ServerLiveStreamAgent() {
         return (
           <Flex>
             <FiServer color="#80808080" style={{ width:'20px', height: '20px', marginRight: '7px' }} />
-            <Text fontSize="sm" fontWeight={"bold"} color={"black"}>
+            <Text fontSize="sm" fontWeight={"500"} color={"black"}>
               {value && truncate(value)}
             </Text>
           </Flex>

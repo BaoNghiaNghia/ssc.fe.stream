@@ -104,14 +104,25 @@ export default function ManageAdminLivestream() {
       role: [ROLE_USER.USER_DEFAULT],
       sticky: "left",
       Cell: ({ value, row }) => {
-        const truncateName = (name) => (name.length > 25 ? `${name.substring(0, 22)}...` : name);
+        const truncateName = (name) => (name?.length > 25 ? `${name?.substring(0, 22)}...` : name);
 
         return (
           <Flex style={{ display: 'flex', alignContent: 'center', alignItems: 'center' }}>
-            <AvatarText name={value?.fullname} inputSize="md" />
-            <Text fontWeight={"500"} color={"black"}>
-              {truncateName(value?.fullname)}
-            </Text>
+            {
+              value?.fullname ? (
+                <>
+                  <AvatarText name={value?.fullname} inputSize="md" />
+                  <Text fontWeight={"500"} color={"black"}>
+                    {truncateName(value?.fullname)}
+                  </Text>
+                </>
+              ) : (
+                <>
+                  <AvatarText name={value?.fullname} inputSize="md" color="gray" />
+                  <span className="text-muted" style={{ fontStyle: 'italic', color: '#80808080' }}>Người dùng không tồn tại</span>
+                </>
+              )
+            }
           </Flex>
         )
       }

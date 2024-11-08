@@ -19,7 +19,6 @@ export default function Dashboard(props) {
 	const { ...rest } = props;
 	const { t } = useTranslation();
 
-	const [ fixed ] = useState(false);
 	const btnRef = React.useRef();
 	const [ toggleSidebar, setToggleSidebar ] = useState(false);
 
@@ -68,8 +67,8 @@ export default function Dashboard(props) {
 	}
 
 	// Handle thêm trường hợp token hết hạn, không sử dụng được.
-	routeForRender.map((object) => {
-		if (profile !== null && object.role.includes(JSON.parse(profile).group.role)) {
+	routeForRender?.map((object) => {
+		if (profile !== null && object?.role?.includes(JSON.parse(profile)?.group?.role)) {
 			return mappingRouteByRole.push(object);
 		}
 		return;

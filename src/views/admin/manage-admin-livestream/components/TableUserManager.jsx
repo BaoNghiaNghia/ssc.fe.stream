@@ -152,7 +152,7 @@ import {
               ))}
             </Thead>
             <Tbody {...getTableBodyProps()}>
-              {data.length == 0 ? bodyWithoutData() : bodyWithData()}
+              {data?.length == 0 ? bodyWithoutData() : bodyWithData()}
             </Tbody>
           </Table>
         </Card>

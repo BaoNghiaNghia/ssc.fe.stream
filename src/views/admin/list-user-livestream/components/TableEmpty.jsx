@@ -47,7 +47,7 @@ export default function TableListLiveStream({ columnsData, tableData, filterHead
   return (
     <Card direction="column" w="100%" px="0px" overflowX={{ sm: "scroll", lg: "hidden" }}>
       {filterHeader}
-      <Table {...getTableProps()} variant="simple" color="gray.500" mb="24px">
+      <Table {...getTableProps()} variant="simple" color="gray.500" mt="12px">
         <Thead bgColor="#f5f5f5">
           {headerGroups.map((headerGroup, index) => (
             <Tr {...headerGroup.getHeaderGroupProps()} key={index}>

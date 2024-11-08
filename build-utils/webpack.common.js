@@ -5,7 +5,7 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = {
   entry: path.resolve(__dirname, '..', './src/index.js'),
-  mode: 'production', // Enable production optimizations like tree shaking
+  mode: 'production',
   module: {
     rules: [
       {
@@ -21,7 +21,7 @@ module.exports = {
         test: /\.(png|jpe?g|gif|svg)$/i,
         loader: 'file-loader',
         options: {
-          name(resourcePath, resourceQuery) {
+          name() {
             if (process.env.NODE_ENV === 'development') {
               return '[path][name].[ext]';
             }
@@ -53,7 +53,7 @@ module.exports = {
     new BundleAnalyzerPlugin({ analyzerMode: 'static', openAnalyzer: false }),
   ],
   output: {
-    path: path.resolve(__dirname, '..', 'dist'),
+    path: path.resolve(__dirname, '..', `build_fe_stream_${process.env.VENDOR}`),
     filename: '[name].[contenthash].js',
     chunkFilename: '[name].[contenthash].js',
   },
@@ -64,6 +64,6 @@ module.exports = {
     minimize: true,
   },
   performance: {
-    hints: false, // Disable performance warnings about large bundles
+    hints: false,
   },
 };

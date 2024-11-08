@@ -175,7 +175,6 @@ export default function Dashboard(props) {
 				<Switch>
 					{getRoutes([...mappingRouteByRole] || [])}
 					<Redirect from='/' to='/admin/home-page' />
-					
 				</Switch>
 			</Box>
 		)

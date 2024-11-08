@@ -120,12 +120,7 @@ import {
         w='100%'
         px='0px'>
         {filterHeader}
-        <Card
-          direction='column'
-          w='100%'
-          px='0px'
-          overflowX={{ base: "scroll"}}>
-          <Table 
+        <Table 
             {...getTableProps()} 
             className="-striped -highlight" 
             variant='simple' mb='24px'
@@ -158,7 +153,6 @@ import {
               {data.length == 0 ? bodyWithoutData() : bodyWithData()}
             </Tbody>
           </Table>
-        </Card>
         <Pagination
           color="blue"
           typeName="gói"

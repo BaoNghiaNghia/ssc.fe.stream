@@ -327,7 +327,7 @@ export default function ManageAdminLivestream() {
             />
           )
         } else {
-          return '...';
+          return;
         }
       }
     },

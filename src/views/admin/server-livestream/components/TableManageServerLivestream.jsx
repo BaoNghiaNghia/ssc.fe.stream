@@ -115,6 +115,7 @@ import {
         direction='column'
         w='100%'
         px='0px'
+        pb="0px"
         >
         {filterHeader}
         <Table 
@@ -150,14 +151,14 @@ import {
               {data.length == 0 ? bodyWithoutData() : bodyWithData()}
             </Tbody>
           </Table>
-        <Pagination
-          color="blue"
-          typeName="servers"
-          currentPage={currentPage}
-          totalCount={paginationData.total}
-          pageSize={paginationData.per_page}
-          onPageChange={handleChangePage}
-        />
+          <Pagination
+            color="blue"
+            typeName="servers"
+            currentPage={currentPage}
+            totalCount={paginationData?.total}
+            pageSize={paginationData?.per_page}
+            onPageChange={handleChangePage}
+          />
       </Card>
     );
   }

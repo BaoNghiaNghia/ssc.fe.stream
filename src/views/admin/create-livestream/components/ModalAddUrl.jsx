@@ -66,9 +66,9 @@ const ModalAddUrl = ({
                 </ModalBody>
 
                 <ModalFooter>
-                    <Button colorScheme="facebook" variant="outline" size="md" mr={3} onClick={onClose}>Hủy bỏ</Button>
+                    <Button variant="outline" size="md" mr={3} onClick={onClose}>Hủy bỏ</Button>
                     <Button 
-                        colorScheme='facebook'
+                        colorScheme='blue'
                         size="md"
                         isDisabled={formik.errors.url}
                         onClick={handleAddURLVideo(formik.values.url)}

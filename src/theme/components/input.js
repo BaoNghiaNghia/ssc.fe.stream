@@ -8,6 +8,7 @@ export const inputStyles = {
         field: {
           fontWeight: 400,
           borderRadius: "8px",
+          fontFamily: "'Inter', sans-serif",
         },
       },
 
@@ -19,6 +20,7 @@ export const inputStyles = {
             color: mode("secondaryGray.900", "white")(props),
             borderColor: mode("secondaryGray.100", "whiteAlpha.100")(props),
             borderRadius: "16px",
+            fontFamily: "'Inter', sans-serif",
             fontSize: "sm",
             p: "20px",
             _placeholder: { color: "secondaryGray.400" },
@@ -30,6 +32,7 @@ export const inputStyles = {
             color: mode("navy.700", "white")(props),
             bg: mode("transparent", "transparent")(props),
             border: "1px solid",
+            fontFamily: "'Inter', sans-serif",
             borderColor: mode(
               "secondaryGray.100",
               "rgba(135, 140, 189, 0.3)"
@@ -41,6 +44,7 @@ export const inputStyles = {
         authSecondary: (props) => ({
           field: {
             bg: "transparent",
+            fontFamily: "'Inter', sans-serif",
             border: "1px solid",
             borderColor: "secondaryGray.100",
             borderRadius: "16px",
@@ -50,6 +54,7 @@ export const inputStyles = {
         search: (props) => ({
           field: {
             border: "none",
+            fontFamily: "'Inter', sans-serif",
             py: "11px",
             borderRadius: "inherit",
             _placeholder: { color: "secondaryGray.600" },
@@ -69,7 +74,7 @@ export const inputStyles = {
           field: {
             bg: "transparent",
             border: "1px solid",
-
+            fontFamily: "'Inter', sans-serif",
             borderColor: "secondaryGray.100",
             borderRadius: "16px",
             _placeholder: { color: "secondaryGray.600" },
@@ -79,7 +84,7 @@ export const inputStyles = {
           field: {
             bg: "transparent",
             border: "1px solid",
-
+            fontFamily: "'Inter', sans-serif",
             borderColor: "secondaryGray.100",
             borderRadius: "16px",
             _placeholder: { color: "secondaryGray.600" },
@@ -89,7 +94,7 @@ export const inputStyles = {
           field: {
             bg: "transparent",
             border: "1px solid",
-
+            fontFamily: "'Inter', sans-serif",
             borderColor: "secondaryGray.100",
             borderRadius: "16px",
             _placeholder: { color: "secondaryGray.600" },
@@ -98,6 +103,7 @@ export const inputStyles = {
         search: (props) => ({
           field: {
             border: "none",
+            fontFamily: "'Inter', sans-serif",
             py: "11px",
             borderRadius: "inherit",
             _placeholder: { color: "secondaryGray.600" },
@@ -120,6 +126,7 @@ export const inputStyles = {
             color: "secondaryGray.600",
             borderColor: mode("secondaryGray.100", "whiteAlpha.100")(props),
             borderRadius: "16px",
+            fontFamily: "'Inter', sans-serif",
             _placeholder: { color: "secondaryGray.600" },
           },
           icon: {
@@ -131,6 +138,7 @@ export const inputStyles = {
             bg: mode("transparent", "navy.800")(props),
             border: "0px solid transparent",
             fontSize: "0px",
+            fontFamily: "'Inter', sans-serif",
             p: "10px",
             _placeholder: { color: "secondaryGray.600" },
           },
@@ -146,6 +154,7 @@ export const inputStyles = {
             bg: "transparent",
             border: "0px solid",
             color: "secondaryGray.600",
+            fontFamily: "'Inter', sans-serif",
             borderColor: "transparent",
             width: "max-content",
             _placeholder: { color: "secondaryGray.600" },
@@ -162,6 +171,7 @@ export const inputStyles = {
             color: mode("secondaryGray.600", "secondaryGray.600")(props),
             borderColor: "transparent",
             padding: "0px",
+            fontFamily: "'Inter', sans-serif",
             paddingLeft: "8px",
             paddingRight: "20px",
             fontWeight: "700",
@@ -180,7 +190,7 @@ export const inputStyles = {
           field: {
             bg: "transparent",
             border: "1px solid",
-
+            fontFamily: "'Inter', sans-serif",
             borderColor: "secondaryGray.100",
             borderRadius: "16px",
             _placeholder: { color: "secondaryGray.600" },
@@ -190,7 +200,7 @@ export const inputStyles = {
           field: {
             bg: "transparent",
             border: "1px solid",
-
+            fontFamily: "'Inter', sans-serif",
             borderColor: "secondaryGray.100",
             borderRadius: "16px",
             _placeholder: { color: "secondaryGray.600" },
@@ -201,24 +211,11 @@ export const inputStyles = {
             border: "none",
             py: "11px",
             borderRadius: "inherit",
+            fontFamily: "'Inter', sans-serif",
             _placeholder: { color: "secondaryGray.600" },
           },
         }),
       },
     },
-    // PinInputField: {
-    //   variants: {
-    //     main: (props) => ({
-    //       field: {
-    //         bg: "red !important",
-    //         border: "1px solid",
-    //         color: mode("secondaryGray.900", "white")(props),
-    //         borderColor: mode("secondaryGray.100", "whiteAlpha.100")(props),
-    //         borderRadius: "16px",
-    //         _placeholder: { color: "secondaryGray.600" },
-    //       },
-    //     }),
-    //   },
-    // },
   },
 };

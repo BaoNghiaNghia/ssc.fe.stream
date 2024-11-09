@@ -1,12 +1,11 @@
 /* eslint-disable */
 // Chakra imports
-import { Portal, Box, useDisclosure, Stack, useColorModeValue } from '@chakra-ui/react';
+import { Box} from '@chakra-ui/react';
 // Layout components
 import { routeBlank } from '../../routes';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { useAuth } from '../../contexts/authenContext';
-import history from '../../utils/history';
 import { MESSSAGE_STATUS_CODE, MK_AGENCY_PROVIDER } from '../../variables';
 import { useTranslation } from 'react-i18next';
 import { fetchProfileDetail } from '../../api/Auth';
@@ -27,12 +26,12 @@ export default function Blank(props) {
 					Agency: MK_AGENCY_PROVIDER
 				}
 			});
-			if (responseProfile.status === MESSSAGE_STATUS_CODE.SUCCESS.code) {
-				setProfile(JSON.stringify(responseProfile.data.data));
+			if (responseProfile?.status === MESSSAGE_STATUS_CODE.SUCCESS.code) {
+				setProfile(JSON.stringify(responseProfile?.data?.data));
 			}
 		} catch (err) {
             if (err.response) {
-                toast.error(t(`error_code.${err.response.data.error_code}`));
+                toast.error(t(`error_code.${err?.response?.data?.error_code}`));
             }
         }
     }
@@ -45,8 +44,8 @@ export default function Blank(props) {
 	const mappingRouteByRole = [];
 
 	// Handle thêm trường hợp token hết hạn, không sử dụng được.
-	routeBlank.map((object) => {
-		if (profile !== null && object.role.includes(JSON.parse(profile).group.role)) {
+	routeBlank?.map((object) => {
+		if (profile !== null && object?.role?.includes(JSON.parse(profile)?.group?.role)) {
 			return mappingRouteByRole.push(object);
 		}
 		return;

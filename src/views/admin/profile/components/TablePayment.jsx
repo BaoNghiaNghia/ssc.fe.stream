@@ -97,7 +97,7 @@ export default function TablePayment(props) {
                         } else if (cell.column.Header === "TÊN GÓI") {
                             const badgeStyle = cell?.value === "premium" 
                                 ? { background: 'linear-gradient(45deg, orange 0%, rgb(250, 82, 82) 100%)', color: 'white' } 
-                                : { background: 'green', color: 'white' }; // Adjust the color for "Normal" as needed
+                                : { background: 'green', color: 'white' };
 
                             data = (
                                 <Flex align='center'>
@@ -216,7 +216,9 @@ export default function TablePayment(props) {
 
     return (
         <Table {...getTableProps()} 
-            border="none" w="100%" mb='24px' 
+            border="none" w="100%"
+            className="-striped -highlight" 
+            variant='simple'
             borderRadius="10px">
             <Thead bgColor="#f5f5f5">
                 {headerGroups.map((headerGroup, index) => (
@@ -224,9 +226,8 @@ export default function TablePayment(props) {
                         {headerGroup.headers.map((column, index) => (
                             <Th
                                 {...column.getHeaderProps(column.getSortByToggleProps())}
-                                pe='10px'
+                                py='10px'
                                 key={index}
-                                width="100px"
                                 borderColor={borderColor}>
                                 <Flex
                                     justify='space-between'

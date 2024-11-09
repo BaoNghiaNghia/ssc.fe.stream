@@ -18,6 +18,8 @@ import {
     Tr, Button, Image
 } from '@chakra-ui/react';
 
+import { IoCloseSharp } from "react-icons/io5";
+
 import {
     useGlobalFilter,
     usePagination,
@@ -27,7 +29,7 @@ import {
 
 import { useTranslation } from 'react-i18next';
 
-import { IoAddCircleOutline, IoRemoveCircleOutline } from 'react-icons/io5';
+import { IoAddCircleOutline } from 'react-icons/io5';
 import VideoCardInfo from "./VideoCardInfo";
 import noVideoStreamImg from '../../../../assets/img/no-video-stream.png';
 
@@ -36,8 +38,6 @@ const InputVideoStep = (props) => {
     // Chakra color mode
     const textColor = useColorModeValue("navy.700", "white");
     let linkColor = useColorModeValue({ base: "gray.400", lg: "blue" }, "blue");
-    
-    const [show, setShow] = useState(false);
     
     const { t } = useTranslation();
 
@@ -79,60 +79,62 @@ const InputVideoStep = (props) => {
     // Chakra Color Mode
     const textColorPrimary = useColorModeValue("secondaryGray.900", "white");
 
-    let bodyWithNoData = () => {
-        return (
-            <Tr>
-                <Td></Td>
-                <Td>
-                    <Flex flexDirection="column" justify='center' width="100%" align='center' my='20px'>
-                        <Image
-                            src={noVideoStreamImg}
-                            w={{ base: "100%", "3xl": "100%" }}
-                            h={{ base: "100%", "3xl": "100%" }}
-                            borderRadius='20px'
+    const bodyWithNoData = () => (
+        <Tr>
+            <Td colSpan={3}>
+                <Flex
+                    direction="column"
+                    justify="center"
+                    align="center"
+                    width="100%"
+                    my="20px"
+                >
+                    <Image
+                        src={noVideoStreamImg}
+                        w="60%"
+                        h="60%"
+                        borderRadius="20px"
+                    />
+                    <Text
+                        color={textColorPrimary}
+                        textAlign="center"
+                        fontWeight="500"
+                    >
+                        {t('content.no_video_livestream')}
+                    </Text>
+                    <Text fontSize="xs" textAlign="center" mb={2} color="gray">
+                        Thông số video chuẩn: định dạng: <strong>.mp4</strong>, mã hóa: <strong>h264</strong>, 
+                        chất lượng âm thanh: <strong>128kbs 44100 Hz</strong>
+                    </Text>
+                    <Button 
+                        mt={{ base: "10px", "2xl": "auto" }}
+                        variant='solid'
+                        colorScheme='green'
+                        size="sm"
+                        onClick={handleOpenModal()}>
+                        <Icon
+                            transition='0.2s linear'
+                            w='25px'
+                            h='25px'
+                            pr='5px'
+                            as={IoAddCircleOutline}
+                            color='white'
                         />
-                        <Text color={textColorPrimary} textAlign='center' fontWeight='bold' fontSize='l' my='15px'>
-                            {t('content.no_video_livestream')}
-                        </Text>
-                        <Button 
-                            mt={{ base: "10px", "2xl": "auto" }}
-                            variant='solid'
-                            colorScheme='green'
-                            size="sm"
-                            onClick={handleOpenModal()}>
-                            <Icon
-                                transition='0.2s linear'
-                                w='25px'
-                                h='25px'
-                                pr='5px'
-                                as={IoAddCircleOutline}
-                                color='white'
-                            />
-                            Thêm Video
-                        </Button>
-                    </Flex>
-                </Td>
-                <Td></Td>
-            </Tr>
-        );
-    };
+                        Thêm Video
+                    </Button>
+                </Flex>
+            </Td>
+        </Tr>
+    );
 
     let bodyWithData = () => {
-        return page.map((row, index) => {
+        return page?.map((row, index) => {
             prepareRow(row);
             return (
                 <Tr {...row.getRowProps()} key={index}>
                     {row.cells.map((cell, index) => {
                         let data = "";
-                        if (cell.column.Header === "#") {
-                            data = (
-                                <Flex align='center'>
-                                    <Text color={textColor} fontSize='sm' fontWeight='700'>
-                                        {cell.value}
-                                    </Text>
-                                </Flex>
-                            );
-                        } else if (cell.column.Header === "VIDEO") {
+                         if (cell.column.Header === "VIDEO") {
                             data = (
                                 <VideoCardInfo
                                     title={cell.value.title}
@@ -144,20 +146,13 @@ const InputVideoStep = (props) => {
                             data = (
                                 <Button 
                                     mt={{ base: "20px", "2xl": "auto" }}
-                                    variant='outline'
+                                    variant='ghost'
                                     size="sm"
                                     isDisabled={isEdit || false}
-                                    colorScheme='orange'
                                     onClick={handleRemoveURLVideo(cell)}
-                                    fontWeight='500'>
-                                    <Icon
-                                        transition='0.2s linear'
-                                        w='25px'
-                                        h='25px'
-                                        pr='5px'
-                                        as={IoRemoveCircleOutline}
-                                        color='orange'
-                                    />
+                                    fontWeight='500'
+                                >
+                                    <IoCloseSharp fontSize={30} />
                                     Xóa
                                 </Button>
                             );
@@ -275,9 +270,7 @@ const InputVideoStep = (props) => {
                         ))}
                     </Thead>
                     <Tbody {...getTableBodyProps()}>
-                        {
-                            (tableData.length != 0) ? bodyWithData() : bodyWithNoData()
-                        }
+                        { tableData?.length != 0 ? bodyWithData() : bodyWithNoData() }
                     </Tbody>
                 </Table>
                 {formik.errors.url && formik.touched.url && (

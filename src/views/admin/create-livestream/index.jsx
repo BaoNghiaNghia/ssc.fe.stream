@@ -71,7 +71,7 @@ import {
 import { MESSSAGE_STATUS_CODE } from '../../../variables';
 
 import ModalAddUrl from './components/ModalAddUrl';
-import { MdArrowCircleDown, MdArrowCircleRight, MdLockReset, MdOutlineClose, MdOutlineDone, MdOutlineError, MdPause, MdPlayArrow, MdWatchLater } from 'react-icons/md';
+import { MdArrowCircleDown, MdArrowCircleRight, MdOutlineClose, MdOutlineDone, MdOutlineError, MdPause, MdPlayArrow, MdWatchLater } from 'react-icons/md';
 import ModalStreamVideo from './thread-component/ModalStreamVideo';
 import DetailVideoLivestream from './thread-component/DetailVideoLivestream';
 import FilterHeader from './display-video-component/FilterHeader';

@@ -9,6 +9,7 @@ export const badgeStyles = {
         lineHeight: "100%",
         padding: "7px",
         paddingLeft: "12px",
+        fontFamily: "'Inter', sans-serif",
         paddingRight: "12px",
       },
       variants: {

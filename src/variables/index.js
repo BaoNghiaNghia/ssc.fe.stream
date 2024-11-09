@@ -337,13 +337,6 @@ export const VIDEO_RESOLUTION_DEFAULT = {
  
 export const columnsInsertVideoStream = [
   {
-    Header: "#",
-    accessor: "order",
-    maxWidth: 100,
-    minWidth: 70,
-    width: 70,
-  },
-  {
     Header: "VIDEO",
     accessor: "video",
   },

@@ -368,8 +368,8 @@ export default function TableSubRow(props) {
                                         <Td
                                             {...cell.getCellProps()}
                                             isNumeric={cell.column.isNumeric}
-                                            padding={"5px 10px"}
-                                            margin={"auto 0"}
+                                            padding="5px 10px"
+                                            margin="auto 0"
                                         >
                                             {cell.render('Cell')}
                                         </Td>

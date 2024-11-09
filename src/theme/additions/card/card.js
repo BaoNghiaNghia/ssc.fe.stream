@@ -7,6 +7,7 @@ const Card = {
     display: "flex",
     flexDirection: "column",
     width: "100%",
+    fontFamily: "'Inter', sans-serif",
     position: "relative",
     borderRadius: "20px",
     minWidth: "0px",

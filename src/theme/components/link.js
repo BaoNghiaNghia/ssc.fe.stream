@@ -1,10 +1,10 @@
 /* eslint-disable */
 export const linkStyles = {
     components: {
-      
       Link: {
           baseStyle: {
             textDecoration: "none",
+            fontFamily: "'Inter', sans-serif",
               boxShadow: "none",
             _focus: {
                 boxShadow: "none"

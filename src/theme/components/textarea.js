@@ -7,6 +7,7 @@ export const textareaStyles = {
       baseStyle: {
         field: {
           fontWeight: 400,
+          fontFamily: "'Inter', sans-serif",
           borderRadius: "8px",
         },
       },

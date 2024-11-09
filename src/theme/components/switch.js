@@ -8,6 +8,7 @@ export const switchStyles = {
         thumb: {
           fontWeight: 400,
           borderRadius: "50%",
+          fontFamily: "'Inter', sans-serif",
           w: "16px",
           h: "16px",
           _checked: { transform: "translate(20px, 0px)" },

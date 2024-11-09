@@ -31,3 +31,4 @@ yarn.lock
 
 
 build_fe_stream_production.*
+build_fe_stream_*

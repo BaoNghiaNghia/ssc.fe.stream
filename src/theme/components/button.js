@@ -8,6 +8,7 @@ export const buttonStyles = {
         borderRadius: "16px",
         boxShadow: "45px 76px 113px 7px rgba(112, 144, 176, 0.08)",
         transition: ".25s all ease",
+        fontFamily: "'Inter', sans-serif",
         boxSizing: "border-box",
         _focus: {
           boxShadow: "none",

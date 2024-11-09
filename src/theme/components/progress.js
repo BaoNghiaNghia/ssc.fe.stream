@@ -7,6 +7,7 @@ export const progressStyles = {
       baseStyle: {
         field: {
           fontWeight: 400,
+          fontFamily: "'Inter', sans-serif",
           w: "16px",
           h: "16px",
           borderRadius: "20px",

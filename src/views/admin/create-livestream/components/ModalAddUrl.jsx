@@ -36,7 +36,7 @@ const ModalAddUrl = ({
                 <ModalBody>
                     <Text fontSize='xs'>Link video:</Text>
                     <Text fontSize='xs'>- Sử dụng link nguồn là <strong>GOOGLE DRIVE</strong> hoặc <strong>YOUTUBE</strong> để livestream</Text>
-                    <Text fontSize='xs'>- Thông số video chuẩn: định dạng: <strong>.mp4</strong>, mã hóa: <strong>h264</strong>, 
+                    <Text fontSize='xs'>- Thông số video chuẩn: định dạng: <strong>.mp4</strong>, chuẩn nén: <strong>h264</strong>, 
                     chất lượng âm thanh: <strong>128kbs 44100 Hz</strong></Text>
                     <FormLabel
                         display='flex'

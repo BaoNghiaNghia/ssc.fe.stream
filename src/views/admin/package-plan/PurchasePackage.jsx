@@ -24,14 +24,13 @@ import {
 
 import React, { useEffect, useState } from 'react';
 
-import { useParams, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { IoInformationCircleSharp } from 'react-icons/io5';
 import { FaCheckCircle } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 
 import { MESSSAGE_STATUS_CODE, MK_AGENCY_PROVIDER, listPricingMonthly, listStreamThread } from '../../../variables/index';
-import { useAuth } from '../../../contexts/authenContext';
-import PaymentQRCode from '../../../assets/img/PaymentQRCode.jpg'
+// import PaymentQRCode from '../../../assets/img/PaymentQRCode.jpg'
 import { fetchInfoUserPackageApi, fetchListUserPackageApi, preOrderUserPackageApi } from '../../../api/UserPackage/index';
 import { fetchProfileDetail } from '../../../api/Auth';
 import ModalPackageConfirm from './components/ModalPackageConfirm';
@@ -278,9 +277,9 @@ function PurchasePackage() {
                                     <Icon as={FaCheckCircle} w='12px' h='auto' color="green.500" mr="5px">3</Icon>
                                         Hoặc quét <strong>Mã QR</strong>
                                 </Text>
-                                <Card display="flex" justifyContent="center" alignContent="center" flexDirection="row" boxShadow="none">
+                                {/* <Card display="flex" justifyContent="center" alignContent="center" flexDirection="row" boxShadow="none">
                                     <Image src={PaymentQRCode} h='316px'/>
-                                </Card>
+                                </Card> */}
                             </GridItem>
                         </Grid>
                     </GridItem>

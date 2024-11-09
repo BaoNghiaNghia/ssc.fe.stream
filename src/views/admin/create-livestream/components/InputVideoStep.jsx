@@ -18,7 +18,7 @@ import {
     Tr, Button, Image
 } from '@chakra-ui/react';
 
-import { IoCloseSharp } from "react-icons/io5";
+import { RiCloseCircleFill } from "react-icons/ri";
 
 import {
     useGlobalFilter,
@@ -91,8 +91,8 @@ const InputVideoStep = (props) => {
                 >
                     <Image
                         src={noVideoStreamImg}
-                        w="60%"
-                        h="60%"
+                        w="50%"
+                        h="50%"
                         borderRadius="20px"
                     />
                     <Text
@@ -103,7 +103,7 @@ const InputVideoStep = (props) => {
                         {t('content.no_video_livestream')}
                     </Text>
                     <Text fontSize="xs" textAlign="center" mb={2} color="gray">
-                        Thông số video chuẩn: định dạng: <strong>.mp4</strong>, mã hóa: <strong>h264</strong>, 
+                        Thông số video chuẩn: định dạng: <strong>.mp4</strong>, chuẩn nén: <strong>h264</strong>, 
                         chất lượng âm thanh: <strong>128kbs 44100 Hz</strong>
                     </Text>
                     <Button 
@@ -152,7 +152,7 @@ const InputVideoStep = (props) => {
                                     onClick={handleRemoveURLVideo(cell)}
                                     fontWeight='500'
                                 >
-                                    <IoCloseSharp fontSize={30} />
+                                    <RiCloseCircleFill fontSize={23} />
                                     Xóa
                                 </Button>
                             );

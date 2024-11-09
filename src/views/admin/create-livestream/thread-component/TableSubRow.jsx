@@ -90,7 +90,6 @@ export default function TableSubRow(props) {
                             base: "sm",
                         }}
                         mb='5px'
-                        fontWeight='bold'
                         me='14px'>
                         {truncate(row.original.video_info.title || row.original.name, 40)}
                     </Text>
@@ -107,9 +106,8 @@ export default function TableSubRow(props) {
                         <Text
                             color={textColor}
                             fontSize={{
-                                base: "md",
+                                base: "sm",
                             }}
-                            fontWeight='bold'
                             me='14px'>
                             {row.original?.stream_obj?.name}
                         </Text>
@@ -127,9 +125,8 @@ export default function TableSubRow(props) {
                         <Text
                             color={textColor}
                             fontSize={{
-                                base: "md",
+                                base: "sm",
                             }}
-                            fontWeight='bold'
                             me='14px'>
                             {row.original?.agent_obj?.name || '...'}
                         </Text>
@@ -217,7 +214,7 @@ export default function TableSubRow(props) {
             Header: "Trạng thái",
             accessor: "",
             Cell: ({ row }) => {
-                const status = row.original.status;
+                const status = row?.original?.status;
                 const statusData = VIDEO_STREAMING_STATUS[status];
                 const statusID = statusData?.id;
                 
@@ -246,8 +243,8 @@ export default function TableSubRow(props) {
                                             className="animation-icon" 
                                             loop={false} 
                                             autoplay={false}
-                                            fillColor={statusData.textColor}
-                                            strokeColor={statusData.textColor}
+                                            fillColor={statusData?.textColor}
+                                            strokeColor={statusData?.textColor}
                                         />
                                     ) : statusID === 1 ? (
                                         <UseAnimations 
@@ -256,8 +253,8 @@ export default function TableSubRow(props) {
                                             size={20}
                                             className="animation-icon" 
                                             autoplay={true} 
-                                            fillColor={statusData.textColor}
-                                            strokeColor={statusData.textColor}
+                                            fillColor={statusData?.textColor}
+                                            strokeColor={statusData?.textColor}
                                         />
                                     ) : (
                                         <Icon 
@@ -269,8 +266,7 @@ export default function TableSubRow(props) {
                                         />
                                     )}
                                 </Text>
-                                {/* <span style={{ marginLeft: '8px' }} >{row.original?.status_label || statusData?.message}</span> */}
-                                <span style={{ marginLeft: '8px', fontWeight: 700, color: 'gray' }} >{statusData?.message}</span>
+                                <span style={{ marginLeft: '8px', fontWeight: 500, color: 'gray' }} >{statusData?.message}</span>
                             </span>
                         </Tooltip>
                     </div>

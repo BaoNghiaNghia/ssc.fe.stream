@@ -27,6 +27,7 @@
         "reseller": "Đại lý",
         "protocol_corrention": "Đường dẫn phải bắt đầu với http:// hoặc https://",
         "invalid_email": "Không đúng định dạng mail",
+        "form_invalid": "Mẫu đơn không hợp lệ. Vui lòng kiểm tra lại thông tin và thử lại.",
         "invalid_channel_id": "Không đúng định dạng Channel ID"
     },
     "error_code": {

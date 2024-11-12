@@ -52,17 +52,19 @@ export default function EditUserStream(props) {
         description: Yup.string().required(t('content.required_field')),
         key: Yup.string().required(t('content.required_field')),
         channel_id: Yup.string()
-            .matches(
-                /^UC[a-zA-Z0-9_-]{24}$/, 
-                t('content.invalid_channel_id') // Custom error message for invalid channel ID
-            )
+            .matches(/^(?![a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$)UC[a-zA-Z0-9_-]+$/, t('content.invalid_channel_id'))
             .required(t('content.required_field'))
     });
 
     const handleOnSubmitFormEdit = async (values, { resetForm }) => {
+        if (!formik.isValid) {
+            toast.error(t('content.form_invalid'));
+            return;
+        }
+    
         try {
-
-            const responseEdit = await updateUserStream({ ...values, id: dataGeneral.id });
+            const responseEdit = await updateUserStream({ ...values, id: dataGeneral?.id });
+    
             if (responseEdit.status === MESSSAGE_STATUS_CODE.SUCCESS.code) {
                 toast.success(t(`error_code.${MESSSAGE_STATUS_CODE.SUCCESS.code}`));
                 await handleFetchResource({});
@@ -71,15 +73,18 @@ export default function EditUserStream(props) {
             }
         } catch (err) {
             if (err.response) {
-                toast.error(t(`error_code.${err.response.data.error_code}`));
+                toast.error(t(`error_code.${err?.response?.data?.error_code}`));
             }
         }
     };
+    
 
     const formik = useFormik({
         initialValues: initialValues,
         validationSchema: validateSchema,
         onSubmit: handleOnSubmitFormEdit,
+        validateOnChange: true, // Ensure validation happens on input change
+        validateOnBlur: true,   // Ensure validation happens on input blur
     });
 
     const setInputValue = useCallback(
@@ -92,7 +97,7 @@ export default function EditUserStream(props) {
 
     return (
         <form onSubmit={formik.handleSubmit} >
-            <Card p={0} align='center'>
+            <Card p={0} align='left'>
                 <FormControl mb="15px">
                     <FormLabel
                         display='flex'
@@ -157,6 +162,7 @@ export default function EditUserStream(props) {
                         placeholder='ID của channel youtube'
                         fontSize='sm'
                         size='lg'
+                        onBlur={formik.handleBlur}
                     />
                     {formik.errors.channel_id && formik.touched.channel_id && (
                         <p className="text-error">{formik.errors.channel_id}</p>

@@ -26,7 +26,7 @@ import MenuUserStream from "./components/MenuUserStream";
 import ModalCustom from "./components/ModalCustom";
 import activity from 'react-useanimations/lib/activity';
 import UseAnimations from "react-useanimations";
-import { MdAccessTime, MdLockReset, MdOutlineRemoveRedEye } from "react-icons/md";
+import { MdAccessTime, MdOutlineRemoveRedEye } from "react-icons/md";
 import { RiEyeCloseLine } from "react-icons/ri";
 import EditUserStream from "./components/EditUserStream";
 import TableEmpty from "./components/TableEmpty";
@@ -350,7 +350,7 @@ export default function ListUserLivestream() {
             activeFilter={activeFilter}
         />
     )
-}
+  }
 
   return (
     <Box pt={{ base: "130px", md: "80px", xl: "80px" }}>
@@ -394,7 +394,7 @@ export default function ListUserLivestream() {
         }
       />
       {
-        Object.keys(tableUserStream).length == 0 ? (
+        Object.keys(tableUserStream)?.length === 0 ? (
           <TableEmpty
             columnsData={columnsDataComplex}
             filterGroup={filterGroup()}

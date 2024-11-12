@@ -51,7 +51,12 @@ export default function EditUserStream(props) {
         name: Yup.string().required(t('content.required_field')),
         description: Yup.string().required(t('content.required_field')),
         key: Yup.string().required(t('content.required_field')),
-        channel_id: Yup.string().required(t('content.required_field'))
+        channel_id: Yup.string()
+            .matches(
+                /^UC[a-zA-Z0-9_-]{24}$/, 
+                t('content.invalid_channel_id') // Custom error message for invalid channel ID
+            )
+            .required(t('content.required_field'))
     });
 
     const handleOnSubmitFormEdit = async (values, { resetForm }) => {

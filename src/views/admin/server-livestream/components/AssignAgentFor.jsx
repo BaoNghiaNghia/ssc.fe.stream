@@ -53,7 +53,7 @@ export default function AssignAgentFor(props) {
             }
         } catch (err) {
             if (err.response) {
-                toast.error(t(`error_code.${err.response.data.error_code}`));
+                toast.error(t(`error_code.${err?.response?.data?.error_code}`));
             }
         }
     }
@@ -92,18 +92,19 @@ export default function AssignAgentFor(props) {
                 // console.log('---- assign user cũ ---', { id: dataGeneral.id, ...values});
                 await unassignAgentServerOut(dataGeneral?.user_obj?.id, resetForm);
                 // toast.error(`${dataGeneral?.user_obj?.fullname} đã được gán`)
-            } else {
-                console.log('---- thay thế assign user ---', { id: dataGeneral.id, ...values});
-                // await Promise.all(
-                //     await unassignAgentServerOut(dataGeneral?.user_obj?.id),
-                //     await assignAgentServerForNewUser(values, resetForm)
-                // )
-            }
+            } 
+            // else {
+            //     console.log('---- thay thế assign user ---', { id: dataGeneral.id, ...values});
+            //     await Promise.all(
+            //         await unassignAgentServerOut(dataGeneral?.user_obj?.id),
+            //         await assignAgentServerForNewUser(values, resetForm)
+            //     )
+            // }
             setLoading(false)
         } catch (err) {
             setLoading(false)
             if (err.response) {
-                toast.error(t(`error_code.${err.response.data.error_code}`));
+                toast.error(t(`error_code.${err?.response?.data?.error_code}`));
             }
         }
     };
@@ -148,8 +149,8 @@ export default function AssignAgentFor(props) {
                         size="md"
                         w="full"
                         rounded="md">
-                        {listAdmin.map((item, id) => {
-                            return (<option id={item.value} value={item.value}>{item.label}</option>)
+                        {listAdmin?.map((item, id) => {
+                            return (<option id={item?.value} value={item?.value}>{item?.label}</option>)
                         })}
                     </Select>
                     {formik.errors.user_id && formik.touched.user_id && (

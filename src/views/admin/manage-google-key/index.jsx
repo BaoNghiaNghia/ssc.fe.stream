@@ -72,7 +72,7 @@ export default function ManageGoogleKey() {
     } catch (err) {
       console.log(err);
       if (err.response) {
-        toast.error(t(`error_code.${err.response.data.error_code}`));
+        toast.error(t(`error_code.${err?.response?.data?.error_code}`));
       }
     }
   }
@@ -170,9 +170,9 @@ export default function ManageGoogleKey() {
           <MenuAgent
             originalData={row?.original}
             setMenuSelected={setMenuSelected}
-            detailGoogleKey={() => {detailGoogleKey(row.original)}}
-            editGoogleKey={() => {editGoogleKey(row.original)}}
-            deleteGoogleKey={() => {deleteGoogleKey(row.original)}}
+            detailGoogleKey={() => {detailGoogleKey(row?.original)}}
+            editGoogleKey={() => {editGoogleKey(row?.original)}}
+            deleteGoogleKey={() => {deleteGoogleKey(row?.original)}}
           />
         )
       }
@@ -185,8 +185,8 @@ export default function ManageGoogleKey() {
 
   const handleConfirmDeleteGoogleKey = async () => {
     try {
-        const responseConfirmReset = await deleteGoogleKeyAPI({id: menuSelected.id});
-        console.log('--- resp =dee==', responseConfirmReset)
+        const responseConfirmReset = await deleteGoogleKeyAPI({id: menuSelected?.id});
+
         if (responseConfirmReset.status === MESSSAGE_STATUS_CODE.SUCCESS.code) {
             toast.success(t(`error_code.${MESSSAGE_STATUS_CODE.SUCCESS.code}`));
             onCloseDeleteGoogleKey();
@@ -196,7 +196,7 @@ export default function ManageGoogleKey() {
         }
     } catch (err) {
         if (err.response) {
-            toast.error(t(`error_code.${err.response.data.error_code}`));
+            toast.error(t(`error_code.${err?.response?.data?.error_code}`));
         }
         onCloseDeleteGoogleKey();
     }

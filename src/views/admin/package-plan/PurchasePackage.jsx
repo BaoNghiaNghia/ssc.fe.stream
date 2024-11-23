@@ -64,7 +64,7 @@ function PurchasePackage() {
             }
         } catch (err) {
             if (err.response) {
-                toast.error(t(`error_code.${err.response.data.error_code}`));
+                toast.error(t(`error_code.${err?.response?.data?.error_code}`));
             }
         }
     }
@@ -98,7 +98,7 @@ function PurchasePackage() {
           }
         } catch (err) {
           if (err.response) {
-              toast.error(t(`error_code.${err.response.data.error_code}`));
+              toast.error(t(`error_code.${err?.response?.data?.error_code}`));
           }
         }
     }
@@ -114,7 +114,7 @@ function PurchasePackage() {
             }
         } catch (err) {
             if (err.response) {
-                toast.error(t(`error_code.${err.response.data.error_code}`));
+                toast.error(t(`error_code.${err?.response?.data?.error_code}`));
             }
         }
     }
@@ -146,7 +146,7 @@ function PurchasePackage() {
             setLoading(false);
         } catch (err) {
             if (err.response) {
-                toast.error(t(`error_code.${err.response.data.error_code}`));
+                toast.error(t(`error_code.${err?.response?.data?.error_code}`));
             }
             setLoading(false);
             console.log(err);

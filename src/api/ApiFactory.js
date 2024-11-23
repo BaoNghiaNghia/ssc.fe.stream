@@ -170,8 +170,6 @@ class ApiFactory {
      */
     endpoints.submitDelete = (toSubmit, config) => {
       const customHeaders = config && config.headers && { ...config.headers };
-      // console.log('---- resource url -----', resourceURL.replace("id", toSubmit), toSubmit);
-      // const id = toSubmit && (toSubmit.id || toSubmit.get('id'));
       return axios.delete(resourceURL.replace("id", toSubmit), toSubmit, {
         ...config,
         headers: {

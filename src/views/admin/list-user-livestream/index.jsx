@@ -84,7 +84,7 @@ export default function ListUserLivestream() {
       }, 1000);
     } catch (err) {
       if (err.response) {
-        toast.error(t(`error_code.${err.response.data.error_code}`));
+        toast.error(t(`error_code.${err?.response?.data?.error_code}`));
       }
       console.log(err);
     }
@@ -97,7 +97,7 @@ export default function ListUserLivestream() {
         onCloseFilterModal();
     } catch (err) {
         if (err.response) {
-            toast.error(t(`error_code.${err.response.data.error_code}`));
+            toast.error(t(`error_code.${err?.response?.data?.error_code}`));
         }
         onCloseFilterModal();
     }
@@ -127,7 +127,7 @@ export default function ListUserLivestream() {
       setIsLoading(false);
       console.log(err);
       if (err.response) {
-        toast.error(t(`error_code.${err.response.data.error_code}`));
+        toast.error(t(`error_code.${err?.response?.data?.error_code}`));
       }
     }
   }
@@ -155,7 +155,7 @@ export default function ListUserLivestream() {
       setIsLoading(false);
       console.log(err);
       if (err.response) {
-        toast.error(t(`error_code.${err.response.data.error_code}`));
+        toast.error(t(`error_code.${err?.response?.data?.error_code}`));
       }
     }
   }
@@ -175,7 +175,7 @@ export default function ListUserLivestream() {
         onCloseFilterModal();
     } catch (err) {
         if (err.response) {
-            toast.error(t(`error_code.${err.response.data.error_code}`));
+            toast.error(t(`error_code.${err?.response?.data?.error_code}`));
         }
         onCloseFilterModal();
     }
@@ -283,7 +283,7 @@ export default function ListUserLivestream() {
         return (
           <Text fontSize={"sm"} fontWeight="600" style={{ display: 'flex', alignContent: 'center', alignItems: 'center', color: 'gray' }}>
             <MdAccessTime color="#80808080" style={{ width:'20px', height: '20px', marginRight: '7px' }} />
-            {reverseTimeDate(row?.original.expired_at)}
+            {reverseTimeDate(row?.original?.expired_at)}
           </Text>
         )
       }

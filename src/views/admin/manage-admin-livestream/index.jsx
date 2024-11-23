@@ -70,7 +70,7 @@ export default function ManageAdminLivestream() {
         }
     } catch (err) {
         if (err.response) {
-            toast.error(t(`error_code.${err.response.data.error_code}`));
+            toast.error(t(`error_code.${err?.response?.data?.error_code}`));
         }
     }
   }
@@ -86,7 +86,7 @@ export default function ManageAdminLivestream() {
     } catch (err) {
       console.log(err);
       if (err.response) {
-        toast.error(t(`error_code.${err.response.data.error_code}`));
+        toast.error(t(`error_code.${err?.response?.data?.error_code}`));
       }
     }
   }
@@ -251,7 +251,7 @@ export default function ManageAdminLivestream() {
       Cell: ({ value, row }) =>  {
         return (
           <>
-            {row.original?.started_at ? (
+            {row?.original?.started_at ? (
               <Text fontSize={"sm"} fontWeight="bold" style={{ display: 'flex', alignContent: 'center', alignItems: 'center', fontStyle: 'italic', color: 'gray' }}>
                   <MdAccessTime color="#80808080" style={{ width:'20px', height: '20px', marginRight: '7px' }} />
                   {reverseTimeDate(row?.original?.started_at)}
@@ -321,7 +321,7 @@ export default function ManageAdminLivestream() {
               originalData={row?.original}
               setMenuSelected={setMenuSelected}
               confirmActivePackage={() => {
-                confirmActivePackage(row.original)
+                confirmActivePackage(row?.original)
               }}
             />
           )

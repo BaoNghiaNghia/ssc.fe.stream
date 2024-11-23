@@ -135,7 +135,7 @@ export default function ServerLiveStreamAgent() {
       setIsLoading(false);
       console.log(err);
       if (err.response) {
-        toast.error(t(`error_code.${err.response.data.error_code}`));
+        toast.error(t(`error_code.${err?.response?.data?.error_code}`));
       }
     }
   }
@@ -164,7 +164,7 @@ export default function ServerLiveStreamAgent() {
       setIsLoading(false);
       console.log(err);
       if (err.response) {
-        toast.error(t(`error_code.${err.response.data.error_code}`));
+        toast.error(t(`error_code.${err?.response?.data?.error_code}`));
       }
     }
   }
@@ -219,11 +219,11 @@ export default function ServerLiveStreamAgent() {
             {
               row?.original?.user_obj ? (
                 <>
-                  <AvatarText name={row?.original.user_obj?.fullname} inputSize="md" />
+                  <AvatarText name={row?.original?.user_obj?.fullname} inputSize="md" />
                   <Text
                     colorScheme="black" 
                     fontWeight={"500"}
-                    me='8px'>{row?.original.user_obj?.fullname && truncate(row?.original.user_obj?.fullname)}
+                    me='8px'>{row?.original?.user_obj?.fullname && truncate(row?.original?.user_obj?.fullname)}
                   </Text>
                 </>
               ) : "..."
@@ -282,7 +282,7 @@ export default function ServerLiveStreamAgent() {
       accessor: "",
       role: [ROLE_USER.USER_DEFAULT],
       Cell: ({ value, row }) => {
-        let temp = row?.original?.statuses?.find(item => item.status === 0)?.total;
+        let temp = row?.original?.statuses?.find(item => item?.status === 0)?.total;
         return (
           <Text
             textColor="blue.700"
@@ -303,7 +303,7 @@ export default function ServerLiveStreamAgent() {
       accessor: "",
       role: [ROLE_USER.USER_DEFAULT],
       Cell: ({ value, row }) => {
-        let temp = row?.original?.statuses?.find(item => item.status === 1)?.total;
+        let temp = row?.original?.statuses?.find(item => item?.status === 1)?.total;
         return (
           <Text
             textColor="blue.700"
@@ -324,7 +324,7 @@ export default function ServerLiveStreamAgent() {
       accessor: "",
       role: [ROLE_USER.USER_DEFAULT],
       Cell: ({ value, row }) => {
-        let temp = row?.original?.statuses?.find(item => item.status === 2)?.total;
+        let temp = row?.original?.statuses?.find(item => item?.status === 2)?.total;
         return (
           <Text
             textColor="blue.700"
@@ -345,7 +345,7 @@ export default function ServerLiveStreamAgent() {
       accessor: "",
       role: [ROLE_USER.USER_DEFAULT],
       Cell: ({ value, row }) => {
-        let temp = row?.original?.statuses?.find(item => item.status === 3)?.total;
+        let temp = row?.original?.statuses?.find(item => item?.status === 3)?.total;
         return (
           <Text
             textColor="blue.700"
@@ -367,7 +367,7 @@ export default function ServerLiveStreamAgent() {
       accessor: "",
       role: [ROLE_USER.USER_DEFAULT],
       Cell: ({ value, row }) => {
-        let temp = row?.original?.statuses?.find(item => item.status === 4)?.total;
+        let temp = row?.original?.statuses?.find(item => item?.status === 4)?.total;
         return (
           <Text
             textColor="blue.700"
@@ -477,7 +477,7 @@ export default function ServerLiveStreamAgent() {
         onCloseFilterModal();
     } catch (err) {
         if (err.response) {
-            toast.error(t(`error_code.${err.response.data.error_code}`));
+            toast.error(t(`error_code.${err?.response?.data?.error_code}`));
         }
         onCloseFilterModal();
     }
@@ -494,7 +494,7 @@ export default function ServerLiveStreamAgent() {
 
     } catch (err) {
         if (err.response) {
-            toast.error(t(`error_code.${err.response.data.error_code}`));
+            toast.error(t(`error_code.${err?.response?.data?.error_code}`));
         }
         onCloseFilterModal();
     }
@@ -559,7 +559,7 @@ export default function ServerLiveStreamAgent() {
         }
     } catch (err) {
         if (err.response) {
-            toast.error(t(`error_code.${err.response.data.error_code}`));
+            toast.error(t(`error_code.${err?.response?.data?.error_code}`));
         }
         onCloseDelAgentServer();
     }
@@ -588,13 +588,11 @@ export default function ServerLiveStreamAgent() {
       }
     } catch (err) {
         if (err.response) {
-            toast.error(t(`error_code.${err.response.data.error_code}`));
+            toast.error(t(`error_code.${err?.response?.data?.error_code}`));
         }
         onCloseResetAgent();
     }
   }
-
-  console.log('---- paginationData -----', paginationData);
 
   return (
     <Box pt={{ base: "130px", md: "80px", xl: "80px" }}>

@@ -35,7 +35,7 @@ export default function UserReports() {
       }
     } catch (err) {
       if (err.response) {
-          toast.error(t(`error_code.${err.response.data.error_code}`));
+          toast.error(t(`error_code.${err?.response?.data?.error_code}`));
       }
     }
   }

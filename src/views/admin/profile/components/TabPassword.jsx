@@ -100,7 +100,7 @@ export default function TabPassword(props) {
             setLoading(false);
             console.log(err);
             if (err.response) {
-                toast.error(t(`error_code.${err.response.data.error_code}`));
+                toast.error(t(`error_code.${err?.response?.data?.error_code}`));
             }
         }
     };

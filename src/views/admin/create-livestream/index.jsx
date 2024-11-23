@@ -140,18 +140,18 @@ const columnsThreadStreams = [
         Cell: ({ value, row }) => {
             return (
                 <>{
-                    row.original.groupThumbnail.length != 0 ? (
+                    row?.original?.groupThumbnail?.length != 0 ? (
                         <Grid
                             templateRows='repeat(1, 1fr)'
                             templateColumns='repeat(2, 1fr)'
                             gap={2}
                             >
                             <GridItem colSpan={1} margin="auto 0">
-                                <Text size="sm"><strong>{row.original.groupThumbnail.length}</strong> Video</Text>
+                                <Text size="sm"><strong>{row?.original?.groupThumbnail?.length}</strong> Video</Text>
                             </GridItem>
                             <GridItem colSpan={1} margin="auto 0">
                                 <AvatarGroup size='sm' max={2}>
-                                    { row.original.groupThumbnail.map((item) => (<Avatar src={item} />)) }
+                                    { row?.original?.groupThumbnail?.map((item) => (<Avatar src={item} />)) }
                                 </AvatarGroup>
                             </GridItem>
                         </Grid>
@@ -165,46 +165,41 @@ const columnsThreadStreams = [
     {
         Header: "Tiến trình",
         accessor: "",
-        Cell: ({ value, row }) => {
-            const statusTotal = {
-                "0": 0,
-                "1": 0,
-                "2": 0,
-                "3": 0,
-                "4": 0,
-                "5": 0
-            }
-            row.original.groupVideo.map((docs) => statusTotal[docs.status] = statusTotal[docs.status] + 1 );
+        Cell: ({ row }) => {
+            const statusTotal = row?.original?.groupVideo?.reduce((acc, { status }) => {
+                acc[status] = (acc[status] || 0) + 1;
+                return acc;
+            }, {});
+    
+            const statuses = [
+                { id: "0", icon: MdPlayArrow, color: "gray.200" },
+                { id: "1", icon: MdPause, color: "gray.200" },
+                { id: "2", icon: MdOutlineDone, color: "gray.200" },
+                { id: "3", icon: MdOutlineClose, color: "gray.200" },
+                { id: "4", icon: MdOutlineError, color: "gray.200" },
+                { id: "5", icon: MdWatchLater, color: "gray.200" },
+            ];
+    
             return (
-                <Grid
-                    templateRows='repeat(2, 1fr)'
-                    templateColumns='repeat(1, 1fr)'
-                    >
-                    <GridItem rowSpan={1}>
-                        <Badge variant='subtle' px="5px" py="2px" m="2px" borderColor="white" borderRadius="10%" bgColor='gray.200' justifyContent="center" alignContent="center">
-                            <Icon as={MdPlayArrow} color='black' w="15px" h="12px" />
-                            { statusTotal["0"] }
-                        </Badge>
-                        <Badge variant='subtle' px="5px" py="2px" m="2px" borderColor="white" borderRadius="10%" bgColor='gray.200'>
-                            <Icon as={MdPause} color='black' w="15px" h="12px" />
-                            { statusTotal["1"] }</Badge>
-                        <Badge variant='subtle' px="5px" py="2px" m="2px" borderColor="white" borderRadius="10%" bgColor='gray.200'>
-                            <Icon as={MdOutlineDone} color='black' w="15px" h="12px" />
-                            { statusTotal["2"] }</Badge>
-                    </GridItem>
-                    <GridItem rowSpan={1}>
-                        <Badge variant='subtle' px="5px" py="2px" m="2px" borderColor="white" borderRadius="10%" bgColor='gray.200'>
-                            <Icon as={MdOutlineClose} color='black' w="15px" h="12px" />
-                            { statusTotal["3"] }</Badge>
-                        <Badge variant='subtle' px="5px" py="2px" m="2px" borderColor="white" borderRadius="10%" bgColor='gray.200'>
-                            <Icon as={MdOutlineError} color='black' w="15px" h="12px" />
-                            { statusTotal["4"] }</Badge>
-                        <Badge variant='subtle' px="5px" py="2px" m="2px" borderColor="white" borderRadius="10%" bgColor='gray.200'>
-                            <Icon as={MdWatchLater} color='black' w="15px" h="12px" />
-                            { statusTotal["5"] }</Badge>
-                    </GridItem>
+                <Grid templateRows="repeat(2, 1fr)" gap={2}>
+                    {statuses.map((status, index) => (
+                        <GridItem key={status?.id} rowSpan={index < 3 ? 1 : 2}>
+                            <Badge
+                                variant="subtle"
+                                px="5px"
+                                py="2px"
+                                m="2px"
+                                borderColor="white"
+                                borderRadius="10%"
+                                bgColor={status.color}
+                            >
+                                <Icon as={status.icon} color="black" w="15px" h="12px" />
+                                {statusTotal[status?.id] || 0}
+                            </Badge>
+                        </GridItem>
+                    ))}
                 </Grid>
-            )
+            );
         },
     },
     {
@@ -222,7 +217,7 @@ const columnsThreadStreams = [
                             Từ ngày
                         </Text>
                         <Text fontSize={"sm"} fontWeight="bold">
-                            {reverseTimeDate(row.original.started_at)}
+                            {reverseTimeDate(row?.original?.started_at)}
                         </Text>
                     </GridItem>
                     <GridItem colSpan={1}>
@@ -230,7 +225,7 @@ const columnsThreadStreams = [
                             Đến ngày 
                         </Text>
                         <Text fontSize={"sm"} fontWeight="bold">
-                            {reverseTimeDate(row.original.expired_at)}
+                            {reverseTimeDate(row?.original?.expired_at)}
                         </Text>
                     </GridItem>
                 </Grid>
@@ -403,7 +398,7 @@ export default function CreateLivestream() {
             }
         } catch (err) {
             if (err.response) {
-                toast.error(t(`error_code.${err.response.data.error_code}`));
+                toast.error(t(`error_code.${err?.response?.data?.error_code}`));
             }
         }
     }
@@ -432,7 +427,7 @@ export default function CreateLivestream() {
             }
         } catch (err) {
             if (err.response) {
-                toast.error(t(`error_code.${err.response.data.error_code}`));
+                toast.error(t(`error_code.${err?.response?.data?.error_code}`));
             }
             console.log(err);
         }
@@ -446,7 +441,7 @@ export default function CreateLivestream() {
             }
         } catch (err) {
             if (err.response) {
-                toast.error(t(`error_code.${err.response.data.error_code}`));
+                toast.error(t(`error_code.${err?.response?.data?.error_code}`));
             }
             console.log(err);
         }
@@ -467,7 +462,7 @@ export default function CreateLivestream() {
             }
         } catch (err) {
             if (err.response) {
-                toast.error(t(`error_code.${err.response.data.error_code}`));
+                toast.error(t(`error_code.${err?.response?.data?.error_code}`));
             }
             console.log(err);
         }
@@ -491,7 +486,7 @@ export default function CreateLivestream() {
             }
         } catch (err) {
             if (err.response) {
-                toast.error(t(`error_code.${err.response.data.error_code}`));
+                toast.error(t(`error_code.${err?.response?.data?.error_code}`));
             }
             console.log(err);
         }
@@ -530,7 +525,7 @@ export default function CreateLivestream() {
             return responseUserStream;
         } catch (err) {
             if (err.response) {
-                toast.error(t(`error_code.${err.response.data.error_code}`));
+                toast.error(t(`error_code.${err?.response?.data?.error_code}`));
             }
             console.log(err);
         }
@@ -549,7 +544,7 @@ export default function CreateLivestream() {
             }
         } catch (err) {
             if (err.response) {
-                toast.error(t(`error_code.${err.response.data.error_code}`));
+                toast.error(t(`error_code.${err?.response?.data?.error_code}`));
             }
         }
     }
@@ -626,7 +621,7 @@ export default function CreateLivestream() {
             setLoadingAddVideo(false);
             console.log(err)
             if (err.response) {
-                toast.error(t(`error_code.${err.response.data.error_code}`));
+                toast.error(t(`error_code.${err?.response?.data?.error_code}`));
             }
         }
     }
@@ -666,7 +661,7 @@ export default function CreateLivestream() {
             }
         } catch (err) {
             if (err.response) {
-                toast.error(t(`error_code.${err.response.data.error_code}`));
+                toast.error(t(`error_code.${err?.response?.data?.error_code}`));
             }
         }
     };
@@ -730,7 +725,7 @@ export default function CreateLivestream() {
             }
         } catch (err) {
             if (err.response) {
-                toast.error(t(`error_code.${err.response.data.error_code}`));
+                toast.error(t(`error_code.${err?.response?.data?.error_code}`));
             }
             onCloseKillConfirm();
         }
@@ -738,7 +733,6 @@ export default function CreateLivestream() {
 
     const handleConfirmDelete = async () => {
         try {
-            console.log(' id nè ---', menuSelected)
             const responseConfirmDel = await deleteStreamingApi(menuSelected.id);
             if (responseConfirmDel.status === MESSSAGE_STATUS_CODE.SUCCESS.code) {
                 toast.success(t(`error_code.${MESSSAGE_STATUS_CODE.SUCCESS.code}`));
@@ -749,7 +743,7 @@ export default function CreateLivestream() {
             }
         } catch (err) {
             if (err.response) {
-                toast.error(t(`error_code.${err.response.data.error_code}`));
+                toast.error(t(`error_code.${err?.response?.data?.error_code}`));
             }
             onCloseDeleleConfirm();
         }
@@ -769,7 +763,7 @@ export default function CreateLivestream() {
             }
         } catch (err) {
             if (err.response) {
-                toast.error(t(`error_code.${err.response.data.error_code}`));
+                toast.error(t(`error_code.${err?.response?.data?.error_code}`));
             }
             onClosePlayRightAway();
         }
@@ -783,7 +777,7 @@ export default function CreateLivestream() {
             onCloseFilterModal();
         } catch (err) {
             if (err.response) {
-                toast.error(t(`error_code.${err.response.data.error_code}`));
+                toast.error(t(`error_code.${err?.response?.data?.error_code}`));
             }
             onCloseFilterModal();
         }
@@ -805,7 +799,7 @@ export default function CreateLivestream() {
 
         } catch (err) {
             if (err.response) {
-                toast.error(t(`error_code.${err.response.data.error_code}`));
+                toast.error(t(`error_code.${err?.response?.data?.error_code}`));
             }
             onCloseFilterModal();
         }

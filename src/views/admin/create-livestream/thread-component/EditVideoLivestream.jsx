@@ -65,21 +65,19 @@ export default function EditVideoLivestream(props) {
     
     const [allUserStream, setAllUserStream] = useState([]);
     
-    let timeStart = dataGeneral.started_at.split(" ");
-    let timeEnd = dataGeneral.ended_at.split(" ");
-    
-    console.log('--- data video nè- ----', dataGeneral);
+    let timeStart = dataGeneral?.started_at?.split(" ");
+    let timeEnd = dataGeneral?.ended_at?.split(" ");
 
     const initialValues = {
         name: dataGeneral?.name,
         stream_id: dataGeneral?.stream_id,
         agent_id: dataGeneral.agent_id,
         url: dataGeneral?.url,
-        resolution: dataGeneral.video_type === 'google_drive' ? '1080p' : dataGeneral?.resolution,
+        resolution: dataGeneral?.video_type === 'google_drive' ? '1080p' : dataGeneral?.resolution,
         started_at: timeStart[0],
         ended_at: timeEnd[0],
-        started_time: timeStart.slice(-1).pop(),
-        ended_time: timeEnd.slice(-1).pop(),
+        started_time: timeStart?.slice(-1).pop(),
+        ended_time: timeEnd?.slice(-1).pop(),
     }
 
     const { t } = useTranslation();
@@ -130,7 +128,7 @@ export default function EditVideoLivestream(props) {
             }
         } catch (err) {
             if (err.response) {
-                toast.error(t(`error_code.${err.response.data.error_code}`));
+                toast.error(t(`error_code.${err?.response?.data?.error_code}`));
             }
         }
     }
@@ -151,7 +149,7 @@ export default function EditVideoLivestream(props) {
             }
         } catch (err) {
             if (err.response) {
-                toast.error(t(`error_code.${err.response.data.error_code}`));
+                toast.error(t(`error_code.${err?.response?.data?.error_code}`));
             }
             console.log(err);
         }
@@ -172,7 +170,7 @@ export default function EditVideoLivestream(props) {
             }
         } catch (err) {
             if (err.response) {
-                toast.error(t(`error_code.${err.response.data.error_code}`));
+                toast.error(t(`error_code.${err?.response?.data?.error_code}`));
             }
             console.log(err);
         }
@@ -202,7 +200,7 @@ export default function EditVideoLivestream(props) {
             return responseUserStream;
         } catch (err) {
             if (err.response) {
-                toast.error(t(`error_code.${err.response.data.error_code}`));
+                toast.error(t(`error_code.${err?.response?.data?.error_code}`));
             }
             console.log(err);
         }
@@ -258,7 +256,7 @@ export default function EditVideoLivestream(props) {
             }
         } catch (err) {
             if (err.response) {
-                toast.error(t(`error_code.${err.response.data.error_code}`));
+                toast.error(t(`error_code.${err?.response?.data?.error_code}`));
             }
         }
     };
@@ -302,7 +300,7 @@ export default function EditVideoLivestream(props) {
             setLoadingAddVideo(false);
             console.log(err)
             if (err.response) {
-                toast.error(t(`error_code.${err.response.data.error_code}`));
+                toast.error(t(`error_code.${err?.response?.data?.error_code}`));
             }
         }
     }

@@ -142,10 +142,10 @@ export default function ListAccountUser() {
       Cell: ({ value, row }) => {
         return (
           <MenuAgent
-            originalData={row.original}
+            originalData={row?.original}
             setMenuSelected={setMenuSelected}
             deleteUserRequest={() => {
-              deleteUserRequest(row.original);
+              deleteUserRequest(row?.original);
             }}
           />
         );

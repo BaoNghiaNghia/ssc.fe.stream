@@ -54,7 +54,7 @@ export default function AssignResellerFor(props) {
             }
         } catch (err) {
             if (err.response) {
-                toast.error(t(`error_code.${err.response.data.error_code}`));
+                toast.error(t(`error_code.${err?.response?.data?.error_code}`));
             }
         }
     }
@@ -93,15 +93,14 @@ export default function AssignResellerFor(props) {
                 // console.log('---- assign user cũ ---', { id: dataGeneral.id, ...values});
                 await unassignAgentServerOut(dataGeneral?.reseller_obj?.id, resetForm);
                 // toast.error(`${dataGeneral?.user_obj?.fullname} đã được gán`)
-            } else {
-                console.log('---- thay thế assign user ---', { id: dataGeneral.id, ...values});
-
             }
+            // else { console.log('---- thay thế assign user ---', { id: dataGeneral.id, ...values}); }
+            
             setLoading(false)
         } catch (err) {
             setLoading(false)
             if (err.response) {
-                toast.error(t(`error_code.${err.response.data.error_code}`));
+                toast.error(t(`error_code.${err?.response?.data?.error_code}`));
             }
         }
     };

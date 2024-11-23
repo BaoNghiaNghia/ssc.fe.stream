@@ -73,7 +73,7 @@ export default function TableSubRow(props) {
                             left='0px'
                             borderRadius='3px'
                             h='12px'>
-                            {toHHMMSS(row.original?.video_info?.duration)}
+                            {toHHMMSS(row?.original?.video_info?.duration)}
                         </Button>
                     </Box>
                 )
@@ -91,7 +91,7 @@ export default function TableSubRow(props) {
                         }}
                         mb='5px'
                         me='14px'>
-                        {truncate(row.original.video_info.title || row.original.name, 40)}
+                        {truncate(row?.original?.video_info?.title || row?.original?.name, 40)}
                     </Text>
                 )
             }
@@ -109,7 +109,7 @@ export default function TableSubRow(props) {
                                 base: "sm",
                             }}
                             me='14px'>
-                            {row.original?.stream_obj?.name}
+                            {row?.original?.stream_obj?.name}
                         </Text>
                     </span>
                 )
@@ -128,7 +128,7 @@ export default function TableSubRow(props) {
                                 base: "sm",
                             }}
                             me='14px'>
-                            {row.original?.agent_obj?.name || '...'}
+                            {row?.original?.agent_obj?.name || '...'}
                         </Text>
                     </div>
                 )
@@ -151,7 +151,7 @@ export default function TableSubRow(props) {
                                 color='black'
                                 mr="3px"
                             />
-                            {reverseTimeDate(row.original.started_at)}
+                            {reverseTimeDate(row?.original?.started_at)}
                         </Text>
                         <Text fontWeight='500' fontSize='sm' align="center">
                             <Icon
@@ -162,7 +162,7 @@ export default function TableSubRow(props) {
                                 color='black'
                                 mr="3px"
                             />
-                            {reverseTimeDate(row.original.ended_at)}
+                            {reverseTimeDate(row?.original?.ended_at)}
                         </Text>
                     </Flex>
                 )
@@ -179,9 +179,9 @@ export default function TableSubRow(props) {
                         fontWeight='500'
                         me='10px'>
                         {
-                            row.original.video_type !== 'google_drive' ? (
-                                <Badge variant='subtle' colorScheme={VIDEO_RESOLUTION_DEFAULT[row.original.resolution]?.color}>
-                                    {VIDEO_RESOLUTION_DEFAULT[row.original.resolution]?.name}
+                            row?.original?.video_type !== 'google_drive' ? (
+                                <Badge variant='subtle' colorScheme={VIDEO_RESOLUTION_DEFAULT[row?.original?.resolution]?.color}>
+                                    {VIDEO_RESOLUTION_DEFAULT[row?.original?.resolution]?.name}
                                 </Badge>
                             ) : <span style={{ color: '#80808080' }}>Chưa có thông tin</span>
                         }
@@ -221,7 +221,7 @@ export default function TableSubRow(props) {
                 return (
                     <div style={{ textAlign: "left" }}>
                         <Tooltip 
-                            label={row.original?.status_label || statusData?.message} 
+                            label={row?.original?.status_label || statusData?.message} 
                             placement="top"
                         >
                             <span style={{ display: 'flex', alignContent: 'center', alignItems: 'center' }}>
@@ -281,10 +281,10 @@ export default function TableSubRow(props) {
                     <div style={{marginLeft: '20px'}}>
                         <MenuVideo
                             setMenuSelected={setMenuSelected}
-                            dataVideo={row.original}
+                            dataVideo={row?.original}
                             playRightAwayVideo={() => playRightAwayVideo()}
-                            detailCurrVideoStream={() => detailCurrVideoStream(row.original)}
-                            editCurrVideoStream={() => editCurrVideoStream(row.original)}
+                            detailCurrVideoStream={() => detailCurrVideoStream(row?.original)}
+                            editCurrVideoStream={() => editCurrVideoStream(row?.original)}
                             killCurrVideoStream={() => killCurrVideoStream()}
                             delCurrVideoStream={() => delCurrVideoStream()}
                         />
@@ -324,7 +324,7 @@ export default function TableSubRow(props) {
 
     useEffect(() => {
         if (paginationData?.pageSize) {
-            setPageSize(paginationData.pageSize);
+            setPageSize(paginationData?.pageSize);
         }
     }, [paginationData, setPageSize]);
 
@@ -350,7 +350,7 @@ export default function TableSubRow(props) {
             <Tbody {...getTableBodyProps()}>
                 {isLoading ? (
                     <Tr>
-                        <Td colSpan={columns.length} textAlign="left">
+                        <Td colSpan={columns?.length} textAlign="left">
                             <Spinner />
                         </Td>
                     </Tr>

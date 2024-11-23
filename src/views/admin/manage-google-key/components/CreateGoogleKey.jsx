@@ -55,7 +55,7 @@ export default function CreateGoogleKey(props) {
         } catch (err) {
             setLoading(false);
             if (err.response) {
-                toast.error(t(`error_code.${err.response.data.error_code}`));
+                toast.error(t(`error_code.${err?.response?.data?.error_code}`));
             }
         }
     };

@@ -116,7 +116,7 @@ export default function DetailVideoLivestream(props) {
             }
         } catch (err) {
             if (err.response) {
-                toast.error(t(`error_code.${err.response.data.error_code}`));
+                toast.error(t(`error_code.${err?.response?.data?.error_code}`));
             }
         }
     }
@@ -137,7 +137,7 @@ export default function DetailVideoLivestream(props) {
             }
         } catch (err) {
             if (err.response) {
-                toast.error(t(`error_code.${err.response.data.error_code}`));
+                toast.error(t(`error_code.${err?.response?.data?.error_code}`));
             }
             console.log(err);
         }
@@ -158,7 +158,7 @@ export default function DetailVideoLivestream(props) {
             }
         } catch (err) {
             if (err.response) {
-                toast.error(t(`error_code.${err.response.data.error_code}`));
+                toast.error(t(`error_code.${err?.response?.data?.error_code}`));
             }
             console.log(err);
         }
@@ -188,7 +188,7 @@ export default function DetailVideoLivestream(props) {
             return responseUserStream;
         } catch (err) {
             if (err.response) {
-                toast.error(t(`error_code.${err.response.data.error_code}`));
+                toast.error(t(`error_code.${err?.response?.data?.error_code}`));
             }
             console.log(err);
         }
@@ -238,7 +238,7 @@ export default function DetailVideoLivestream(props) {
             onCloseVideoStreamModal();
         } catch (err) {
             if (err.response) {
-                toast.error(t(`error_code.${err.response.data.error_code}`));
+                toast.error(t(`error_code.${err?.response?.data?.error_code}`));
             }
             // resetForm();
         }
@@ -282,7 +282,7 @@ export default function DetailVideoLivestream(props) {
             setLoadingAddVideo(false);
             console.log(err)
             if (err.response) {
-                toast.error(t(`error_code.${err.response.data.error_code}`));
+                toast.error(t(`error_code.${err?.response?.data?.error_code}`));
             }
         }
     }

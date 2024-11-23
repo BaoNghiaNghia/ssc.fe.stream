@@ -46,22 +46,22 @@ export default function CardSubRow(props) {
   const listWithData = (videoItem) => {
       return (
           <>
-            <Card p='1px' bgColor="white" borderRadius="5px">
+            <Card p='1px' bgColor="white" borderRadsius="5px">
                 <Flex
                     direction="column"
                     justifyContent='space-around'
                     alignItems="stretch">
                     <Box mb={{ base: "10px", "2xl": "10px" }} position='relative'>
                         <Image
-                            src={videoItem.video_info.thumbnail}
+                            src={videoItem?.video_info?.thumbnail}
                             w={{ base: "100%", "3xl": "100%" }}
                             h={{ base: "100%", "3xl": "100%" }}
                             borderRadius='10px'
                         />
                         <Button
                             position='absolute'
-                            bg={VIDEO_STREAMING_STATUS[videoItem.status]?.color || 'gray.300'}
-                            color={VIDEO_STREAMING_STATUS[videoItem.status].textColor}
+                            bg={VIDEO_STREAMING_STATUS[videoItem?.status]?.color || 'gray.300'}
+                            color={VIDEO_STREAMING_STATUS[videoItem?.status]?.textColor}
                             _hover={{ bg: "whiteAlpha.700" }}
                             _active={{ bg: "white" }}
                             _focus={{ bg: "white" }}
@@ -71,9 +71,9 @@ export default function CardSubRow(props) {
                             right='5px'
                             borderRadius='3px'
                             h='20px'>
-                            <Icon as={VIDEO_STREAMING_STATUS[videoItem.status].icon}
-                                w='14px' h='auto' mr="3px" color={VIDEO_STREAMING_STATUS[videoItem.status].textColor} />
-                            {VIDEO_STREAMING_STATUS[videoItem.status].message}
+                            <Icon as={VIDEO_STREAMING_STATUS[videoItem?.status]?.icon}
+                                w='14px' h='auto' mr="3px" color={VIDEO_STREAMING_STATUS[videoItem?.status]?.textColor} />
+                            {VIDEO_STREAMING_STATUS[videoItem?.status]?.message}
                         </Button>
                         <Button
                             position='absolute'
@@ -87,7 +87,7 @@ export default function CardSubRow(props) {
                             left='0px'
                             borderRadius='3px'
                             h='20px'>
-                            {toHHMMSS(videoItem.video_info.duration)}
+                            {toHHMMSS(videoItem?.video_info?.duration)}
                         </Button>
                     </Box>
                     <Flex
@@ -103,7 +103,7 @@ export default function CardSubRow(props) {
                                 mb='5px'
                                 fontWeight='bold'
                                 me='14px'>
-                                {truncate(videoItem.video_info.title, 33)}
+                                {truncate(videoItem?.video_info?.title, 33)}
                             </Text>
                         </Flex>
                     </Flex>
@@ -119,7 +119,7 @@ export default function CardSubRow(props) {
                                 color='black'
                                 mr="3px"
                             />
-                            {reverseTimeDate(videoItem.started_at)}
+                            {reverseTimeDate(videoItem?.started_at)}
                         </Text>
                         <Text fontWeight='500' fontSize='sm' align="center">
                             <Icon
@@ -130,19 +130,12 @@ export default function CardSubRow(props) {
                                 color='black'
                                 mr="3px"
                             />
-                            {reverseTimeDate(videoItem.ended_at)}
+                            {reverseTimeDate(videoItem?.ended_at)}
                         </Text>
                     </Flex>
                     <Flex
                         align='center'
                         justify='space-between'
-                        // direction={{
-                        //   base: "row",
-                        //   md: "column",
-                        //   lg: "row",
-                        //   xl: "column",
-                        //   "2xl": "row",
-                        // }}
                         px="5px"
                         pb="5px"
                         mt='10px'>
@@ -153,22 +146,22 @@ export default function CardSubRow(props) {
                             }}
                             fontWeight='500'
                             me='10px'>
-                            <Badge variant='subtle'>{videoItem.resolution}</Badge>
+                            <Badge variant='subtle'>{videoItem?.resolution}</Badge>
                         </Text>
                         <Menu
-                            idVideo={videoItem.id}
-                            stateVideo={videoItem.status}
+                            idVideo={videoItem?.id}
+                            stateVideo={videoItem?.status}
                             playRightAwayVideo={() => {
                                 playRightAwayVideo()
-                                setMenuSelected(row.original.id)
+                                setMenuSelected(row?.original?.id)
                             }}
                             editCurrVideoStream={() => {
                                 editCurrVideoStream()
-                                setMenuSelected(row.original.id)
+                                setMenuSelected(row?.original?.id)
                             }}
                             killCurrVideoStream={() => {
                                 killCurrVideoStream()
-                                setMenuSelected(videoItem.id)
+                                setMenuSelected(videoItem?.id)
                             }}
                             detailCurrVideoStream={() => {
                                 detailCurrVideoStream(videoItem)
@@ -176,7 +169,7 @@ export default function CardSubRow(props) {
                             }}
                             delCurrVideoStream={() => {
                                 delCurrVideoStream()
-                                setMenuSelected(videoItem.id)
+                                setMenuSelected(videoItem?.id)
                             }}
                         />
                     </Flex>

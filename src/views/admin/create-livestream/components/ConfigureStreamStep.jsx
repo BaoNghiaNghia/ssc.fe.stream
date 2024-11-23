@@ -32,8 +32,6 @@ const ConfigureStreamStep = (props) => {
 
     const checkYoutubeLink = validateYouTubeUrl(formik.values.url);
 
-    console.log('---- formik nè ----',  (isEdit || false) && !checkYoutubeLink);
-
     return (
         <>
             <Heading color={textColor} fontSize='20px' my='20px'>

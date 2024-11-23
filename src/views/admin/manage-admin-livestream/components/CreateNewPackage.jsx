@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useState, useCallback, useEffect, useRef } from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
 import {
     Button,
     Icon,
@@ -19,7 +19,7 @@ import {
 } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 import * as Yup from "yup";
-import { setIn, useFormik } from "formik";
+import { useFormik } from "formik";
 
 import { toast } from 'react-toastify';
 
@@ -123,25 +123,31 @@ export default function CreateNewPackage(props) {
                         Chọn người dùng:
                     </FormLabel>
                     <InputGroup>
-                        <InputLeftAddon children={<Icon as={MdPerson} color="gray" w='40px' fontSize='md'
-                            size='lg'/>} />
+                        <InputLeftAddon children={<Icon as={MdPerson} color="gray" w='40px' fontSize='md' size='lg'/>} /> 
                         <Select
                             id="user_id"
                             name="user_id"
                             value={formik.values.user_id || ""}
                             onChange={(e) => setInputValue("user_id", e.target.value)}
                             autoComplete="user_id"
-                            placeholder="--- Chọn người dùng  ---"
-                            _placeholderShown={{ color: 'gray.100', bg: 'gray.100' }}
-                            _placeholder={{ color: "gray.400" }}
+                            placeholder="Chọn người dùng"
                             focusBorderColor="brand.400"
                             shadow="sm"
                             size="md"
                             w="full"
-                            rounded="md">
-                            { listAdmin.map((item, id) => {
-                                return ( <option id={item.value} value={item.value}>{item.label}</option> )
-                            })}
+                            rounded="md"
+                            sx={{
+                                "option:disabled": {
+                                    color: "gray.300",
+                                },
+                            }}
+                        >
+                            <option value="" disabled>
+                                --- Chọn người dùng ---
+                            </option>
+                            {listAdmin?.map((item, id) => (
+                                <option key={id} value={item?.value}>{item?.label}</option>
+                            ))}
                         </Select>
                     </InputGroup>
                     {formik.errors.user_id && formik.touched.user_id && (

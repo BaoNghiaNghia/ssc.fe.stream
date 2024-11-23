@@ -53,7 +53,6 @@ const ConfigureStreamStep = (props) => {
                     id="agent_id"
                     name="agent_id"
                     isDisabled={isEdit || false}
-                    // isDisabled={displaySubRowState === "table-video" || displaySubRowState === "table-thread" ? false : true}
                     value={formik.values.agent_id || ""}
                     onChange={(e) => setInputValue("agent_id", e.target.value)}
                     autoComplete="agent_id"
@@ -66,7 +65,7 @@ const ConfigureStreamStep = (props) => {
                     w="full"
                     rounded="md">
                     { listServerAgent.map((item, id) => {
-                        return ( <option id={item.value} value={item.value}>{item.label}</option> )
+                        return ( <option id={item?.value} value={item?.value}>{item?.label}</option> )
                     })}
                 </Select>
                 {formik.errors.agent_id && formik.touched.agent_id && (
@@ -88,7 +87,6 @@ const ConfigureStreamStep = (props) => {
                     id="stream_id"
                     name="stream_id"
                     isDisabled={isEdit || false}
-                    // isDisabled={displaySubRowState === "table-video" || displaySubRowState === "table-thread" ? false : true}
                     value={formik.values.stream_id}
                     onChange={(e) => setInputValue("stream_id", e.target.value)}
                     autoComplete="stream_id"
@@ -125,7 +123,6 @@ const ConfigureStreamStep = (props) => {
                             id="resolution"
                             name="resolution"
                             value={ checkYoutubeLink ? formik.values.resolution : VIDEO_RESOLUTION_DEFAULT['1080p'].name}
-                            // value={ formik.values.resolution }
                             isDisabled={checkYoutubeLink ? (isEdit || false) : true}
                             onChange={(e) => setInputValue("resolution", e.target.value)}
                             autoComplete="resolution"
@@ -139,7 +136,7 @@ const ConfigureStreamStep = (props) => {
                             rounded="md">
                             { listVideoResolution.map((item, id) => {
                                 return ( 
-                                    <option id={item.value} value={item.value}>{item.label}</option>
+                                    <option id={item?.value} value={item?.value}>{item?.label}</option>
                                 )
                             }) }
                         </Select>

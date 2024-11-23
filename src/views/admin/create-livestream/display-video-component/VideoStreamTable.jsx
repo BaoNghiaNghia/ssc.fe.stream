@@ -48,7 +48,7 @@ export default function VideoStreamTable(props) {
                     killCurrVideoStream={killCurrVideoStream}
                     delCurrVideoStream={delCurrVideoStream}
                 />
-                </Card>
+            </Card>
             {
                 paginationData && (
                     <Pagination

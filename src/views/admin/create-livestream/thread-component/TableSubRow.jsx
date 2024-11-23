@@ -60,7 +60,7 @@ export default function TableSubRow(props) {
                 return (
                     <Box position='relative'>
                         <Image
-                            src={row.original?.video_info?.thumbnail}
+                            src={row?.original?.video_info?.thumbnail}
                             w={"90px"}
                             borderRadius='6px'
                         />

@@ -1049,7 +1049,7 @@ export default function CreateLivestream() {
                     gridArea={{ xl: "1 / 1 / 2 / 3", "2xl": "1 / 1 / 2 / 2" }}>
                     <Card p="0px">
                     {
-                        Object.keys(tableVideosStream).length == 0 ? (
+                        Object.keys(tableVideosStream)?.length === 0 ? (
                             <React.Fragment>
                                 <Box padding='6' boxShadow='lg' bg='white'>
                                     <SkeletonCircle startColor='gray.200' endColor='gray.200' size='14' borderRadius="5px" />
@@ -1068,20 +1068,18 @@ export default function CreateLivestream() {
                                 </Box>
                             </React.Fragment>
                         ) : (
-                            <React.Fragment>
-                                <VideoStreamTable
-                                    filterGroup={filterGroup()}
-                                    tableData={tableVideosStream && tableVideosStream?.items}
-                                    paginationData={tableVideosStream && tableVideosStream?.meta}
-                                    setMenuSelected={setMenuSelected}
-                                    playRightAwayVideo={playRightAwayVideo}
-                                    editCurrVideoStream={editCurrVideoStream}
-                                    detailCurrVideoStream={detailCurrVideoStream}
-                                    killCurrVideoStream={killCurrVideoStream}
-                                    delCurrVideoStream={delCurrVideoStream}
-                                    handleFetchResource={handleFetchListVideoStream}
-                                />
-                            </React.Fragment>
+                            <VideoStreamTable
+                                filterGroup={filterGroup()}
+                                tableData={tableVideosStream && tableVideosStream?.items}
+                                paginationData={tableVideosStream && tableVideosStream?.meta}
+                                setMenuSelected={setMenuSelected}
+                                playRightAwayVideo={playRightAwayVideo}
+                                editCurrVideoStream={editCurrVideoStream}
+                                detailCurrVideoStream={detailCurrVideoStream}
+                                killCurrVideoStream={killCurrVideoStream}
+                                delCurrVideoStream={delCurrVideoStream}
+                                handleFetchResource={handleFetchListVideoStream}
+                            />
                         )
                     }
                     </Card>

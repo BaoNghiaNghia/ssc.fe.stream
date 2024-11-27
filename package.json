@@ -20,7 +20,7 @@
     "build:mht2": "cross-env VENDOR=production.mht2 ENV=prod BUILD=build_production_fe_stream__mht2 npm run build",
     "build:mksoft": "cross-env VENDOR=production.mksoft ENV=prod BUILD=build_production_fe_stream__mksoft npm run build",
     "build:hapu": "cross-env VENDOR=production.hapu ENV=prod BUILD=build_production_fe_stream__hapu npm run build",
-    "build:all": "npm run build:amnhacso && npm run build:locstream && npm run build:mht && npm run build:mht2 && npm run build:mksoft"
+    "build:all": "npm run build:amnhacso && npm run build:locstream && npm run build:mht && npm run build:mht2 && npm run build:mksoft && npm run build:hapu"
   },
   "keywords": [],
   "license": "MIT",

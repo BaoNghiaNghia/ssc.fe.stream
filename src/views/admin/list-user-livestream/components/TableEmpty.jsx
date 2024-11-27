@@ -17,7 +17,7 @@ import Card from "../../../../components/card/Card";
 
 import emptyBackgroundImage from '../../../../assets/img/empty_bg_2.png';
 
-export default function TableEmpty({ columnsData, tableData, filterGroup }) {
+export default function TableEmpty({ columnsData, tableData, filterHeader }) {
   const borderColor = useColorModeValue("gray.200", "whiteAlpha.100");
 
   const columns = useMemo(() => columnsData, [columnsData]);
@@ -46,7 +46,7 @@ export default function TableEmpty({ columnsData, tableData, filterGroup }) {
 
   return (
     <Card direction="column" w="100%" px="0px" overflowX={{ sm: "scroll", lg: "hidden" }}>
-      {filterGroup}
+      {filterHeader}
       <Table {...getTableProps()} variant="simple" color="gray.500" mt="12px">
         <Thead bgColor="#f5f5f5">
           {headerGroups.map((headerGroup, index) => (

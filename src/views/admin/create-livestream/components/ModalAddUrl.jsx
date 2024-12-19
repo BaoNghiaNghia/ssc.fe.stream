@@ -15,8 +15,6 @@ import {
     Text
 } from '@chakra-ui/react';
 
-import { useTranslation } from 'react-i18next';
-
 const ModalAddUrl = ({ 
     isOpen,
     onClose,
@@ -25,8 +23,6 @@ const ModalAddUrl = ({
     formik,
     setInputValue
 }) => {
-    const { t } = useTranslation();
-    
     return (    
         <Modal isCentered size="2xl" isOpen={isOpen} onClose={onClose}>
             <ModalOverlay />

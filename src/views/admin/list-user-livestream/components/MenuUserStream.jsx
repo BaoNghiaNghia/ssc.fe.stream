@@ -16,8 +16,6 @@ import {
 // Assets
 import {
   MdOutlineMoreHoriz,
-  MdCancel,
-  MdDeleteOutline,
   MdOutlinePerson,
 } from "react-icons/md";
 

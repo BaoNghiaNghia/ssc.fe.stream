@@ -9,7 +9,6 @@ import {
   Th,
   Thead,
   Tr,
-  useColorModeValue,
   Icon,
   Spinner
 } from "@chakra-ui/react";

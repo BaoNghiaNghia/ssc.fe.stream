@@ -1,11 +1,9 @@
 /* eslint-disable */
-import React, { useState, useCallback, useEffect, useRef } from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
 import {
-    Progress,
     Box,
     ButtonGroup,
     Button,
-    Grid,
     useDisclosure,
     Flex,
     Step,
@@ -18,7 +16,6 @@ import {
     StepTitle,
     Stepper,
     Center,
-    Icon,
     Text,
 } from '@chakra-ui/react';
 
@@ -33,7 +30,7 @@ import ConfigureStreamStep from '../components/ConfigureStreamStep';
 import FinalStep from '../components/FinalStep';
 
 import {
-    columnsInsertVideoStream, regexYoutubeLink
+    columnsInsertVideoStream
 } from "../../../../variables/index";
 
 import {
@@ -44,7 +41,6 @@ import {
 import { useTranslation } from 'react-i18next';
 
 import {
-    createStreamingApi,
     fetchListAcceptedResolution,
     fetchListUserStreamApi,
     fetchVideoMETAInfoData,

@@ -104,7 +104,6 @@ export default function MenuVideo(props) {
     "14px 17px 40px 4px rgba(112, 144, 176, 0.08)",
     "unset"
   );
-  const bgButton = useColorModeValue("secondaryGray.400", "whiteAlpha.100");
   const bgHover = useColorModeValue(
     { bg: "secondaryGray.400" },
     { bg: "whiteAlpha.50" }

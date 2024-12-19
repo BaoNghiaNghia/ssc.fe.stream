@@ -2,7 +2,7 @@
 import React from "react";
 // Chakra imports
 import {
-  Flex, Icon, Image, Text, useColorModeValue,
+  Flex, Image, Text, useColorModeValue,
   SkeletonCircle
 } from "@chakra-ui/react";
 

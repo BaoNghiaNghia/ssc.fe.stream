@@ -1,20 +1,15 @@
 /* eslint-disable */
-import React, { useState } from 'react'
+import React from 'react'
 import {
     Button,
-    FormLabel,
-    Input,
     Modal,
     ModalOverlay,
     ModalContent,
     ModalHeader,
     ModalFooter,
     ModalBody,
-    ModalCloseButton,
-    Spinner
+    ModalCloseButton
 } from '@chakra-ui/react';
-
-import { useTranslation } from 'react-i18next';
 
 const ModalStreamVideo = ({ 
     size,
@@ -26,7 +21,6 @@ const ModalStreamVideo = ({
     handleConfirm,
     addButton
 }) => {
-    const { t } = useTranslation();
     
     return (    
         <Modal isCentered size={size ? size : "3xl"} isOpen={isOpen} onClose={onClose}>

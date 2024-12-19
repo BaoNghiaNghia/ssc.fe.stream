@@ -16,32 +16,14 @@ import { IoAddCircleOutline } from "react-icons/io5";
 import { MdFilterList } from "react-icons/md";
 import UseAnimations from "react-useanimations";
 import alertOctagon from "react-useanimations/lib/alertOctagon";
-
-// const displayTypeChildTable = [
-//   {
-//     label: "Video Stream - Dạng bảng",
-//     value: "table-video",
-//   },
-//   {
-//     label: "Luồng phát - Dạng bảng",
-//     value: "table-thread",
-//   },
-//   {
-//     label: "Luồng phát - Dạng thẻ",
-//     value: "card-thread",
-//   },
-// ];
-
 export default function FilterHeader(props) {
   const textColor = useColorModeValue("secondaryGray.900", "white");
 
   const {
     title,
-    setDisplaySubRowState,
     handleOpenFilterModal,
     handleOpenModalCreateStream,
     activeFilter,
-    displaySubRowState,
   } = props;
 
   return (

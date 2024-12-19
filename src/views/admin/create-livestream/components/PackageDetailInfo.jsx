@@ -3,13 +3,10 @@
 import React from "react";
 import { SimpleGrid, Text, useColorModeValue, Button, Icon } from "@chakra-ui/react";
 
-import { useTranslation } from 'react-i18next';
-
 // Custom components
 import Card from "../../../../components/card/Card.js";
 import Information from "./Information.jsx";
 import { IoStarOutline } from "react-icons/io5";
-import { useAuth } from "../../../../contexts/authenContext";
 import history from "../../../../utils/history.js";
 
 // Assets
@@ -22,7 +19,6 @@ export default function PackageDetailInfo(props) {
     "0px 18px 40px rgba(112, 144, 176, 0.12)",
     "unset"
   );
-  const { t } = useTranslation();
 
   const handleUpgradePackage = () => {
     history.push('#/admin/plan');

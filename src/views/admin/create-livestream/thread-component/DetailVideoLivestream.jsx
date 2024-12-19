@@ -31,7 +31,7 @@ import ConfigureStreamStep from '../components/ConfigureStreamStep';
 import FinalStep from '../components/FinalStep';
 
 import {
-    columnsInsertVideoStream, regexYoutubeLink
+    columnsInsertVideoStream
 } from "../../../../variables/index";
 
 import {

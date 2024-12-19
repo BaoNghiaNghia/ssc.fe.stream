@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useState, useCallback, useEffect, useRef, Component } from 'react'
+import React, { useState, useCallback, useEffect, useRef } from 'react'
 import {
     Box,
     ButtonGroup,

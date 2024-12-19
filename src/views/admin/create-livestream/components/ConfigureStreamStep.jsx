@@ -1,24 +1,20 @@
 /* eslint-disable */
-import React, { useState } from 'react'
+import React from 'react'
 import {
     Heading,
     FormControl,
     GridItem,
     FormLabel,
     Select,
-    useColorModeValue,
-    Badge
+    useColorModeValue
 } from '@chakra-ui/react';
 
-import { useTranslation } from 'react-i18next';
 import { validateYouTubeUrl } from '../../../../utils/handleValidate';
 import { VIDEO_RESOLUTION_DEFAULT } from '../../../../variables';
 
 const ConfigureStreamStep = (props) => {
     // Chakra color mode
     const textColor = useColorModeValue("navy.700", "white");
-
-    const { t } = useTranslation();
 
     const { 
         listVideoResolution,
